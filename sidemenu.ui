@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>sidemenu</class>
+ <widget class="QWidget" name="sidemenu">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>100</width>
+    <height>570</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QWidget" name="home" native="true">
+   <property name="geometry">
+    <rect>
+     <x>6</x>
+     <y>0</y>
+     <width>88</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <widget class="QLabel" name="homeLabel">
+    <property name="geometry">
+     <rect>
+      <x>5</x>
+      <y>5</y>
+      <width>16</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="homeLabelText">
+    <property name="geometry">
+     <rect>
+      <x>27</x>
+      <y>6</y>
+      <width>61</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Home&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QWidget" name="config" native="true">
+   <property name="geometry">
+    <rect>
+     <x>6</x>
+     <y>36</y>
+     <width>88</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <widget class="QLabel" name="configLabel">
+    <property name="geometry">
+     <rect>
+      <x>5</x>
+      <y>5</y>
+      <width>16</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="configLabelText">
+    <property name="geometry">
+     <rect>
+      <x>27</x>
+      <y>6</y>
+      <width>61</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Config</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QWidget" name="console" native="true">
+   <property name="geometry">
+    <rect>
+     <x>6</x>
+     <y>72</y>
+     <width>88</width>
+     <height>30</height>
+    </rect>
+   </property>
+  </widget>
+  <zorder>config</zorder>
+  <zorder>home</zorder>
+  <zorder>console</zorder>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
