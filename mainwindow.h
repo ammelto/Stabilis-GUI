@@ -16,12 +16,16 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+public slots:
+     void setState(int state);
+     void setDisplay(int display);
+
 private:
+    enum states{close, maximize, minimize};
+    enum display{home, console, config};
+
     Ui::MainWindow *ui;
     QPoint dragPosition;
-
-    void addFonts();
-    void createTitleBar();
 
 protected:
     void mousePressEvent(QMouseEvent *);

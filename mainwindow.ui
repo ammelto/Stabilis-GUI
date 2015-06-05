@@ -23,7 +23,7 @@
       <height>600</height>
      </rect>
     </property>
-    <widget class="QWidget" name="titleBar" native="true">
+    <widget class="titlebar" name="titleBar" native="true">
      <property name="geometry">
       <rect>
        <x>18</x>
@@ -32,94 +32,6 @@
        <height>30</height>
       </rect>
      </property>
-     <widget class="QLabel" name="title">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>100</width>
-        <height>30</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Serif</family>
-        <pointsize>14</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;Stabilis&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
-     <widget class="QWidget" name="closeButton" native="true">
-      <property name="geometry">
-       <rect>
-        <x>770</x>
-        <y>0</y>
-        <width>30</width>
-        <height>30</height>
-       </rect>
-      </property>
-      <widget class="QLabel" name="closeLabel">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>0</y>
-         <width>30</width>
-         <height>30</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;x&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-      </widget>
-     </widget>
-     <widget class="QWidget" name="maximizeButton" native="true">
-      <property name="geometry">
-       <rect>
-        <x>740</x>
-        <y>0</y>
-        <width>30</width>
-        <height>30</height>
-       </rect>
-      </property>
-      <widget class="QLabel" name="maximizeLabel">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>0</y>
-         <width>30</width>
-         <height>30</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;+&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-      </widget>
-     </widget>
-     <widget class="QWidget" name="minimizeButton" native="true">
-      <property name="geometry">
-       <rect>
-        <x>710</x>
-        <y>0</y>
-        <width>30</width>
-        <height>30</height>
-       </rect>
-      </property>
-      <widget class="QLabel" name="minimizeLabel">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>0</y>
-         <width>30</width>
-         <height>30</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt;&quot;&gt;-&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-       </property>
-      </widget>
-     </widget>
     </widget>
     <widget class="sidemenu" name="sideMenu" native="true">
      <property name="geometry">
@@ -131,7 +43,16 @@
       </rect>
      </property>
     </widget>
-    <widget class="QWidget" name="displayArea" native="true"/>
+    <widget class="QWidget" name="displayArea" native="true">
+     <property name="geometry">
+      <rect>
+       <x>118</x>
+       <y>48</y>
+       <width>700</width>
+       <height>570</height>
+      </rect>
+     </property>
+    </widget>
     <zorder>sideMenu</zorder>
     <zorder>titleBar</zorder>
     <zorder>displayArea</zorder>
@@ -143,7 +64,13 @@
   <customwidget>
    <class>sidemenu</class>
    <extends>QWidget</extends>
-   <header location="global">sidemenu.h</header>
+   <header>sidemenu.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>titlebar</class>
+   <extends>QWidget</extends>
+   <header location="global">titlebar.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

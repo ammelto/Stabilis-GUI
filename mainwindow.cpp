@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "sidemenu.h"
+#include "titlebar.h"
 #include <QtGui>
 #include <QtCore>
 #include <QPainter>
@@ -22,17 +23,6 @@ MainWindow::MainWindow(QWidget *parent) :
     this->setWindowTitle("Stabilis");
     setCentralWidget(ui->mainWidget);
 
-    QPalette pal = ui->titleBar->palette();
-    pal.setColor(ui->titleBar->backgroundRole(), QColor(70,98,158));
-    ui->titleBar->setPalette(pal);
-    ui->titleBar->setAutoFillBackground(true);
-    //
-    pal = ui->displayArea->palette();
-    pal.setColor(ui->displayArea->backgroundRole(), QColor(255,255,255));
-    ui->displayArea->setPalette(pal);
-    ui->displayArea->setAutoFillBackground(true);
-
-
     setAttribute(Qt::WA_TranslucentBackground);
     QGraphicsDropShadowEffect* shadow = new QGraphicsDropShadowEffect();
     shadow->setBlurRadius(25);
@@ -46,17 +36,22 @@ MainWindow::MainWindow(QWidget *parent) :
     elevatedShadow->setOffset(0);
     ui->displayArea->setGraphicsEffect(elevatedShadow);
     ui->displayArea->setGeometry(118,48,700,570);
+    //
+    QPalette pal = ui->displayArea->palette();
+    pal.setColor(ui->displayArea->backgroundRole(), QColor(255,255,255));
+    ui->displayArea->setPalette(pal);
+    ui->displayArea->setAutoFillBackground(true);
 
-    addFonts();
-    createTitleBar();
 
-
+    connect(ui->titleBar,SIGNAL(stateChange(int)),this,SLOT(setState(int)));
 }
 
 void MainWindow::mousePressEvent(QMouseEvent *event){
     if(event->button() == Qt::LeftButton){
         dragPosition = event->globalPos() - frameGeometry().topLeft();
         event->accept();
+    }if(event->button() == Qt::RightButton){
+
     }
 }
 
@@ -67,32 +62,23 @@ void MainWindow::mouseMoveEvent(QMouseEvent *event){
     }
 }
 
-void MainWindow::createTitleBar(){
-    ui->title->setStyleSheet("QLabel { color : white; }");
-    QFont font("Roboto",14);
+void MainWindow::setState(int state){
+    switch(state){
+    case close:
+        QApplication::exit(0);
+        break;
+    case maximize:
+        break;
+    case minimize:
+        this->setWindowState(Qt::WindowMinimized);
+        this->showMinimized();
+        this->lower();
+        break;
+    }
 
-    QPalette pal = ui->closeButton->palette();
-    pal.setColor(ui->closeButton->backgroundRole(), QColor(192, 57, 43));
-    ui->closeButton->setPalette(pal);
-    ui->closeButton->setAutoFillBackground(true);
-    ui->closeLabel->setStyleSheet("QLabel { color : white; }");
-    //
-    ui->maximizeLabel->setStyleSheet("QLabel { color : white; }");
-    //
-    ui->minimizeLabel->setStyleSheet("QLabel { color : white; }");
 }
 
-void MainWindow::addFonts(){
-
-    QFontDatabase::addApplicationFont(":/fonts/Resources/fonts/Roboto-Medium.ttf");
-    ui->title->setFont(QFont("Roboto",18));
-
-    QFont boldRoboto = QFont("Roboto",14);
-    boldRoboto.setBold(true);
-    ui->closeLabel->setFont(boldRoboto);
-    boldRoboto.setPixelSize(18);
-    ui->maximizeLabel->setFont(boldRoboto);
-    ui->minimizeLabel->setFont(boldRoboto);
+void MainWindow::setDisplay(int display){
 
 }
 

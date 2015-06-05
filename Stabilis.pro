@@ -15,15 +15,15 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     sidemenu.cpp \
-    sidebutton.cpp
+    titlebar.cpp
 
 HEADERS  += mainwindow.h \
     sidemenu.h \
-    sidebutton.h
+    titlebar.h
 
 FORMS    += mainwindow.ui \
     sidemenu.ui \
-    sidebutton.ui
+    titlebar.ui
 
 RESOURCES += \
     Resources.qrc
