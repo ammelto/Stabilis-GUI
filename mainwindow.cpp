@@ -34,8 +34,8 @@ MainWindow::MainWindow(QWidget *parent) :
     elevatedShadow->setBlurRadius(10);
     elevatedShadow->setColor(QColor(0,0,0,200));
     elevatedShadow->setOffset(0);
-    ui->displayArea->setGraphicsEffect(elevatedShadow);
-    ui->displayArea->setGeometry(118,48,700,570);
+    ui->displayArea->setGraphicsEffect(shadow);
+    ui->displayArea->setGeometry(128,48,690,570);
     //
     QPalette pal = ui->displayArea->palette();
     pal.setColor(ui->displayArea->backgroundRole(), QColor(255,255,255));

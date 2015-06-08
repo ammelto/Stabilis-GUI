@@ -14,10 +14,9 @@ sidemenu::sidemenu(QWidget *parent) :
     ui->setupUi(this);
     QResource::registerResource(":/Resources.qrc");
 
-    QFontDatabase fontDB;
     qDebug() << QFontDatabase::addApplicationFont(":/fonts/Resources/fonts/Roboto-BoldItalic.ttf");
-    qDebug() << fontDB.addApplicationFont(":/fonts/Resources/fonts/Roboto-Thin.ttf");
-    qDebug() << fontDB.addApplicationFont(":/fonts/Resources/fonts/Roboto-Regular.ttf");
+    qDebug() << QFontDatabase::addApplicationFont(":/fonts/Resources/fonts/Roboto-Thin.ttf");
+    qDebug() << QFontDatabase::addApplicationFont(":/fonts/Resources/fonts/Roboto-Regular.ttf");
     QFont font = QFont("Roboto",12);
     font.setStyleName("Thin");
     //
@@ -143,21 +142,31 @@ bool sidemenu::eventFilter(QObject *obj, QEvent *event){
         pal.setColor(ui->home->backgroundRole(), QColor(148,180,255));
         ui->home->setPalette(pal);
         ui->home->setAutoFillBackground(true);
-        ui->home->setGeometry(0,0,100,30);
+        ui->home->setGeometry(8,0,94,32);
+        ui->homeLabelText->setFont(QFont("Roboto",13));
+        ui->homeLabelText->setGeometry(24,7,70,20);
+        ui->homeLabel->setGeometry(5,6,16,20);
+
         break;
     case console:
         pal = ui->console->palette();
         pal.setColor(ui->console->backgroundRole(), QColor(148,180,255));
         ui->console->setPalette(pal);
         ui->console->setAutoFillBackground(true);
-        ui->console->setGeometry(0,72,100,30);
+        ui->console->setGeometry(8,72,94,32);
+        ui->consoleLabelText->setFont(QFont("Roboto",13));
+        ui->consoleLabelText->setGeometry(24,7,70,20);
+        ui->consoleLabel->setGeometry(5,6,16,20);
         break;
     case config:
         pal = ui->config->palette();
         pal.setColor(ui->config->backgroundRole(), QColor(148,180,255));
         ui->config->setPalette(pal);
         ui->config->setAutoFillBackground(true);
-        ui->config->setGeometry(0,36,100,30);
+        ui->config->setGeometry(8,36,94,32);
+        ui->configLabelText->setFont(QFont("Roboto",13));
+        ui->configLabelText->setGeometry(24,7,70,20);
+        ui->configLabel->setGeometry(5,6,16,20);
         break;
     }
 
@@ -167,9 +176,18 @@ bool sidemenu::eventFilter(QObject *obj, QEvent *event){
 
 void sidemenu::resetButtons(){
 
-    ui->home->setGeometry(6,0,88,30);
-    ui->config->setGeometry(6,36,88,30);
-    ui->console->setGeometry(6,72,88,30);
+    ui->home->setGeometry(11,1,88,30);
+    ui->config->setGeometry(11,37,88,30);
+    ui->console->setGeometry(11,73,88,30);
+    ui->configLabelText->setFont(QFont("Roboto",12));
+    ui->configLabelText->setGeometry(24,7,70,20);
+    ui->configLabel->setGeometry(5,5,16,20);
+    ui->consoleLabelText->setFont(QFont("Roboto",12));
+    ui->consoleLabelText->setGeometry(24,7,70,20);
+    ui->consoleLabel->setGeometry(5,5,16,20);
+    ui->homeLabelText->setFont(QFont("Roboto",12));
+    ui->homeLabelText->setGeometry(24,7,70,20);
+    ui->homeLabel->setGeometry(5,5,16,20);
 
     //if(ui->home->graphicsEffect() != homeShadow) ui->home->setGraphicsEffect(homeShadow);
     pal = ui->home->palette();

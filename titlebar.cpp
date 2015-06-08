@@ -25,11 +25,10 @@ titlebar::titlebar(QWidget *parent) :
     ui->maximizeButton->installEventFilter(this);
     ui->minimizeButton->installEventFilter(this);
 
-    QFontDatabase::addApplicationFont(":/fonts/Resources/fonts/Roboto-Medium.ttf");
+    QFontDatabase::addApplicationFont(":/fonts/Resources/fonts/Roboto-Regular.ttf");
     ui->title->setFont(QFont("Roboto",18));
 
     QFont boldRoboto = QFont("Roboto",14);
-    boldRoboto.setBold(true);
     ui->closeLabel->setFont(boldRoboto);
     boldRoboto.setPixelSize(18);
     ui->maximizeLabel->setFont(boldRoboto);
