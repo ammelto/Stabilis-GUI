@@ -1,0 +1,34 @@
+Home- Commonly used console commands converted into GUI elements
+	->File transfer UI
+	->Compilation UI
+	->Basic common config
+
+Console- Self explainitory
+	->Terminal Emulator
+	->SSH into BB then echo to text edit
+	->VIM text editor capabilities?
+
+Docs- Documentation for the code. Different editions will have more/less information
+	->Docs similar to Qt style
+	->Text highlight if time allots [not priority]
+	->Contains source for research editions, password lock?
+
+Config- Adjust BB and Stabilis settings
+	->Config File
+	->BB Settings
+	->SSH settings
+
+Window- Adjust UI settings
+	->Theme
+	->colour
+	->Window style
+	->Possibly allow for basic retro UI for older OS or more bare-bones linux distros? [not priority]
+
+Info- Legal info
+	->Icon info
+	->Stabilis copyright and license
+	->Individual user license
+
+672
+552
+338
