@@ -43,15 +43,30 @@
       </rect>
      </property>
     </widget>
-    <widget class="QWidget" name="displayArea" native="true">
+    <widget class="QFrame" name="displayArea">
      <property name="geometry">
       <rect>
        <x>128</x>
        <y>48</y>
-       <width>690</width>
-       <height>570</height>
+       <width>672</width>
+       <height>552</height>
       </rect>
      </property>
+     <widget class="QWidget" name="gridLayoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>671</width>
+        <height>551</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="gridLayout">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+      </layout>
+     </widget>
     </widget>
     <zorder>sideMenu</zorder>
     <zorder>titleBar</zorder>
@@ -70,7 +85,7 @@
   <customwidget>
    <class>titlebar</class>
    <extends>QWidget</extends>
-   <header location="global">titlebar.h</header>
+   <header>titlebar.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

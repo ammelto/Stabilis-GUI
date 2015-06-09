@@ -3,6 +3,12 @@
 
 #include <QMainWindow>
 #include <QFontDatabase>
+#include "./Displays/homedisplay.h"
+#include "./Displays/docsdisplay.h"
+#include "./Displays/configdisplay.h"
+#include "./Displays/consoledisplay.h"
+#include "./Displays/infodisplay.h"
+#include "./Displays/windowdisplay.h"
 
 namespace Ui {
 class MainWindow;
@@ -22,8 +28,16 @@ public slots:
 
 private:
     enum states{close, maximize, minimize};
-    enum display{home, console, config};
+    enum display{home, console, config, docs, window, info};
+    homedisplay *homeDisplay;
+    docsdisplay *docsDisplay;
+    infodisplay *infoDisplay;
+    configdisplay *configDisplay;
+    windowdisplay *windowDisplay;
+    consoledisplay *consoleDisplay;
 
+    bool eventFilter(QObject *obj, QEvent *event);
+    void resetDisplay();
     Ui::MainWindow *ui;
     QPoint dragPosition;
 
