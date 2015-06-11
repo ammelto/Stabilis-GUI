@@ -41,7 +41,7 @@ MainWindow::MainWindow(QWidget *parent) :
     elevatedShadow->setColor(QColor(0,0,0,200));
     elevatedShadow->setOffset(0);
     ui->displayArea->setGraphicsEffect(shadow);
-    ui->displayArea->setGeometry(128,48,690,570);
+    ui->displayArea->setGeometry(18,48,800,570);
     //
     QPalette pal = ui->displayArea->palette();
     pal.setColor(ui->displayArea->backgroundRole(), QColor(255,255,255));
@@ -49,18 +49,29 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->displayArea->setAutoFillBackground(true);
     ui->displayArea->installEventFilter(this);
 
+    QGraphicsDropShadowEffect* titleShadow = new QGraphicsDropShadowEffect();
+    titleShadow->setBlurRadius(16);
+    titleShadow->setColor(QColor(0,0,0,200));
+    titleShadow->setOffset(0);
+    titleShadow->setXOffset(2);
+    ui->titleBar->setGraphicsEffect(titleShadow);
+
     homeDisplay = new homedisplay(ui->displayArea);
     docsDisplay = new docsdisplay(ui->displayArea);
     infoDisplay = new infodisplay(ui->displayArea);
     configDisplay = new configdisplay(ui->displayArea);
     windowDisplay = new windowdisplay(ui->displayArea);
     consoleDisplay = new consoledisplay(ui->displayArea);
+    sideMenu = new sidemenu(ui->menu);
+    titleBar = new titlebar(ui->titleBar);
 
     resetDisplay();
     homeDisplay->show();
 
-    connect(ui->titleBar,SIGNAL(stateChange(int)),this,SLOT(setState(int)));
-    connect(ui->sideMenu,SIGNAL(setDisplay(int)),this,SLOT(setDisplay(int)));
+    this->setTheme(QColor(70,98,158), QColor(78,109,176), QColor(255,255,255));
+    connect(titleBar,SIGNAL(stateChange(int)),this,SLOT(setState(int)));
+    connect(sideMenu,SIGNAL(setDisplay(int)),this,SLOT(setDisplay(int)));
+    connect(windowDisplay, SIGNAL(setTheme(QColor,QColor,QColor)),this,SLOT(setTheme(QColor,QColor,QColor)));
 
 }
 
@@ -89,6 +100,11 @@ void MainWindow::resetDisplay(){
 
 bool MainWindow::eventFilter(QObject *obj, QEvent *event){
     return QObject::eventFilter(obj, event);
+}
+
+void MainWindow::setTheme(QColor p, QColor s, QColor f){
+    sideMenu->setTheme(p,s,f);
+    titleBar->setTheme(p,s,f);
 }
 
 void MainWindow::setState(int state){

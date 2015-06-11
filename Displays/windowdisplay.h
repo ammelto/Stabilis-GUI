@@ -2,6 +2,7 @@
 #define WINDOWDISPLAY_H
 
 #include <QWidget>
+#include <QColor>
 
 namespace Ui {
 class windowdisplay;
@@ -17,6 +18,10 @@ public:
 
 private:
     Ui::windowdisplay *ui;
+
+signals:
+    void setTheme(QColor, QColor, QColor);
 };
+
 
 #endif // WINDOWDISPLAY_H

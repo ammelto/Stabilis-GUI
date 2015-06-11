@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>110</width>
-    <height>570</height>
+    <width>800</width>
+    <height>30</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,9 +16,9 @@
   <widget class="QWidget" name="home" native="true">
    <property name="geometry">
     <rect>
-     <x>6</x>
+     <x>0</x>
      <y>0</y>
-     <width>88</width>
+     <width>100</width>
      <height>30</height>
     </rect>
    </property>
@@ -48,13 +48,23 @@
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Home&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
+   <widget class="QWidget" name="homeSelect" native="true">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>29</y>
+      <width>100</width>
+      <height>1</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QWidget" name="config" native="true">
    <property name="geometry">
     <rect>
-     <x>6</x>
-     <y>36</y>
-     <width>88</width>
+     <x>300</x>
+     <y>0</y>
+     <width>100</width>
      <height>30</height>
     </rect>
    </property>
@@ -84,13 +94,23 @@
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Config&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
+   <widget class="QWidget" name="configSelect" native="true">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>29</y>
+      <width>100</width>
+      <height>1</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QWidget" name="console" native="true">
    <property name="geometry">
     <rect>
-     <x>6</x>
-     <y>72</y>
-     <width>88</width>
+     <x>100</x>
+     <y>0</y>
+     <width>100</width>
      <height>30</height>
     </rect>
    </property>
@@ -120,13 +140,23 @@
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Console&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
+   <widget class="QWidget" name="consoleSelect" native="true">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>29</y>
+      <width>100</width>
+      <height>1</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QWidget" name="docs" native="true">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>200</y>
-     <width>88</width>
+     <x>200</x>
+     <y>0</y>
+     <width>100</width>
      <height>30</height>
     </rect>
    </property>
@@ -156,13 +186,23 @@
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Docs&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
+   <widget class="QWidget" name="docsSelect" native="true">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>29</y>
+      <width>100</width>
+      <height>1</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QWidget" name="window" native="true">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>150</y>
-     <width>88</width>
+     <x>400</x>
+     <y>0</y>
+     <width>100</width>
      <height>30</height>
     </rect>
    </property>
@@ -192,13 +232,23 @@
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Window&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
+   <widget class="QWidget" name="windowSelect" native="true">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>29</y>
+      <width>100</width>
+      <height>1</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QWidget" name="info" native="true">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>110</y>
-     <width>88</width>
+     <x>700</x>
+     <y>0</y>
+     <width>100</width>
      <height>30</height>
     </rect>
    </property>
@@ -228,6 +278,36 @@
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Info&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
+   <widget class="QWidget" name="infoSelect" native="true">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>29</y>
+      <width>100</width>
+      <height>1</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QWidget" name="LINE" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>22</y>
+     <width>800</width>
+     <height>1</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="LINETOP" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>7</y>
+     <width>800</width>
+     <height>1</height>
+    </rect>
+   </property>
   </widget>
   <zorder>config</zorder>
   <zorder>home</zorder>
@@ -235,7 +315,8 @@
   <zorder>docs</zorder>
   <zorder>window</zorder>
   <zorder>info</zorder>
-  <zorder>docsLabelText</zorder>
+  <zorder>LINE</zorder>
+  <zorder>LINETOP</zorder>
  </widget>
  <resources/>
  <connections/>

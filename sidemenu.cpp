@@ -6,6 +6,8 @@
 #include <QDebug>
 #include <QGridLayout>
 #include <QEvent>
+#include <QPixmap>
+#include <QPainter>
 
 sidemenu::sidemenu(QWidget *parent) :
     QWidget(parent),
@@ -19,79 +21,39 @@ sidemenu::sidemenu(QWidget *parent) :
     qDebug() << QFontDatabase::addApplicationFont(":/fonts/Resources/fonts/Roboto-Regular.ttf");
     QFont font = QFont("Roboto",12);
     font.setStyleName("Thin");
-    //
-    pal = this->palette();
-    pal.setColor(this->backgroundRole(), QColor(70,98,158));
-    this->setPalette(pal);
-    this->setAutoFillBackground(true);
 
+    homeIconSource = QPixmap(":/icons/Resources/Icons/home63.png");
     ui->home->installEventFilter(this);
-    ui->homeLabel->setPixmap(QPixmap(":/icons/Resources/Icons/home63.png"));
     ui->homeLabelText->setFont(font);
     //
+    consoleIconSource = QPixmap(":/icons/Resources/Icons/web-programming.png");
     ui->console->installEventFilter(this);
-    ui->consoleLabel->setPixmap(QPixmap(":/icons/Resources/Icons/web-programming.png"));
     ui->consoleLabelText->setFont(font);
     //
+    configIconSource = QPixmap(":/icons/Resources/Icons/settings13.png");
     ui->config->installEventFilter(this);
-    ui->configLabel->setPixmap(QPixmap(":/icons/Resources/Icons/settings13.png"));
     ui->configLabelText->setFont(font);
     //
+    docsIconSource = QPixmap(":/icons/Resources/Icons/file94.png");
     ui->docs->installEventFilter(this);
-    ui->docsLabel->setPixmap(QPixmap(":/icons/Resources/Icons/file94.png"));
     ui->docsLabelText->setFont(font);
     //
+    windowIconSource = QPixmap(":/icons/Resources/Icons/website7.png");
     ui->window->installEventFilter(this);
-    ui->windowLabel->setPixmap(QPixmap(":/icons/Resources/Icons/website7.png"));
     ui->windowLabelText->setFont(font);
     //
+    infoIconSource = QPixmap(":/icons/Resources/Icons/info21.png");
     ui->info->installEventFilter(this);
-    ui->infoLabel->setPixmap(QPixmap(":/icons/Resources/Icons/info21.png"));
     ui->infoLabelText->setFont(font);
 
+}
 
-    enabledShadow = new QGraphicsDropShadowEffect();
-    enabledShadow->setBlurRadius(10);
-    enabledShadow->setColor(QColor(0,0,0,200));
-    enabledShadow->setOffset(1);
-    //
-    homeShadow = new QGraphicsDropShadowEffect();
-    homeShadow->setBlurRadius(6);
-    homeShadow->setColor(QColor(0,0,0,200));
-    homeShadow->setOffset(1);
-    ui->home->setGraphicsEffect(homeShadow);
-    //
-    consoleShadow = new QGraphicsDropShadowEffect();
-    consoleShadow->setBlurRadius(6);
-    consoleShadow->setColor(QColor(0,0,0,200));
-    consoleShadow->setOffset(1);
-    ui->console->setGraphicsEffect(consoleShadow);
-    //
-    configShadow = new QGraphicsDropShadowEffect();
-    configShadow->setBlurRadius(6);
-    configShadow->setColor(QColor(0,0,0,200));
-    configShadow->setOffset(1);
-    ui->config->setGraphicsEffect(configShadow);
-    //
-    windowShadow = new QGraphicsDropShadowEffect();
-    windowShadow->setBlurRadius(6);
-    windowShadow->setColor(QColor(0,0,0,200));
-    windowShadow->setOffset(1);
-    ui->window->setGraphicsEffect(windowShadow);
-    //
-    infoShadow = new QGraphicsDropShadowEffect();
-    infoShadow->setBlurRadius(6);
-    infoShadow->setColor(QColor(0,0,0,200));
-    infoShadow->setOffset(1);
-    ui->info->setGraphicsEffect(infoShadow);
-    //
-    docsShadow = new QGraphicsDropShadowEffect();
-    docsShadow->setBlurRadius(6);
-    docsShadow->setColor(QColor(0,0,0,200));
-    docsShadow->setOffset(1);
-    ui->docs->setGraphicsEffect(docsShadow);
-
-    resetButtons();
+void sidemenu::setTheme(QColor p, QColor s, QColor font){
+    primaryColor = p;
+    secondaryColor = s;
+    fontColor = font;
+    repaint();
+    repaintIcons();
 }
 
 bool sidemenu::eventFilter(QObject *obj, QEvent *event){
@@ -99,22 +61,20 @@ bool sidemenu::eventFilter(QObject *obj, QEvent *event){
         switch(event->type()){
         case (QEvent::Enter):
             pal = ui->home->palette();
-            pal.setColor(ui->home->backgroundRole(), QColor(148,180,255));
+            pal.setColor(ui->home->backgroundRole(), secondaryColor);
             ui->home->setPalette(pal);
             ui->home->setAutoFillBackground(true);
             break;
         case (QEvent::Leave):
-            if(currentDisplay != home){
-                pal = ui->home->palette();
-                pal.setColor(ui->home->backgroundRole(), QColor(108,147,233));
-                ui->home->setPalette(pal);
-                ui->home->setAutoFillBackground(true);
-            }
+            pal = ui->home->palette();
+            pal.setColor(ui->home->backgroundRole(), primaryColor);
+            ui->home->setPalette(pal);
+            ui->home->setAutoFillBackground(true);
             break;
         case (QEvent::MouseButtonPress):
             currentDisplay = home;
             setDisplay(home);
-            resetButtons();
+            repaint();
             break;
         default:
             break;
@@ -123,22 +83,20 @@ bool sidemenu::eventFilter(QObject *obj, QEvent *event){
         switch(event->type()){
         case (QEvent::Enter):
             pal = ui->console->palette();
-            pal.setColor(ui->console->backgroundRole(), QColor(148,180,255));
+            pal.setColor(ui->console->backgroundRole(), secondaryColor);
             ui->console->setPalette(pal);
             ui->console->setAutoFillBackground(true);
             break;
         case (QEvent::Leave):
-            if(currentDisplay != console){
-                pal = ui->console->palette();
-                pal.setColor(ui->console->backgroundRole(), QColor(108,147,233));
-                ui->console->setPalette(pal);
-                ui->console->setAutoFillBackground(true);
-            }
+            pal = ui->console->palette();
+            pal.setColor(ui->console->backgroundRole(), primaryColor);
+            ui->console->setPalette(pal);
+            ui->console->setAutoFillBackground(true);
             break;
         case (QEvent::MouseButtonPress):
             currentDisplay = console;
             setDisplay(console);
-            resetButtons();
+            repaint();
             break;
         default:
             break;
@@ -147,22 +105,20 @@ bool sidemenu::eventFilter(QObject *obj, QEvent *event){
         switch(event->type()){
         case (QEvent::Enter):
             pal = ui->config->palette();
-            pal.setColor(ui->config->backgroundRole(), QColor(148,180,255));
+            pal.setColor(ui->config->backgroundRole(), secondaryColor);
             ui->config->setPalette(pal);
             ui->config->setAutoFillBackground(true);
             break;
         case (QEvent::Leave):
-            if(currentDisplay != config){
-                pal = ui->config->palette();
-                pal.setColor(ui->config->backgroundRole(), QColor(108,147,233));
-                ui->config->setPalette(pal);
-                ui->config->setAutoFillBackground(true);
-            }
+            pal = ui->config->palette();
+            pal.setColor(ui->config->backgroundRole(), primaryColor);
+            ui->config->setPalette(pal);
+            ui->config->setAutoFillBackground(true);
             break;
         case (QEvent::MouseButtonPress):
             currentDisplay = config;
             setDisplay(config);
-            resetButtons();
+            repaint();
             break;
         default:
             break;
@@ -171,22 +127,20 @@ bool sidemenu::eventFilter(QObject *obj, QEvent *event){
         switch(event->type()){
         case (QEvent::Enter):
             pal = ui->docs->palette();
-            pal.setColor(ui->console->backgroundRole(), QColor(148,180,255));
+            pal.setColor(ui->console->backgroundRole(), secondaryColor);
             ui->docs->setPalette(pal);
             ui->docs->setAutoFillBackground(true);
             break;
         case (QEvent::Leave):
-            if(currentDisplay != docs){
-                pal = ui->docs->palette();
-                pal.setColor(ui->docs->backgroundRole(), QColor(108,147,233));
-                ui->docs->setPalette(pal);
-                ui->docs->setAutoFillBackground(true);
-            }
+            pal = ui->docs->palette();
+            pal.setColor(ui->docs->backgroundRole(), primaryColor);
+            ui->docs->setPalette(pal);
+            ui->docs->setAutoFillBackground(true);
             break;
         case (QEvent::MouseButtonPress):
             currentDisplay = docs;
             setDisplay(docs);
-            resetButtons();
+            repaint();
             break;
         default:
             break;
@@ -195,22 +149,20 @@ bool sidemenu::eventFilter(QObject *obj, QEvent *event){
         switch(event->type()){
         case (QEvent::Enter):
             pal = ui->window->palette();
-            pal.setColor(ui->window->backgroundRole(), QColor(148,180,255));
+            pal.setColor(ui->window->backgroundRole(), secondaryColor);
             ui->window->setPalette(pal);
             ui->window->setAutoFillBackground(true);
             break;
         case (QEvent::Leave):
-            if(currentDisplay != console){
-                pal = ui->window->palette();
-                pal.setColor(ui->window->backgroundRole(), QColor(108,147,233));
-                ui->window->setPalette(pal);
-                ui->window->setAutoFillBackground(true);
-            }
+            pal = ui->window->palette();
+            pal.setColor(ui->window->backgroundRole(), primaryColor);
+            ui->window->setPalette(pal);
+            ui->window->setAutoFillBackground(true);
             break;
         case (QEvent::MouseButtonPress):
             currentDisplay = window;
             setDisplay(window);
-            resetButtons();
+            repaint();
             break;
         default:
             break;
@@ -219,14 +171,14 @@ bool sidemenu::eventFilter(QObject *obj, QEvent *event){
         switch(event->type()){
         case (QEvent::Enter):
             pal = ui->info->palette();
-            pal.setColor(ui->info->backgroundRole(), QColor(148,180,255));
+            pal.setColor(ui->info->backgroundRole(), secondaryColor);
             ui->info->setPalette(pal);
             ui->info->setAutoFillBackground(true);
             break;
         case (QEvent::Leave):
             if(currentDisplay != console){
                 pal = ui->info->palette();
-                pal.setColor(ui->info->backgroundRole(), QColor(108,147,233));
+                pal.setColor(ui->info->backgroundRole(), primaryColor);
                 ui->info->setPalette(pal);
                 ui->info->setAutoFillBackground(true);
             }
@@ -234,144 +186,178 @@ bool sidemenu::eventFilter(QObject *obj, QEvent *event){
         case (QEvent::MouseButtonPress):
             currentDisplay = info;
             setDisplay(info);
-            resetButtons();
+            repaint();
             break;
         default:
             break;
         }
     }
-
-    switch(currentDisplay){
-    case home:
-        pal = ui->home->palette();
-        pal.setColor(ui->home->backgroundRole(), QColor(148,180,255));
-        ui->home->setPalette(pal);
-        ui->home->setAutoFillBackground(true);
-        ui->home->setGeometry(8,0,94,32);
-        ui->homeLabelText->setFont(QFont("Roboto",13));
-        ui->homeLabelText->setGeometry(24,7,70,20);
-        ui->homeLabel->setGeometry(5,6,16,20);
-        break;
-    case console:
-        pal = ui->console->palette();
-        pal.setColor(ui->console->backgroundRole(), QColor(148,180,255));
-        ui->console->setPalette(pal);
-        ui->console->setAutoFillBackground(true);
-        ui->console->setGeometry(8,72,94,32);
-        ui->consoleLabelText->setFont(QFont("Roboto",13));
-        ui->consoleLabelText->setGeometry(24,7,70,20);
-        ui->consoleLabel->setGeometry(5,6,16,20);
-        break;
-    case config:
-        pal = ui->config->palette();
-        pal.setColor(ui->config->backgroundRole(), QColor(148,180,255));
-        ui->config->setPalette(pal);
-        ui->config->setAutoFillBackground(true);
-        ui->config->setGeometry(8,108,94,32);
-        ui->configLabelText->setFont(QFont("Roboto",13));
-        ui->configLabelText->setGeometry(24,7,70,20);
-        ui->configLabel->setGeometry(5,6,16,20);
-        break;
-    case window:
-        pal = ui->window->palette();
-        pal.setColor(ui->window->backgroundRole(), QColor(148,180,255));
-        ui->window->setPalette(pal);
-        ui->window->setAutoFillBackground(true);
-        ui->window->setGeometry(8,144,94,32);
-        ui->windowLabelText->setFont(QFont("Roboto",13));
-        ui->windowLabelText->setGeometry(24,7,70,20);
-        ui->windowLabel->setGeometry(5,6,16,20);
-        break;
-    case info:
-        pal = ui->info->palette();
-        pal.setColor(ui->info->backgroundRole(), QColor(148,180,255));
-        ui->info->setPalette(pal);
-        ui->info->setAutoFillBackground(true);
-        ui->info->setGeometry(8,180,94,32);
-        ui->infoLabelText->setFont(QFont("Roboto",13));
-        ui->infoLabelText->setGeometry(24,7,70,20);
-        ui->infoLabel->setGeometry(5,6,16,20);
-        break;
-    case docs:
-        pal = ui->docs->palette();
-        pal.setColor(ui->docs->backgroundRole(), QColor(148,180,255));
-        ui->docs->setPalette(pal);
-        ui->docs->setAutoFillBackground(true);
-        ui->docs->setGeometry(8,36,94,32);
-        ui->docsLabelText->setFont(QFont("Roboto",13));
-        ui->docsLabelText->setGeometry(24,7,70,20);
-        ui->docsLabel->setGeometry(5,6,16,20);
-        break;
-    }
-
-
     return QObject::eventFilter(obj, event);
 }
 
-void sidemenu::resetButtons(){
+void sidemenu::repaintIcons(){
+    QPixmap homeIcon = homeIconSource;
+    QPainter homePainter(&homeIcon);
+    homePainter.setCompositionMode(QPainter::CompositionMode_SourceIn);
+    homePainter.fillRect(homeIcon.rect(),fontColor);
+    homePainter.end();
+    ui->homeLabel->setPixmap(homeIcon);
+
+    QPixmap docsIcon = docsIconSource;
+    QPainter docsPainter(&docsIcon);
+    docsPainter.setCompositionMode(QPainter::CompositionMode_SourceIn);
+    docsPainter.fillRect(docsIcon.rect(),fontColor);
+    docsPainter.end();
+    ui->docsLabel->setPixmap(docsIcon);
+
+    QPixmap consoleIcon = consoleIconSource;
+    QPainter consolePainter(&consoleIcon);
+    consolePainter.setCompositionMode(QPainter::CompositionMode_SourceIn);
+    consolePainter.fillRect(consoleIcon.rect(),fontColor);
+    consolePainter.end();
+    ui->consoleLabel->setPixmap(consoleIcon);
+
+    QPixmap configIcon = configIconSource;
+    QPainter configPainter(&configIcon);
+    configPainter.setCompositionMode(QPainter::CompositionMode_SourceIn);
+    configPainter.fillRect(configIcon.rect(),fontColor);
+    configPainter.end();
+    ui->configLabel->setPixmap(configIcon);
+
+    QPixmap windowIcon = windowIconSource;
+    QPainter windowPainter(&windowIcon);
+    windowPainter.setCompositionMode(QPainter::CompositionMode_SourceIn);
+    windowPainter.fillRect(windowIcon.rect(),fontColor);
+    windowPainter.end();
+    ui->windowLabel->setPixmap(windowIcon);
+
+    QPixmap infoIcon = infoIconSource;
+    QPainter infoPainter(&infoIcon);
+    infoPainter.setCompositionMode(QPainter::CompositionMode_SourceIn);
+    infoPainter.fillRect(infoIcon.rect(),fontColor);
+    infoPainter.end();
+    ui->infoLabel->setPixmap(infoIcon);
+
+}
+
+void sidemenu::repaint(){
+/*
+    pal = ui->LINE->palette();
+    pal.setColor(this->backgroundRole(), QColor(0,0,0));
+    ui->LINE->setPalette(pal);
+    ui->LINE->setAutoFillBackground(true);
+
+    pal = ui->LINETOP->palette();
+    pal.setColor(this->backgroundRole(), QColor(0,0,0));
+    ui->LINETOP->setPalette(pal);
+    ui->LINETOP->setAutoFillBackground(true);
+*/
+
+    //BACKGROUND DEFAULT
+    pal = this->palette();
+    pal.setColor(this->backgroundRole(), primaryColor);
+    this->setPalette(pal);
+    this->setAutoFillBackground(true);
 
     //HOME BUTTON DEFAULT
-    pal = ui->home->palette();
-    pal.setColor(ui->home->backgroundRole(), QColor(108,147,233));
-    ui->home->setPalette(pal);
-    ui->home->setAutoFillBackground(true);
+    pal = ui->homeSelect->palette();
+    pal.setColor(ui->homeSelect->backgroundRole(), primaryColor);
+    ui->homeSelect->setPalette(pal);
+    ui->homeSelect->setAutoFillBackground(true);
     ui->homeLabelText->setFont(QFont("Roboto",12));
-    ui->homeLabelText->setGeometry(24,7,70,20);
-    ui->homeLabel->setGeometry(5,5,16,20);
-    ui->home->setGeometry(11,1,88,30);
+    ui->homeLabelText->setGeometry(24,6,42,20);
+    ui->homeLabel->setGeometry(5,4,16,20);
+    ui->home->setGeometry(0,0,100,30);
 
     //CONFIG BUTTON DEFAULT
-    pal = ui->config->palette();
-    pal.setColor(ui->config->backgroundRole(), QColor(108,147,233));
-    ui->config->setPalette(pal);
-    ui->config->setAutoFillBackground(true);
+    pal = ui->configSelect->palette();
+    pal.setColor(ui->configSelect->backgroundRole(), primaryColor);
+    ui->configSelect->setPalette(pal);
+    ui->configSelect->setAutoFillBackground(true);
     ui->configLabelText->setFont(QFont("Roboto",12));
-    ui->configLabelText->setGeometry(24,7,70,20);
+    ui->configLabelText->setGeometry(24,6,45,20);
     ui->configLabel->setGeometry(5,5,16,20);
-    ui->config->setGeometry(11,109,88,30);
+    ui->config->setGeometry(200,0,100,30);
 
     //CONSOLE BUTTON DEFAULT
-    pal = ui->console->palette();
-    pal.setColor(ui->console->backgroundRole(), QColor(108,147,233));
-    ui->console->setPalette(pal);
-    ui->console->setAutoFillBackground(true);
+    pal = ui->consoleSelect->palette();
+    pal.setColor(ui->consoleSelect->backgroundRole(), primaryColor);
+    ui->consoleSelect->setPalette(pal);
+    ui->consoleSelect->setAutoFillBackground(true);
     ui->consoleLabelText->setFont(QFont("Roboto",12));
-    ui->consoleLabelText->setGeometry(24,7,70,20);
+    ui->consoleLabelText->setGeometry(24,6,58,20);
     ui->consoleLabel->setGeometry(5,5,16,20);
-    ui->console->setGeometry(11,73,88,30);
+    ui->console->setGeometry(100,0,100,30);
 
     //DOCS BUTTON DEFAULT
-    pal = ui->docs->palette();
-    pal.setColor(ui->docs->backgroundRole(), QColor(108,147,233));
-    ui->docs->setPalette(pal);
-    ui->docs->setAutoFillBackground(true);
+    pal = ui->docsSelect->palette();
+    pal.setColor(ui->docsSelect->backgroundRole(), primaryColor);
+    ui->docsSelect->setPalette(pal);
+    ui->docsSelect->setAutoFillBackground(true);
     ui->docsLabelText->setFont(QFont("Roboto",12));
-    ui->docsLabelText->setGeometry(24,7,70,20);
+    ui->docsLabelText->setGeometry(24,6,36,20);
     ui->docsLabel->setGeometry(5,5,16,20);
-    ui->docs->setGeometry(11,37,88,30);
+    ui->docs->setGeometry(300,0,100,30);
 
     //WINDOW BUTTON DEFAULT
-    pal = ui->window->palette();
-    pal.setColor(ui->window->backgroundRole(), QColor(108,147,233));
-    ui->window->setPalette(pal);
-    ui->window->setAutoFillBackground(true);
+    pal = ui->windowSelect->palette();
+    pal.setColor(ui->windowSelect->backgroundRole(), primaryColor);
+    ui->windowSelect->setPalette(pal);
+    ui->windowSelect->setAutoFillBackground(true);
     ui->windowLabelText->setFont(QFont("Roboto",12));
-    ui->windowLabelText->setGeometry(24,7,70,20);
+    ui->windowLabelText->setGeometry(24,6,58,20);
     ui->windowLabel->setGeometry(5,5,16,20);
-    ui->window->setGeometry(11,145,88,30);
+    ui->window->setGeometry(400,0,100,30);
 
     //INFO BUTTON DEFAULT
-    pal = ui->info->palette();
-    pal.setColor(ui->info->backgroundRole(), QColor(108,147,233));
-    ui->info->setPalette(pal);
-    ui->info->setAutoFillBackground(true);
+    pal = ui->infoSelect->palette();
+    pal.setColor(ui->infoSelect->backgroundRole(), primaryColor);
+    ui->infoSelect->setPalette(pal);
+    ui->infoSelect->setAutoFillBackground(true);
     ui->infoLabelText->setFont(QFont("Roboto",12));
-    ui->infoLabelText->setGeometry(24,7,70,20);
+    ui->infoLabelText->setGeometry(24,6,28,20);
     ui->infoLabel->setGeometry(5,5,16,20);
-    ui->info->setGeometry(11,181,88,30);
+    ui->info->setGeometry(700,0,100,30);
 
 
-
+    switch(currentDisplay){
+    case home:
+        pal = ui->homeSelect->palette();
+        pal.setColor(ui->homeSelect->backgroundRole(), fontColor);
+        ui->homeSelect->setPalette(pal);
+        ui->homeSelect->setAutoFillBackground(true);
+        break;
+    case console:
+        pal = ui->consoleSelect->palette();
+        pal.setColor(ui->consoleSelect->backgroundRole(), fontColor);
+        ui->consoleSelect->setPalette(pal);
+        ui->consoleSelect->setAutoFillBackground(true);
+        break;
+    case config:
+        pal = ui->configSelect->palette();
+        pal.setColor(ui->configSelect->backgroundRole(), fontColor);
+        ui->configSelect->setPalette(pal);
+        ui->configSelect->setAutoFillBackground(true);
+        break;
+    case window:
+        pal = ui->windowSelect->palette();
+        pal.setColor(ui->windowSelect->backgroundRole(), fontColor);
+        ui->windowSelect->setPalette(pal);
+        ui->windowSelect->setAutoFillBackground(true);
+        break;
+    case info:
+        pal = ui->infoSelect->palette();
+        pal.setColor(ui->infoSelect->backgroundRole(), fontColor);
+        ui->infoSelect->setPalette(pal);
+        ui->infoSelect->setAutoFillBackground(true);
+        break;
+    case docs:
+        pal = ui->docsSelect->palette();
+        pal.setColor(ui->docsSelect->backgroundRole(), fontColor);
+        ui->docsSelect->setPalette(pal);
+        ui->docsSelect->setAutoFillBackground(true);
+        break;
+    }
 
 }
 

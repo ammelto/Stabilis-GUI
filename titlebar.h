@@ -14,12 +14,17 @@ class titlebar : public QWidget
 
 public:
     explicit titlebar(QWidget *parent = 0);
+     void setTheme(QColor p,QColor s,QColor f);
     ~titlebar();
 
 private:
     enum states{close, maximize, minimize};
+    QColor primaryColor;
+    QColor secondaryColor;
+    QColor fontColor;
 
     Ui::titlebar *ui;
+    void repaint();
     bool eventFilter(QObject *obj, QEvent *event);
 
 signals:
