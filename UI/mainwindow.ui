@@ -14,48 +14,67 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QWidget" name="mainWidget" native="true">
-    <property name="geometry">
-     <rect>
-      <x>18</x>
-      <y>18</y>
-      <width>800</width>
-      <height>600</height>
-     </rect>
-    </property>
-    <widget class="QWidget" name="titleBar" native="true">
-     <property name="geometry">
-      <rect>
-       <x>18</x>
-       <y>18</y>
-       <width>800</width>
-       <height>50</height>
-      </rect>
-     </property>
-     <widget class="QWidget" name="menu" native="true">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>20</y>
-        <width>800</width>
-        <height>30</height>
-       </rect>
-      </property>
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <widget class="QWidget" name="mainWidget" native="true">
+      <widget class="QWidget" name="titleBar" native="true">
+       <property name="geometry">
+        <rect>
+         <x>18</x>
+         <y>18</y>
+         <width>800</width>
+         <height>50</height>
+        </rect>
+       </property>
+       <widget class="QWidget" name="menu" native="true">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>20</y>
+          <width>800</width>
+          <height>30</height>
+         </rect>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QScrollArea" name="scrollArea">
+       <property name="geometry">
+        <rect>
+         <x>18</x>
+         <y>68</y>
+         <width>800</width>
+         <height>534</height>
+        </rect>
+       </property>
+       <property name="widgetResizable">
+        <bool>true</bool>
+       </property>
+       <widget class="QWidget" name="scrollAreaWidgetContents">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>798</width>
+          <height>532</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <item>
+          <widget class="QFrame" name="displayArea">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
      </widget>
-    </widget>
-    <widget class="QFrame" name="displayArea">
-     <property name="geometry">
-      <rect>
-       <x>18</x>
-       <y>68</y>
-       <width>800</width>
-       <height>532</height>
-      </rect>
-     </property>
-    </widget>
-    <zorder>displayArea</zorder>
-    <zorder>titleBar</zorder>
-   </widget>
+    </item>
+   </layout>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

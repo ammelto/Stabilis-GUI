@@ -41,10 +41,9 @@ MainWindow::MainWindow(QWidget *parent) :
     elevatedShadow->setColor(QColor(0,0,0,200));
     elevatedShadow->setOffset(0);
     ui->displayArea->setGraphicsEffect(shadow);
-    ui->displayArea->setGeometry(18,48,800,570);
     //
     QPalette pal = ui->displayArea->palette();
-    pal.setColor(ui->displayArea->backgroundRole(), QColor(255,255,255));
+    pal.setColor(ui->displayArea->backgroundRole(), QColor(250,250,250));
     ui->displayArea->setPalette(pal);
     ui->displayArea->setAutoFillBackground(true);
     ui->displayArea->installEventFilter(this);
@@ -55,6 +54,12 @@ MainWindow::MainWindow(QWidget *parent) :
     titleShadow->setOffset(0);
     titleShadow->setXOffset(2);
     ui->titleBar->setGraphicsEffect(titleShadow);
+
+    ui->scrollAreaWidgetContents->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
+    ui->scrollAreaWidgetContents->resize(ui->scrollArea->size().width() ,ui->scrollArea->size().height());
+    ui->scrollArea->setWidgetResizable(true);
+    ui->scrollArea->setWidget(ui->scrollAreaWidgetContents);
+    ui->scrollAreaWidgetContents->adjustSize();
 
     homeDisplay = new homedisplay(ui->displayArea);
     docsDisplay = new docsdisplay(ui->displayArea);

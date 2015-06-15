@@ -265,8 +265,8 @@ void sidemenu::repaint(){
     ui->homeSelect->setPalette(pal);
     ui->homeSelect->setAutoFillBackground(true);
     ui->homeLabelText->setFont(QFont("Roboto",12));
-    ui->homeLabelText->setGeometry(24,6,42,20);
-    ui->homeLabel->setGeometry(5,4,16,20);
+    ui->homeLabelText->setGeometry(38,6,42,20);
+    ui->homeLabel->setGeometry(19,4,16,20);
     ui->home->setGeometry(0,0,100,30);
 
     //CONFIG BUTTON DEFAULT
@@ -275,8 +275,8 @@ void sidemenu::repaint(){
     ui->configSelect->setPalette(pal);
     ui->configSelect->setAutoFillBackground(true);
     ui->configLabelText->setFont(QFont("Roboto",12));
-    ui->configLabelText->setGeometry(24,6,45,20);
-    ui->configLabel->setGeometry(5,5,16,20);
+    ui->configLabelText->setGeometry(35,6,45,20);
+    ui->configLabel->setGeometry(16,5,16,20);
     ui->config->setGeometry(200,0,100,30);
 
     //CONSOLE BUTTON DEFAULT
@@ -285,8 +285,8 @@ void sidemenu::repaint(){
     ui->consoleSelect->setPalette(pal);
     ui->consoleSelect->setAutoFillBackground(true);
     ui->consoleLabelText->setFont(QFont("Roboto",12));
-    ui->consoleLabelText->setGeometry(24,6,58,20);
-    ui->consoleLabel->setGeometry(5,5,16,20);
+    ui->consoleLabelText->setGeometry(31,6,58,20);
+    ui->consoleLabel->setGeometry(12,5,16,20);
     ui->console->setGeometry(100,0,100,30);
 
     //DOCS BUTTON DEFAULT
@@ -295,8 +295,8 @@ void sidemenu::repaint(){
     ui->docsSelect->setPalette(pal);
     ui->docsSelect->setAutoFillBackground(true);
     ui->docsLabelText->setFont(QFont("Roboto",12));
-    ui->docsLabelText->setGeometry(24,6,36,20);
-    ui->docsLabel->setGeometry(5,5,16,20);
+    ui->docsLabelText->setGeometry(40,6,36,20);
+    ui->docsLabel->setGeometry(21,5,16,20);
     ui->docs->setGeometry(300,0,100,30);
 
     //WINDOW BUTTON DEFAULT
@@ -305,9 +305,9 @@ void sidemenu::repaint(){
     ui->windowSelect->setPalette(pal);
     ui->windowSelect->setAutoFillBackground(true);
     ui->windowLabelText->setFont(QFont("Roboto",12));
-    ui->windowLabelText->setGeometry(24,6,58,20);
-    ui->windowLabel->setGeometry(5,5,16,20);
-    ui->window->setGeometry(400,0,100,30);
+    ui->windowLabelText->setGeometry(0,0,0,0);
+    ui->windowLabel->setGeometry(7,0,30,30);
+    ui->window->setGeometry(740,0,30,30);
 
     //INFO BUTTON DEFAULT
     pal = ui->infoSelect->palette();
@@ -315,9 +315,9 @@ void sidemenu::repaint(){
     ui->infoSelect->setPalette(pal);
     ui->infoSelect->setAutoFillBackground(true);
     ui->infoLabelText->setFont(QFont("Roboto",12));
-    ui->infoLabelText->setGeometry(24,6,28,20);
-    ui->infoLabel->setGeometry(5,5,16,20);
-    ui->info->setGeometry(700,0,100,30);
+    ui->infoLabelText->setGeometry(0,0,0,0);
+    ui->infoLabel->setGeometry(7,0,30,30);
+    ui->info->setGeometry(770,0,30,30);
 
 
     switch(currentDisplay){

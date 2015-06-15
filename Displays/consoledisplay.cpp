@@ -6,6 +6,8 @@ consoledisplay::consoledisplay(QWidget *parent) :
     ui(new Ui::consoledisplay)
 {
     ui->setupUi(this);
+
+
 }
 
 consoledisplay::~consoledisplay()

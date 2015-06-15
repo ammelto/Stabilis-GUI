@@ -21,7 +21,8 @@ SOURCES += main.cpp\
     Displays\consoledisplay.cpp \
     Displays\docsdisplay.cpp \
     Displays\windowdisplay.cpp \
-    Displays\infodisplay.cpp
+    Displays\infodisplay.cpp \
+    slider.cpp
 
 HEADERS  += mainwindow.h \
     sidemenu.h \
@@ -31,7 +32,8 @@ HEADERS  += mainwindow.h \
     Displays\consoledisplay.h \
     Displays\docsdisplay.h \
     Displays\windowdisplay.h \
-    Displays\infodisplay.h
+    Displays\infodisplay.h \
+    slider.h
 
 FORMS    += UI\mainwindow.ui \
     UI\sidemenu.ui \
@@ -41,7 +43,8 @@ FORMS    += UI\mainwindow.ui \
     UI\consoledisplay.ui \
     UI\docsdisplay.ui \
     UI\windowdisplay.ui \
-    UI\infodisplay.ui
+    UI\infodisplay.ui \
+    slider.ui
 
 RESOURCES += \
     Resources.qrc

@@ -6,24 +6,79 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>672</width>
-    <height>552</height>
+    <width>800</width>
+    <height>1140</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QLabel" name="label">
+  <widget class="QWidget" name="generalSettings" native="true">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>361</width>
-     <height>131</height>
+     <x>48</x>
+     <y>28</y>
+     <width>355</width>
+     <height>220</height>
     </rect>
    </property>
-   <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:72pt;&quot;&gt;CONFIG&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   <widget class="QSlider" name="sliderbutton">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>40</y>
+      <width>31</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QSlider::groove:horizontal {
+background: gray;
+height: 14px;
+border-radius: 7px;
+}
+
+QSlider::handle:horizontal {
+background:white;
+width: 12px;
+height: 14px;
+margin: 1px;
+border-radius: 5px;
+}
+</string>
+    </property>
+    <property name="maximum">
+     <number>1</number>
+    </property>
+    <property name="singleStep">
+     <number>1</number>
+    </property>
+    <property name="pageStep">
+     <number>100</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QWidget" name="networkSettings" native="true">
+   <property name="geometry">
+    <rect>
+     <x>48</x>
+     <y>262</y>
+     <width>355</width>
+     <height>294</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="vehicleSettings" native="true">
+   <property name="geometry">
+    <rect>
+     <x>414</x>
+     <y>28</y>
+     <width>338</width>
+     <height>528</height>
+    </rect>
    </property>
   </widget>
  </widget>

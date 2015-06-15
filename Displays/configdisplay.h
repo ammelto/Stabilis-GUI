@@ -14,6 +14,8 @@ class configdisplay : public QWidget
 public:
     explicit configdisplay(QWidget *parent = 0);
     ~configdisplay();
+public slots:
+    void toggleListener(int value);
 
 private:
     Ui::configdisplay *ui;
