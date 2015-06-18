@@ -52,8 +52,9 @@ void sidemenu::setTheme(QColor p, QColor s, QColor font){
     primaryColor = p;
     secondaryColor = s;
     fontColor = font;
-    repaint();
     repaintIcons();
+    moveBar(home);
+    setDisplay(home);
 }
 
 bool sidemenu::eventFilter(QObject *obj, QEvent *event){
@@ -72,9 +73,7 @@ bool sidemenu::eventFilter(QObject *obj, QEvent *event){
             ui->home->setAutoFillBackground(true);
             break;
         case (QEvent::MouseButtonPress):
-            currentDisplay = home;
             setDisplay(home);
-            repaint();
             break;
         default:
             break;
@@ -94,9 +93,7 @@ bool sidemenu::eventFilter(QObject *obj, QEvent *event){
             ui->console->setAutoFillBackground(true);
             break;
         case (QEvent::MouseButtonPress):
-            currentDisplay = console;
             setDisplay(console);
-            repaint();
             break;
         default:
             break;
@@ -116,9 +113,7 @@ bool sidemenu::eventFilter(QObject *obj, QEvent *event){
             ui->config->setAutoFillBackground(true);
             break;
         case (QEvent::MouseButtonPress):
-            currentDisplay = config;
             setDisplay(config);
-            repaint();
             break;
         default:
             break;
@@ -138,9 +133,7 @@ bool sidemenu::eventFilter(QObject *obj, QEvent *event){
             ui->docs->setAutoFillBackground(true);
             break;
         case (QEvent::MouseButtonPress):
-            currentDisplay = docs;
             setDisplay(docs);
-            repaint();
             break;
         default:
             break;
@@ -160,9 +153,7 @@ bool sidemenu::eventFilter(QObject *obj, QEvent *event){
             ui->window->setAutoFillBackground(true);
             break;
         case (QEvent::MouseButtonPress):
-            currentDisplay = window;
             setDisplay(window);
-            repaint();
             break;
         default:
             break;
@@ -176,17 +167,13 @@ bool sidemenu::eventFilter(QObject *obj, QEvent *event){
             ui->info->setAutoFillBackground(true);
             break;
         case (QEvent::Leave):
-            if(currentDisplay != console){
-                pal = ui->info->palette();
-                pal.setColor(ui->info->backgroundRole(), primaryColor);
-                ui->info->setPalette(pal);
-                ui->info->setAutoFillBackground(true);
-            }
+            pal = ui->info->palette();
+            pal.setColor(ui->info->backgroundRole(), primaryColor);
+            ui->info->setPalette(pal);
+            ui->info->setAutoFillBackground(true);
             break;
         case (QEvent::MouseButtonPress):
-            currentDisplay = info;
-            setDisplay(info);
-            repaint();
+            setDisplay(info);          
             break;
         default:
             break;
@@ -240,7 +227,7 @@ void sidemenu::repaintIcons(){
 
 }
 
-void sidemenu::repaint(){
+void sidemenu::repaintButtons(){
 /*
     pal = ui->LINE->palette();
     pal.setColor(this->backgroundRole(), QColor(0,0,0));
@@ -320,6 +307,10 @@ void sidemenu::repaint(){
     ui->info->setGeometry(770,0,30,30);
 
 
+}
+
+void sidemenu::moveBar(int currentDisplay){
+    repaintButtons();
     switch(currentDisplay){
     case home:
         pal = ui->homeSelect->palette();
@@ -358,7 +349,6 @@ void sidemenu::repaint(){
         ui->docsSelect->setAutoFillBackground(true);
         break;
     }
-
 }
 
 sidemenu::~sidemenu()

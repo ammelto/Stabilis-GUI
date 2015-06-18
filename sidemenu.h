@@ -18,10 +18,11 @@ public:
     explicit sidemenu(QWidget *parent = 0);
     void setTheme(QColor p,QColor s,QColor f);
     ~sidemenu();
+    void repaintButtons();
+    void moveBar(int currentDisplay);
 
 private:
     enum display{home, console, config, docs, window, info};
-    int currentDisplay = 0;
     QPalette pal;
     QColor primaryColor;
     QColor secondaryColor;
@@ -35,7 +36,6 @@ private:
 
     Ui::sidemenu *ui;
     bool eventFilter(QObject *obj, QEvent *event);
-    void repaint();
     void repaintIcons();
 
 signals:

@@ -1,4 +1,4 @@
-#include "homedisplay.h"
+#include "../headers/homedisplay.h"
 #include "ui_homedisplay.h"
 
 homedisplay::homedisplay(QWidget *parent) :

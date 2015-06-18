@@ -1,4 +1,4 @@
-#include "windowdisplay.h"
+#include "../headers/windowdisplay.h"
 #include "ui_windowdisplay.h"
 
 windowdisplay::windowdisplay(QWidget *parent) :

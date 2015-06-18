@@ -1,4 +1,4 @@
-#include "infodisplay.h"
+#include "../headers/infodisplay.h"
 #include "ui_infodisplay.h"
 
 infodisplay::infodisplay(QWidget *parent) :

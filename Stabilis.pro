@@ -11,29 +11,42 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = Stabilis
 TEMPLATE = app
 
-
 SOURCES += main.cpp\
         mainwindow.cpp \
     sidemenu.cpp \
     titlebar.cpp \
-    Displays\homedisplay.cpp \
-    Displays\configdisplay.cpp \
-    Displays\consoledisplay.cpp \
-    Displays\docsdisplay.cpp \
-    Displays\windowdisplay.cpp \
-    Displays\infodisplay.cpp \
-    slider.cpp
+    Displays\config_materials\src\configcontrollersettings.cpp\
+    Displays\config_materials\src\configgeneralsettings.cpp\
+    Displays\config_materials\src\confignetworksettings.cpp\
+    Displays\config_materials\src\configvehiclesettings.cpp\
+    Displays\config_materials\src\configcreator.cpp\
+    Displays\src\homedisplay.cpp \
+    Displays\src\configdisplay.cpp \
+    Displays\src\consoledisplay.cpp \
+    Displays\src\docsdisplay.cpp \
+    Displays\src\windowdisplay.cpp \
+    Displays\src\infodisplay.cpp \
+    slider.cpp \
+    genericbutton.cpp
+
 
 HEADERS  += mainwindow.h \
     sidemenu.h \
     titlebar.h \
-    Displays\homedisplay.h \
-    Displays\configdisplay.h \
-    Displays\consoledisplay.h \
-    Displays\docsdisplay.h \
-    Displays\windowdisplay.h \
-    Displays\infodisplay.h \
-    slider.h
+    Displays\config_materials\headers\configcontrollersettings.h\
+    Displays\config_materials\headers\configgeneralsettings.h\
+    Displays\config_materials\headers\confignetworksettings.h\
+    Displays\config_materials\headers\configvehiclesettings.h\
+    Displays\config_materials\headers\configcreator.h\
+    Displays\headers\homedisplay.h \
+    Displays\headers\configdisplay.h \
+    Displays\headers\consoledisplay.h \
+    Displays\headers\docsdisplay.h \
+    Displays\headers\windowdisplay.h \
+    Displays\headers\infodisplay.h \
+    slider.h \
+    genericbutton.h
+
 
 FORMS    += UI\mainwindow.ui \
     UI\sidemenu.ui \
@@ -44,7 +57,12 @@ FORMS    += UI\mainwindow.ui \
     UI\docsdisplay.ui \
     UI\windowdisplay.ui \
     UI\infodisplay.ui \
-    slider.ui
+    slider.ui \
+    Displays\config_materials\UI\configcontrollersettings.ui\
+    Displays\config_materials\UI\configgeneralsettings.ui\
+    Displays\config_materials\UI\confignetworksettings.ui\
+    Displays\config_materials\UI\configvehiclesettings.ui\
+    genericbutton.ui
 
 RESOURCES += \
     Resources.qrc

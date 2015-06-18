@@ -289,34 +289,12 @@
     </property>
    </widget>
   </widget>
-  <widget class="QWidget" name="LINE" native="true">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>22</y>
-     <width>800</width>
-     <height>1</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QWidget" name="LINETOP" native="true">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>7</y>
-     <width>800</width>
-     <height>1</height>
-    </rect>
-   </property>
-  </widget>
   <zorder>config</zorder>
   <zorder>home</zorder>
   <zorder>console</zorder>
   <zorder>docs</zorder>
   <zorder>window</zorder>
   <zorder>info</zorder>
-  <zorder>LINE</zorder>
-  <zorder>LINETOP</zorder>
  </widget>
  <resources/>
  <connections/>

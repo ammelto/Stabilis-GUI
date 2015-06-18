@@ -1,4 +1,4 @@
-#include "consoledisplay.h"
+#include "../headers/consoledisplay.h"
 #include "ui_consoledisplay.h"
 
 consoledisplay::consoledisplay(QWidget *parent) :

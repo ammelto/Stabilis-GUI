@@ -4,12 +4,12 @@
 #include <QMainWindow>
 #include <QFontDatabase>
 #include <QColor>
-#include "./Displays/homedisplay.h"
-#include "./Displays/docsdisplay.h"
-#include "./Displays/configdisplay.h"
-#include "./Displays/consoledisplay.h"
-#include "./Displays/infodisplay.h"
-#include "./Displays/windowdisplay.h"
+#include "./Displays/headers/homedisplay.h"
+#include "./Displays/headers/docsdisplay.h"
+#include "./Displays/headers/configdisplay.h"
+#include "./Displays/headers/consoledisplay.h"
+#include "./Displays/headers/infodisplay.h"
+#include "./Displays/headers/windowdisplay.h"
 #include "sidemenu.h"
 #include "titlebar.h"
 
@@ -47,6 +47,7 @@ private:
     consoledisplay *consoleDisplay;
     sidemenu *sideMenu;
     titlebar *titleBar;
+    int currentDisplay = 0;
 
     bool eventFilter(QObject *obj, QEvent *event);
     void resetDisplay();

@@ -1,4 +1,4 @@
-#include "docsdisplay.h"
+#include "../headers/docsdisplay.h"
 #include "ui_docsdisplay.h"
 
 docsdisplay::docsdisplay(QWidget *parent) :
