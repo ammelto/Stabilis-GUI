@@ -66,10 +66,15 @@ MainWindow::MainWindow(QWidget *parent) :
     resetDisplay();
     homeDisplay->show();
 
-    this->setTheme(QColor(70,98,158), QColor(78,109,176), QColor(255,255,255));
     connect(titleBar,SIGNAL(stateChange(int)),this,SLOT(setState(int)));
     connect(sideMenu,SIGNAL(setDisplay(int)),this,SLOT(setDisplay(int)));
     connect(windowDisplay, SIGNAL(setTheme(QColor,QColor,QColor)),this,SLOT(setTheme(QColor,QColor,QColor)));
+
+
+    QSettings settings("../Stabilis-GUI/Stabilis.ini", QSettings::IniFormat);
+    settings.beginGroup("Settings");
+    this->setTheme(QColor(settings.value("primary").toString()), QColor(settings.value("secondary").toString()), QColor(settings.value("font").toString()));
+    settings.endGroup();
 
 }
 

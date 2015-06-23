@@ -42,7 +42,7 @@ void genericButton::setTheme(QColor p, QColor s, QColor f){
     //Buttons would not render when using QPallete for some reason
     //Work around is hard coding the style sheet and parsing the color as strings
     QString color;
-    color.append("QLabel{ background: rgb(" + QString::number(primary.red()) + "," + QString::number(primary.green()) + "," + QString::number(primary.blue()) + "); }");
+    color.append("QLabel{ background: " + primary.name() + "; }");
     this->setStyleSheet(color);
 }
 
@@ -56,11 +56,11 @@ bool genericButton::eventFilter(QObject *obj, QEvent *event){
     QString color;
     switch(event->type()){
     case (QEvent::Enter):
-        color.append("QLabel{ background: rgb(" + QString::number(secondary.red()) + "," + QString::number(secondary.green()) + "," + QString::number(secondary.blue()) + "); }");
+        color.append("QLabel{ background: " + secondary.name() + "; }");
         this->setStyleSheet(color);
         break;
     case (QEvent::Leave):
-        color.append("QLabel{ background: rgb(" + QString::number(primary.red()) + "," + QString::number(primary.green()) + "," + QString::number(primary.blue()) + "); }");
+        color.append("QLabel{ background: " + primary.name() + "; }");
         this->setStyleSheet(color);
         break;
     case (QEvent::MouseButtonPress):

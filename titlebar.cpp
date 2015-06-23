@@ -44,23 +44,30 @@ void titlebar::repaint(){
     this->setPalette(pal);
     this->setAutoFillBackground(true);
 
+    QString fColor;
+    fColor.append("QLabel{ color: " + fontColor.name() + "; }");
+    qDebug() << fColor;
+
     pal = ui->closeButton->palette();
-    pal.setColor(ui->closeButton->backgroundRole(), QColor(231, 76, 60));
+    pal.setColor(ui->closeButton->backgroundRole(), QColor(192, 57, 43));
     ui->closeButton->setPalette(pal);
     ui->closeButton->setAutoFillBackground(true);
-    ui->closeLabel->setStyleSheet("QLabel { color : white; }");
+    ui->closeLabel->setStyleSheet(fColor);
     //
     pal = ui->maximizeButton->palette();
     pal.setColor(ui->maximizeButton->backgroundRole(), primaryColor);
     ui->maximizeButton->setPalette(pal);
     ui->maximizeButton->setAutoFillBackground(true);
-    ui->maximizeLabel->setStyleSheet("QLabel { color : white; }");
+    ui->maximizeLabel->setStyleSheet(fColor);
+
     //
     pal = ui->minimizeButton->palette();
     pal.setColor(ui->minimizeButton->backgroundRole(), primaryColor);
     ui->minimizeButton->setPalette(pal);
     ui->minimizeButton->setAutoFillBackground(true);
-    ui->minimizeLabel->setStyleSheet("QLabel { color : white; }");
+    ui->minimizeLabel->setStyleSheet(fColor);
+
+    ui->title->setStyleSheet(fColor);
 }
 
 bool titlebar::eventFilter(QObject *obj, QEvent *event){

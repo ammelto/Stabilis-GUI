@@ -27,4 +27,7 @@
         <file>Resources/Icons/info21.png</file>
         <file>Resources/Icons/website7.png</file>
     </qresource>
+    <qresource prefix="/files">
+        <file>Stabilis.ini</file>
+    </qresource>
 </RCC>

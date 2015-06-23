@@ -183,12 +183,14 @@ bool sidemenu::eventFilter(QObject *obj, QEvent *event){
 }
 
 void sidemenu::repaintIcons(){
+
     QPixmap homeIcon = homeIconSource;
     QPainter homePainter(&homeIcon);
     homePainter.setCompositionMode(QPainter::CompositionMode_SourceIn);
     homePainter.fillRect(homeIcon.rect(),fontColor);
     homePainter.end();
     ui->homeLabel->setPixmap(homeIcon);
+    ui->homeLabelText->setText("<html><head/><body><p><span style=\" color:" + fontColor.name() + ";\">Home</span></p></body></html>");
 
     QPixmap docsIcon = docsIconSource;
     QPainter docsPainter(&docsIcon);
@@ -196,6 +198,7 @@ void sidemenu::repaintIcons(){
     docsPainter.fillRect(docsIcon.rect(),fontColor);
     docsPainter.end();
     ui->docsLabel->setPixmap(docsIcon);
+    ui->docsLabelText->setText("<html><head/><body><p><span style=\" color:" + fontColor.name() + ";\">Docs</span></p></body></html>");
 
     QPixmap consoleIcon = consoleIconSource;
     QPainter consolePainter(&consoleIcon);
@@ -203,6 +206,7 @@ void sidemenu::repaintIcons(){
     consolePainter.fillRect(consoleIcon.rect(),fontColor);
     consolePainter.end();
     ui->consoleLabel->setPixmap(consoleIcon);
+    ui->consoleLabelText->setText("<html><head/><body><p><span style=\" color:" + fontColor.name() + ";\">Console</span></p></body></html>");
 
     QPixmap configIcon = configIconSource;
     QPainter configPainter(&configIcon);
@@ -210,6 +214,7 @@ void sidemenu::repaintIcons(){
     configPainter.fillRect(configIcon.rect(),fontColor);
     configPainter.end();
     ui->configLabel->setPixmap(configIcon);
+    ui->configLabelText->setText("<html><head/><body><p><span style=\" color:" + fontColor.name() + ";\">Config</span></p></body></html>");
 
     QPixmap windowIcon = windowIconSource;
     QPainter windowPainter(&windowIcon);
@@ -217,6 +222,7 @@ void sidemenu::repaintIcons(){
     windowPainter.fillRect(windowIcon.rect(),fontColor);
     windowPainter.end();
     ui->windowLabel->setPixmap(windowIcon);
+    ui->windowLabelText->setText("<html><head/><body><p><span style=\" color:" + fontColor.name() + ";\">Window</span></p></body></html>");
 
     QPixmap infoIcon = infoIconSource;
     QPainter infoPainter(&infoIcon);
@@ -224,6 +230,7 @@ void sidemenu::repaintIcons(){
     infoPainter.fillRect(infoIcon.rect(),fontColor);
     infoPainter.end();
     ui->infoLabel->setPixmap(infoIcon);
+    ui->infoLabelText->setText("<html><head/><body><p><span style=\" color:" + fontColor.name() + ";\">Info</span></p></body></html>");
 
 }
 
