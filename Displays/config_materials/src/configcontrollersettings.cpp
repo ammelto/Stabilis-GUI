@@ -1,9 +1,10 @@
 #include "../headers/configcontrollersettings.h"
+#include "../headers/configcreator.h"
 #include "ui_configcontrollersettings.h"
 #include <QGraphicsDropShadowEffect>
 #include <QtCore>
 
-configcontrollersettings::configcontrollersettings(QWidget *parent) :
+configcontrollersettings::configcontrollersettings(QWidget *parent, configcreator *config) :
     QWidget(parent),
     ui(new Ui::configcontrollersettings)
 {
@@ -19,6 +20,10 @@ configcontrollersettings::configcontrollersettings(QWidget *parent) :
     pal.setColor(this->backgroundRole(), QColor(255,255,255));
     this->setPalette(pal);
     this->setAutoFillBackground(true);
+}
+
+void configcontrollersettings::save(){
+
 }
 
 configcontrollersettings::~configcontrollersettings()

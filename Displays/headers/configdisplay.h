@@ -18,6 +18,7 @@ class configdisplay : public QWidget
 public:
     explicit configdisplay(QWidget *parent = 0);
     void setTheme(QColor p, QColor s, QColor f);
+    void save();
     ~configdisplay();
 
 private:

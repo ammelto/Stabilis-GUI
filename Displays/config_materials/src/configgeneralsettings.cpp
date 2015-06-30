@@ -1,4 +1,5 @@
 #include "../headers/configgeneralsettings.h"
+#include "../headers/configcreator.h"
 #include "ui_configgeneralsettings.h"
 #include <QGraphicsDropShadowEffect>
 #include <QFontDatabase>
@@ -6,7 +7,7 @@
 #include <QBrush>
 #include <QPainter>
 
-configGeneralSettings::configGeneralSettings(QWidget *parent) :
+configGeneralSettings::configGeneralSettings(QWidget *parent, configcreator *config) :
     QWidget(parent),
     ui(new Ui::configGeneralSettings)
 {
@@ -90,6 +91,10 @@ void configGeneralSettings::setTheme(QColor p, QColor s, QColor f){
     primary = p;
     secondary = s;
     font = f;
+}
+
+void configGeneralSettings::save(){
+
 }
 
 configGeneralSettings::~configGeneralSettings()

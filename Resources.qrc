@@ -29,5 +29,7 @@
     </qresource>
     <qresource prefix="/files">
         <file>Stabilis.ini</file>
+        <file>Userdata/TEST.txt</file>
+        <file>Userdata/config.stb</file>
     </qresource>
 </RCC>

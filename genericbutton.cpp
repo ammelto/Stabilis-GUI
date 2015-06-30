@@ -64,7 +64,7 @@ bool genericButton::eventFilter(QObject *obj, QEvent *event){
         this->setStyleSheet(color);
         break;
     case (QEvent::MouseButtonPress):
-        qDebug() << "pressed";
+        this->pressed();
         break;
     default:
         break;

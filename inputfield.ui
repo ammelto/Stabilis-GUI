@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>inputField</class>
+ <widget class="QWidget" name="inputField">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>60</width>
+    <height>20</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QWidget" name="selectionBar" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>18</y>
+     <width>60</width>
+     <height>2</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>60</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLineEdit {
+    border: 0px
+}</string>
+   </property>
+  </widget>
+  <zorder>lineEdit</zorder>
+  <zorder>selectionBar</zorder>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

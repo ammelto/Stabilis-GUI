@@ -25,6 +25,9 @@ private:
 
     bool eventFilter(QObject *obj, QEvent *event);
     Ui::genericButton *ui;
+
+signals:
+    void pressed();
 };
 
 #endif // GENERICBUTTON_H

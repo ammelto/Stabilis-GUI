@@ -2,6 +2,7 @@
 #define CONFIGGENERALSETTINGS_H
 
 #include <QWidget>
+#include "./configcreator.h"
 
 namespace Ui {
 class configGeneralSettings;
@@ -13,7 +14,8 @@ class configGeneralSettings : public QWidget
 
 public:
     void setTheme(QColor p, QColor s, QColor f);
-    explicit configGeneralSettings(QWidget *parent = 0);
+    explicit configGeneralSettings(QWidget *parent = 0, configcreator *config = 0);
+    void save();
     ~configGeneralSettings();
 
 

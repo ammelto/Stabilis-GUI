@@ -11,6 +11,8 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = Stabilis
 TEMPLATE = app
 
+CONFIG += console
+
 SOURCES += main.cpp\
         mainwindow.cpp \
     sidemenu.cpp \
@@ -27,7 +29,10 @@ SOURCES += main.cpp\
     Displays\src\windowdisplay.cpp \
     Displays\src\infodisplay.cpp \
     slider.cpp \
-    genericbutton.cpp
+    genericbutton.cpp \
+    inputfield.cpp \
+    Displays/config_materials/src/airplanetemplate.cpp \
+    Displays\config_materials\src\loadvehicledialog.cpp
 
 
 HEADERS  += mainwindow.h \
@@ -45,7 +50,10 @@ HEADERS  += mainwindow.h \
     Displays\headers\windowdisplay.h \
     Displays\headers\infodisplay.h \
     slider.h \
-    genericbutton.h
+    genericbutton.h \
+    inputfield.h \
+    Displays/config_materials/headers/airplanetemplate.h \
+    Displays/config_materials/headers/loadvehicledialog.h \
 
 
 FORMS    += UI\mainwindow.ui \
@@ -62,7 +70,10 @@ FORMS    += UI\mainwindow.ui \
     Displays\config_materials\UI\configgeneralsettings.ui\
     Displays\config_materials\UI\confignetworksettings.ui\
     Displays\config_materials\UI\configvehiclesettings.ui\
-    genericbutton.ui
+    genericbutton.ui \
+    inputfield.ui \
+    Displays/config_materials/UI/airplanetemplate.ui \
+    Displays/config_materials/UI/loadvehicledialog.ui \
 
 RESOURCES += \
     Resources.qrc
