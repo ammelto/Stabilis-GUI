@@ -2,6 +2,7 @@
 #define CONFIGVEHICLESETTINGS_H
 #include "../headers/configvehiclesettings.h"
 #include "../headers/airplanetemplate.h"
+#include "../headers/loadvehicledialog.h"
 #include "./configcreator.h"
 #include "./genericbutton.h"
 #include <QListWidget>
@@ -28,8 +29,8 @@ private:
     };
     configcreator *conf;
     QWidget *currentTemplate;
+    LoadVehicleDialog *fileList;
     airplaneTemplate *airplaneSheet;
-    QListWidget *fileList;
     genericButton *advancedButton;
     genericButton *loadButton;
     genericButton *saveButton;
@@ -41,6 +42,7 @@ private:
     void setNewState();
     Ui::configvehiclesettings *ui;
 public slots:
+    void select(QListWidgetItem *item);
     void buttonHandler();
 };
 

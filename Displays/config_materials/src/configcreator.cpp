@@ -26,8 +26,18 @@ void configcreator::loadFile(QString s){
     if(s == "") return;
 
     loadedFile = new QFile(s);
+
     if(loadedFile->exists()){
+;
+        qDebug() << loadedFile;
         createMap();
+        if(getValue("Vehicle ID") != ""){
+            QSettings settings("../Stabilis-GUI/Stabilis.ini", QSettings::IniFormat);
+            settings.beginGroup("Vehicle");
+            settings.setValue("load",s);
+            settings.endGroup();
+        }
+        update();
     }
 }
 

@@ -27,6 +27,8 @@ private:
     confignetworksettings *networkSettings;
     configvehiclesettings *vehicleSettings;
     Ui::configdisplay *ui;
+public slots:
+    void update();
 };
 
 #endif // CONFIGDISPLAY_H

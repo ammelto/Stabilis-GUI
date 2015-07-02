@@ -5,8 +5,10 @@
 #include <QMap>
 
 
-class configcreator
+class configcreator : public QObject
 {
+    Q_OBJECT
+
 public:
     void loadFile(QString s);
     void writeFile(QString s, QString v);
@@ -149,6 +151,8 @@ private:
     QString getModeOut();
     QString getTriggerOut();
 
+signals:
+    void update();
 };
 
 #endif // CONFIGCREATOR_H

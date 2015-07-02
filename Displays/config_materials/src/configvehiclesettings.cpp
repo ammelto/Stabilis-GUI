@@ -9,6 +9,7 @@
 #include <QFormLayout>
 #include <QFontDatabase>
 #include <QSettings>
+#include <QErrorMessage>
 
 configvehiclesettings::configvehiclesettings(QWidget *parent, configcreator *config) :
     QWidget(parent),
@@ -53,37 +54,41 @@ configvehiclesettings::configvehiclesettings(QWidget *parent, configcreator *con
 }
 
 void configvehiclesettings::load(QString file){
-    qDebug() << "LOADING " + file;
+    if(!file.contains(".stb")){
+        file.append(".stb");
+    }
+    qDebug() << file;
     conf->loadFile(file);
-
-    ui->loadedVehicle->setText(conf->getValue("Name"));
-    ui->loadedVehicle->setAlignment(Qt::AlignRight);
     QString s = conf->getValue("Vehicle ID");
     qDebug() << s;
 
-    delete currentTemplate;
+    ui->loadedVehicle->setText(conf->getValue("Name"));
+    ui->loadedVehicle->setAlignment(Qt::AlignRight);
+
     if(s == "5"){
-        airplaneSheet = new airplaneTemplate(ui->settingsArea, conf);
+        if(fileList != NULL) fileList->hide();
+
+        if(airplaneSheet == NULL){
+            airplaneSheet = new airplaneTemplate(ui->settingsArea, conf);
+        }
         currentTemplate = airplaneSheet;
         ui->overlay->setText("");
         ui->windowLabel->setText("Airplane");
+
         currentTemplate->show();
         setDefaultState();
-    }else if(s == ""){
-        //TO FIX LATER
-        /*
-        fileList = new QListWidget();
-        QFormLayout *formLayout = new QFormLayout;
-        formLayout->addWidget(fileList);
-        this->setLayout(formLayout);
-        //currentTemplate = fileList;
-        fileList->addItem("Ayy");
-        */
-
-        currentTemplate = NULL; //Prevents crash until the list view is implemented
+    }else if(s == "" && state != loadState){
+        currentTemplate = NULL;
         setLoadState();
+    }else{
+        QErrorMessage *msg = new QErrorMessage(this);
+        ui->loadedVehicle->setText("");
+        msg->showMessage("File not recognized. Check your vehicle ID and try again.");
     }
+}
 
+void configvehiclesettings::select(QListWidgetItem *item){
+    load("../Userdata/" + item->text());
 }
 
 void configvehiclesettings::setTheme(QColor p, QColor s, QColor f){
@@ -91,10 +96,8 @@ void configvehiclesettings::setTheme(QColor p, QColor s, QColor f){
     loadButton->setTheme(p,s,f);
     saveButton->setTheme(p,s,f);
 
-    QString v = conf->getValue("Vehicle ID");
-    if(v == "5"){
-        airplaneSheet->setTheme(p,s,f);
-    }
+    if(airplaneSheet != NULL) airplaneSheet->setTheme(p,s,f);
+    qDebug() << "COLOR SET";
 }
 
 void configvehiclesettings::save(){
@@ -112,7 +115,7 @@ void configvehiclesettings::buttonHandler(){
         }else if(state == loadState){
             qDebug() << "Select";
             setDefaultState();
-            load("");
+            load("../Userdata/" + fileList->getSelected());
         }
     }else if(obj == advancedButton){
         if(state == defaultState){
@@ -165,6 +168,14 @@ void configvehiclesettings::setLoadState(){
     ui->overlay->setAlignment(Qt::AlignCenter);
     ui->windowLabel->setText("");
     ui->loadedVehicle->setText("");
+
+    if(fileList == NULL){
+        fileList = new LoadVehicleDialog(ui->settingsArea, conf);
+        connect(fileList->getListWidget(), SIGNAL(itemDoubleClicked(QListWidgetItem*)), this, SLOT(select(QListWidgetItem*)));
+        fileList->show();
+    }else{
+        fileList->show();
+    }
 
     if(currentTemplate != NULL){
         currentTemplate->hide();

@@ -12,6 +12,7 @@ configGeneralSettings::configGeneralSettings(QWidget *parent, configcreator *con
     ui(new Ui::configGeneralSettings)
 {
     ui->setupUi(this);
+    conf = config;
 
     QGraphicsDropShadowEffect* shadow = new QGraphicsDropShadowEffect();
     shadow->setBlurRadius(6);
@@ -39,6 +40,9 @@ configGeneralSettings::configGeneralSettings(QWidget *parent, configcreator *con
     connect(ui->htlToggle,SIGNAL(valueChanged(int)),this,SLOT(toggleListener(int)));
     connect(ui->dataToggle,SIGNAL(valueChanged(int)),this,SLOT(toggleListener(int)));
     connect(ui->gcsToggle,SIGNAL(valueChanged(int)),this,SLOT(toggleListener(int)));
+    connect(conf,SIGNAL(update()),this,SLOT(update()));
+
+
 }
 
 void configGeneralSettings::toggleListener(int value){
@@ -54,6 +58,7 @@ void configGeneralSettings::toggleListener(int value){
                                            "QSlider::handle:horizontal { background:white; width: 12px; height: 14px; margin: 1px; border-radius: 5px; }");
            qDebug("Simulation off");
         }
+        conf->setSimulationMode(QString::number(ui->simulationToggle->value()));
     }else if(obj == ui->htlToggle){
         if(value == 1){
            ui->htlToggle->setStyleSheet("QSlider::groove:horizontal { background: "+ secondary.name() +"; height: 14px; border-radius: 7px; } "
@@ -64,6 +69,7 @@ void configGeneralSettings::toggleListener(int value){
                                            "QSlider::handle:horizontal { background:white; width: 12px; height: 14px; margin: 1px; border-radius: 5px; }");
            qDebug("HTL off");
         }
+        conf->setHILMode(QString::number(ui->htlToggle->value()));
     }else if(obj == ui->gcsToggle){
         if(value == 1){
            ui->gcsToggle->setStyleSheet("QSlider::groove:horizontal { background: "+ secondary.name() +"; height: 14px; border-radius: 7px; } "
@@ -74,6 +80,7 @@ void configGeneralSettings::toggleListener(int value){
                                            "QSlider::handle:horizontal { background:white; width: 12px; height: 14px; margin: 1px; border-radius: 5px; }");
            qDebug("GCS off");
         }
+        conf->setCommsMode(QString::number(ui->gcsToggle->value()));
     }else if(obj == ui->dataToggle){
         if(value == 1){
            ui->dataToggle->setStyleSheet("QSlider::groove:horizontal { background: "+ secondary.name() +"; height: 14px; border-radius: 7px; } "
@@ -84,6 +91,7 @@ void configGeneralSettings::toggleListener(int value){
                                            "QSlider::handle:horizontal { background:white; width: 12px; height: 14px; margin: 1px; border-radius: 5px; }");
            qDebug("Logging off");
         }
+        conf->setDataLogging(QString::number(ui->dataToggle->value()));
     }
 }
 
@@ -91,6 +99,13 @@ void configGeneralSettings::setTheme(QColor p, QColor s, QColor f){
     primary = p;
     secondary = s;
     font = f;
+}
+
+void configGeneralSettings::update(){
+    ui->simulationToggle->setValue(conf->getValue("Simulation Mode").toInt());
+    ui->htlToggle->setValue(conf->getValue("HIL Mode").toInt());
+    ui->gcsToggle->setValue(conf->getValue("Comms Mode").toInt());
+    ui->dataToggle->setValue(conf->getValue("Data Logging").toInt());
 }
 
 void configGeneralSettings::save(){

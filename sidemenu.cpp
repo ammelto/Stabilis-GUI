@@ -45,7 +45,6 @@ sidemenu::sidemenu(QWidget *parent) :
     infoIconSource = QPixmap(":/icons/Resources/Icons/info21.png");
     ui->info->installEventFilter(this);
     ui->infoLabelText->setFont(font);
-
 }
 
 void sidemenu::setTheme(QColor p, QColor s, QColor font){

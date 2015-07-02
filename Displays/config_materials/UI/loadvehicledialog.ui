@@ -13,14 +13,17 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QListView" name="fileList">
+  <widget class="QListWidget" name="fileList">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
      <width>308</width>
-     <height>468</height>
+     <height>463</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
    </property>
   </widget>
  </widget>

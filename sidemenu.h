@@ -5,6 +5,7 @@
 #include <QFontDatabase>
 #include <QGraphicsEffect>
 #include <QPixmap>
+#include <QGraphicsScene>
 
 namespace Ui {
 class sidemenu;
@@ -33,6 +34,7 @@ private:
     QPixmap configIconSource;
     QPixmap windowIconSource;
     QPixmap infoIconSource;
+    QGraphicsScene *scene;
 
     Ui::sidemenu *ui;
     bool eventFilter(QObject *obj, QEvent *event);

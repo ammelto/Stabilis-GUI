@@ -21,11 +21,13 @@ public:
 
 public slots:
     void toggleListener(int value);
+    void update();
 
 private:
     QColor primary;
     QColor secondary;
     QColor font;
+    configcreator *conf;
     Ui::configGeneralSettings *ui;
 };
 
