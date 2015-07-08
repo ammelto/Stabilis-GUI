@@ -14,11 +14,14 @@ class airplaneTemplate : public QWidget
 
 public:
     explicit airplaneTemplate(QWidget *parent = 0, configcreator *config = 0);
-    void setTheme(QColor p, QColor s, QColor f);
     void save();
     ~airplaneTemplate();
 
+public slots:
+    void update();
+
 private:
+    configcreator *conf;
     inputField *pathField, *infField, *orbitField, *throttleP, *throttleI, *throttleD,
     *lattitudeP, *lattitudeI, *lattitudeD, *longitudeP, *longitudeI, *longitudeD,
     *xP, *xI, *xD, *yP, *yI, *yD, *zP, *zI, *zD, *throttleValue, *phiValue, *thetaValue, *stallValue;

@@ -28,7 +28,6 @@ configdisplay::configdisplay(QWidget *parent) :
 
 void configdisplay::setTheme(QColor p, QColor s, QColor f){
     vehicleSettings->setTheme(p,s,f);
-    generalSettings->setTheme(p,s,f);
 }
 
 void configdisplay::save(){

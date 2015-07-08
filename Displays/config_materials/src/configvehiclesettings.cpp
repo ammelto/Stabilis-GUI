@@ -95,19 +95,20 @@ void configvehiclesettings::setTheme(QColor p, QColor s, QColor f){
     advancedButton->setTheme(p,s,f);
     loadButton->setTheme(p,s,f);
     saveButton->setTheme(p,s,f);
-
-    if(airplaneSheet != NULL) airplaneSheet->setTheme(p,s,f);
-    qDebug() << "COLOR SET";
 }
 
 void configvehiclesettings::save(){
-
+    if(airplaneSheet != NULL){
+        airplaneSheet->save();
+        qDebug() << "SAVED";
+    }
 }
 
 void configvehiclesettings::buttonHandler(){
     QObject* obj = sender();
     if(obj == saveButton){
         if(state == defaultState){
+            this->save();
             qDebug() << "Save";
         }else if(state == advancedState){
             qDebug() << "OK";

@@ -138,6 +138,7 @@ QString configcreator::getValue(QString key){
 void configcreator::writeFile(QString s, QString v){
     if(loadedFile->exists()){
         bool n = loadedFile->open(QIODevice::ReadWrite);
+        qDebug() << "Writing to: " + loadedFile->fileName();
         if(n){
             QString file;
             QString fileCopy;
@@ -549,12 +550,12 @@ void configcreator::setPath(QString v){
 
 void configcreator::setInf(QString v){
     map.insert("Inf", v);
-    writeFile("~K_Inf", v);
+    writeFile("~X_INF", v);
 }
 
 void configcreator::setOrbit(QString v){
     map.insert("Orbit", v);
-    writeFile("~K_Orbit", v);
+    writeFile("~K_ORBIT", v);
 }
 
 void configcreator::setName(QString v){

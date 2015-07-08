@@ -14,7 +14,8 @@ class inputField : public QWidget
 public:
     //PARENT, GEOMETRY, TEXT HINT, LOADED VALUE
     explicit inputField(QWidget *parent = 0, QRect r = QRect(0,0,0,0), QString s = "", QString d = "");
-    void setTheme(QColor s);
+    void setValue(QString s);
+    QString getValue();
     void setLocation(QRect r);
     ~inputField();
 

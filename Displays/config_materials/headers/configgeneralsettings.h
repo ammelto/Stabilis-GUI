@@ -13,7 +13,6 @@ class configGeneralSettings : public QWidget
     Q_OBJECT
 
 public:
-    void setTheme(QColor p, QColor s, QColor f);
     explicit configGeneralSettings(QWidget *parent = 0, configcreator *config = 0);
     void save();
     ~configGeneralSettings();

@@ -6,6 +6,7 @@
 #include <QDebug>
 #include <QBrush>
 #include <QPainter>
+#include <QSettings>
 
 configGeneralSettings::configGeneralSettings(QWidget *parent, configcreator *config) :
     QWidget(parent),
@@ -48,9 +49,14 @@ configGeneralSettings::configGeneralSettings(QWidget *parent, configcreator *con
 void configGeneralSettings::toggleListener(int value){
     QObject* obj = sender();
 
+    QSettings settings("../Stabilis-GUI/Stabilis.ini", QSettings::IniFormat);
+    settings.beginGroup("Settings");
+    QString s = settings.value("secondary").toString();
+    settings.endGroup();
+
     if(obj == ui->simulationToggle){
         if(value == 1){
-           ui->simulationToggle->setStyleSheet("QSlider::groove:horizontal { background: "+ secondary.name() +"; height: 14px; border-radius: 7px; } "
+           ui->simulationToggle->setStyleSheet("QSlider::groove:horizontal { background: "+ s +"; height: 14px; border-radius: 7px; } "
                                            "QSlider::handle:horizontal { background:white; width: 12px; height: 14px; margin: 1px; border-radius: 5px; }");
            qDebug("Simulation on");
         }else if(value == 0){
@@ -61,7 +67,7 @@ void configGeneralSettings::toggleListener(int value){
         conf->setSimulationMode(QString::number(ui->simulationToggle->value()));
     }else if(obj == ui->htlToggle){
         if(value == 1){
-           ui->htlToggle->setStyleSheet("QSlider::groove:horizontal { background: "+ secondary.name() +"; height: 14px; border-radius: 7px; } "
+           ui->htlToggle->setStyleSheet("QSlider::groove:horizontal { background: "+ s +"; height: 14px; border-radius: 7px; } "
                                            "QSlider::handle:horizontal { background:white; width: 12px; height: 14px; margin: 1px; border-radius: 5px; }");
            qDebug("HTL on");
         }else if(value == 0){
@@ -72,7 +78,7 @@ void configGeneralSettings::toggleListener(int value){
         conf->setHILMode(QString::number(ui->htlToggle->value()));
     }else if(obj == ui->gcsToggle){
         if(value == 1){
-           ui->gcsToggle->setStyleSheet("QSlider::groove:horizontal { background: "+ secondary.name() +"; height: 14px; border-radius: 7px; } "
+           ui->gcsToggle->setStyleSheet("QSlider::groove:horizontal { background: "+ s +"; height: 14px; border-radius: 7px; } "
                                            "QSlider::handle:horizontal { background:white; width: 12px; height: 14px; margin: 1px; border-radius: 5px; }");
            qDebug("GCS on");
         }else if(value == 0){
@@ -83,7 +89,7 @@ void configGeneralSettings::toggleListener(int value){
         conf->setCommsMode(QString::number(ui->gcsToggle->value()));
     }else if(obj == ui->dataToggle){
         if(value == 1){
-           ui->dataToggle->setStyleSheet("QSlider::groove:horizontal { background: "+ secondary.name() +"; height: 14px; border-radius: 7px; } "
+           ui->dataToggle->setStyleSheet("QSlider::groove:horizontal { background: "+ s +"; height: 14px; border-radius: 7px; } "
                                            "QSlider::handle:horizontal { background:white; width: 12px; height: 14px; margin: 1px; border-radius: 5px; }");
            qDebug("Logging on");
         }else if(value == 0){
@@ -93,12 +99,6 @@ void configGeneralSettings::toggleListener(int value){
         }
         conf->setDataLogging(QString::number(ui->dataToggle->value()));
     }
-}
-
-void configGeneralSettings::setTheme(QColor p, QColor s, QColor f){
-    primary = p;
-    secondary = s;
-    font = f;
 }
 
 void configGeneralSettings::update(){

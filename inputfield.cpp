@@ -1,6 +1,7 @@
 #include "inputfield.h"
 #include "ui_inputfield.h"
 #include <QDebug>
+#include <QSettings>
 
 inputField::inputField(QWidget *parent, QRect r, QString s, QString d) :
     QWidget(parent),
@@ -30,13 +31,20 @@ void inputField::setLocation(QRect r){
     ui->selectionBar->setGeometry(2,r.height()-1,r.width()-2,1);
 }
 
-void inputField::setTheme(QColor s){
-    secondary = s;
+void inputField::setValue(QString s){
+    ui->lineEdit->setText(s);
+}
+
+QString inputField::getValue(){
+    return ui->lineEdit->text();
 }
 
 bool inputField::eventFilter(QObject *obj, QEvent *event){
     if(QApplication::focusWidget() == ui->lineEdit && event->type() == QEvent::FocusIn){
-        ui->selectionBar->setStyleSheet("QWidget{ background: " + secondary.name() + "; }");
+        QSettings settings("../Stabilis-GUI/Stabilis.ini", QSettings::IniFormat);
+        settings.beginGroup("Settings");
+        ui->selectionBar->setStyleSheet("QWidget{ background: " + settings.value("secondary").toString() + "; }");
+        settings.endGroup();
         ui->selectionBar->setGeometry(2,location.height()-2,location.width(),2);
     }else if(event->type() == QEvent::FocusOut){
         ui->selectionBar->setStyleSheet("QWidget{ background: #9E9E9E; }");
