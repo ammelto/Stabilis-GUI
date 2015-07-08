@@ -3,6 +3,7 @@
 #include "ui_confignetworksettings.h"
 #include <QGraphicsDropShadowEffect>
 
+
 confignetworksettings::confignetworksettings(QWidget *parent, configcreator *config) :
     QWidget(parent),
     ui(new Ui::confignetworksettings)
@@ -19,6 +20,8 @@ confignetworksettings::confignetworksettings(QWidget *parent, configcreator *con
     pal.setColor(this->backgroundRole(), QColor(255,255,255));
     this->setPalette(pal);
     this->setAutoFillBackground(true);
+
+
 }
 
 void confignetworksettings::save(){
