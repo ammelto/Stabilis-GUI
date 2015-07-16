@@ -12,6 +12,7 @@
 #include "./Displays/headers/windowdisplay.h"
 #include "sidemenu.h"
 #include "titlebar.h"
+#include <QRect>
 
 namespace Ui {
 class MainWindow;
@@ -34,8 +35,10 @@ public slots:
      void setTheme(QColor p,QColor s,QColor f);
 
 private:
-    enum states{close, maximize, minimize};
+    enum states{close, maximize, minimize, windowed};
     enum display{home, console, config, docs, window, info};
+    bool isMax = false;
+    QRect savedGeometry;
     QColor primaryColor;
     QColor secondaryColor;
     QColor fontColor;

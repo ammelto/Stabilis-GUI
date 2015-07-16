@@ -16,6 +16,7 @@
 #include <QPixmap>
 #include <QtEvents>
 #include <QDebug>
+#include <QDesktopWidget>
 #include <QPoint>
 #include <QGraphicsDropShadowEffect>
 #include <QWidget>
@@ -86,7 +87,7 @@ void MainWindow::mousePressEvent(QMouseEvent *event){
 }
 
 void MainWindow::mouseMoveEvent(QMouseEvent *event){
-    if((event->pos().y() < 48) && event->buttons() == Qt::LeftButton){
+    if((event->pos().y() < 48) && event->buttons() == Qt::LeftButton && !isMax){
         move(event->globalPos() - dragPosition);
         event->accept();
     }
@@ -112,11 +113,28 @@ void MainWindow::setTheme(QColor p, QColor s, QColor f){
 }
 
 void MainWindow::setState(int state){
+    QDesktopWidget desktop;
     switch(state){
     case close:
         QApplication::exit(0);
         break;
     case maximize:
+        if(isMax == false){
+            savedGeometry = this->geometry();
+            this->setGeometry(-18,-18,832,desktop.height());
+            ui->scrollArea->setGeometry(18,68,800,desktop.height()-98);
+#ifdef Q_OS_WIN
+            this->setGeometry(-18,-18,832,desktop.availableGeometry().height()+18);
+#else
+            this->setGeometry(-18,-18,832,desktop.height());
+#endif
+            isMax = true;
+            break;
+        }else{
+            this->setGeometry(savedGeometry);
+            ui->scrollArea->setGeometry(18,68,800,634);
+            isMax = false;
+        }
         break;
     case minimize:
         this->setWindowState(Qt::WindowMinimized);
