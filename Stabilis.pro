@@ -78,3 +78,4 @@ FORMS    += UI\mainwindow.ui \
 
 RESOURCES += \
     Resources.qrc
+

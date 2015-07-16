@@ -111,7 +111,7 @@ void configvehiclesettings::buttonHandler(){
             this->save();
             qDebug() << "Save";
         }else if(state == advancedState){
-            qDebug() << "OK";
+            qDebug() << "Unused";
             setDefaultState();
         }else if(state == loadState){
             qDebug() << "Select";
@@ -120,21 +120,21 @@ void configvehiclesettings::buttonHandler(){
         }
     }else if(obj == advancedButton){
         if(state == defaultState){
-            qDebug() << "Advanced";
+            qDebug() << "New Vehicle";
             setAdvancedState();
         }else if(state == advancedState){
-            qDebug() << "Back";
+            qDebug() << "Cancel";
             setDefaultState();
         }else if(state == loadState){
-            qDebug() << "New Vehicle";
-
+            qDebug() << "Back";
+            setDefaultState();
         }
     }else if(obj == loadButton){
         if(state == defaultState){
             qDebug() << "Load";
             setLoadState();
         }else if(state == advancedState){
-            qDebug() << "Apply";
+            qDebug() << "OK";
         }else if(state == loadState){
             qDebug() << "Browse...";
             QString fileName = QFileDialog::getOpenFileName(this, tr("Open File"),"../Userdata",tr("Stb Files (*.stb)"));
@@ -144,16 +144,18 @@ void configvehiclesettings::buttonHandler(){
 }
 
 void configvehiclesettings::setDefaultState(){
-    advancedButton->setButtonText("Advanced...");
+    advancedButton->setButtonText("New");
     loadButton->setButtonText("Load");
     saveButton->setButtonText("Save");
+    if(state == loadState) fileList->hide();
+    if(currentTemplate != NULL) currentTemplate->show();
     state = defaultState;
 }
 
 void configvehiclesettings::setAdvancedState(){
-    advancedButton->setButtonText("Back");
-    loadButton->setButtonText("Apply");
-    saveButton->setButtonText("OK");
+    advancedButton->setButtonText("Cancel");
+    loadButton->setButtonText("OK");
+    saveButton->setButtonText("Unused");
     state = advancedState;
     currentTemplate->hide();
 }
@@ -161,7 +163,7 @@ void configvehiclesettings::setAdvancedState(){
 void configvehiclesettings::setLoadState(){
     state = loadState;
 
-    advancedButton->setButtonText("New Vehicle");
+    advancedButton->setButtonText("Back");
     loadButton->setButtonText("Browse...");
     saveButton->setButtonText("Select");
 
