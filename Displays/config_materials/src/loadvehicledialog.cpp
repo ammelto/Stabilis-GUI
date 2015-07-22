@@ -19,6 +19,7 @@ LoadVehicleDialog::LoadVehicleDialog(QWidget *parent, configcreator *config) :
     ui->fileList->setStyleSheet("QListWidget{ border-width: 0px; background-color: white; } QListWidget::item:selected {background-color: " + p + "; color: " + f + "} QListWidget::item:hover{background-color: " + s + "}");
     settings.endGroup();
 
+    //Gets all files in the Userdata folder
     QDir shortcutsFolder("../Userdata/");
     QFileInfoList shortcuts(shortcutsFolder.entryInfoList(QDir::Files, QDir::Name | QDir::IgnoreCase));
 

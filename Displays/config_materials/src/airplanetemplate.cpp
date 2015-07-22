@@ -8,6 +8,7 @@ airplaneTemplate::airplaneTemplate(QWidget *parent, configcreator *config) :
     QWidget(parent),
     ui(new Ui::airplaneTemplate)
 {
+    //Loads the fonts
     conf = config;
     ui->setupUi(this);
     QFontDatabase::addApplicationFont("qrc:/fonts/Resources/fonts/Roboto-Bold.ttf");
@@ -57,6 +58,7 @@ airplaneTemplate::airplaneTemplate(QWidget *parent, configcreator *config) :
     thetaValue = new inputField(ui->thetaValue,ui->thetaValue->geometry(),"Theta limit in radians", conf->getValue("Theta"));
     stallValue = new inputField(ui->stallValue,ui->stallValue->geometry(),"Stall", conf->getValue("Stall"));
 
+    //Connects the config signals
     connect(conf,SIGNAL(update()),this,SLOT(update()));
 }
 
@@ -88,6 +90,7 @@ void airplaneTemplate::save(){
     conf->setStall(stallValue->getValue());
 }
 
+//Reloads the values from the config file
 void airplaneTemplate::update(){
     pathField->setValue(conf->getValue("Path"));
     infField->setValue(conf->getValue("Inf"));

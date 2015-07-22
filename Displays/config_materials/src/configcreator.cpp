@@ -6,6 +6,7 @@
 #include <QMap>
 #include <QApplication>
 
+//Controller for the reading and writing of the config file
 configcreator::configcreator()
 {
     if(!QDir("../Userdata").exists()){

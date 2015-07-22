@@ -49,11 +49,13 @@ configGeneralSettings::configGeneralSettings(QWidget *parent, configcreator *con
 void configGeneralSettings::toggleListener(int value){
     QObject* obj = sender();
 
-    QSettings settings("../Stabilis-GUI/Stabilis.ini", QSettings::IniFormat);
+    QSettings settings(":/files/Stabilis.ini", QSettings::IniFormat);
     settings.beginGroup("Settings");
     QString s = settings.value("secondary").toString();
     settings.endGroup();
 
+    //Changes to the toggles are done via CSS through a seperate interpreter.
+    //CSS therefore has to be sent as a string.
     if(obj == ui->simulationToggle){
         if(value == 1){
            ui->simulationToggle->setStyleSheet("QSlider::groove:horizontal { background: "+ s +"; height: 14px; border-radius: 7px; } "

@@ -3,6 +3,7 @@
 #include <QDebug>
 #include <QSettings>
 
+//INPUT FIELD MODEL
 inputField::inputField(QWidget *parent, QRect r, QString s, QString d) :
     QWidget(parent),
     ui(new Ui::inputField)

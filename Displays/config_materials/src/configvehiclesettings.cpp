@@ -11,6 +11,7 @@
 #include <QSettings>
 #include <QErrorMessage>
 
+//Since the vehicle settings model has multiple views, each view is controlled by a seperate state.
 configvehiclesettings::configvehiclesettings(QWidget *parent, configcreator *config) :
     QWidget(parent),
     ui(new Ui::configvehiclesettings)
@@ -34,6 +35,9 @@ configvehiclesettings::configvehiclesettings(QWidget *parent, configcreator *con
     ui->loadedVehicle->setFont(QFont("Roboto",13));
     ui->overlay->setFont(QFont("Roboto",13));
 
+    //These object names do not imply their
+    //only functionality, but rather reference the default button they represent.
+    //This is clearer than saying button1, button2, button3 but can be a little misleading.
     advancedButton = new genericButton(ui->advancedButton);
     loadButton = new genericButton(ui->loadVehicleButton);
     saveButton = new genericButton(ui->saveVehicleButton);
@@ -65,12 +69,15 @@ void configvehiclesettings::load(QString file){
     ui->loadedVehicle->setText(conf->getValue("Name"));
     ui->loadedVehicle->setAlignment(Qt::AlignRight);
 
+    //5 represents an airplane ID
     if(s == "5"){
         if(fileList != NULL) fileList->hide();
 
+        //Instantiates the object if it has not been already
         if(airplaneSheet == NULL){
             airplaneSheet = new airplaneTemplate(ui->settingsArea, conf);
         }
+        //CurrentTemplate is a global pointer that always points to the current active view
         currentTemplate = airplaneSheet;
         ui->overlay->setText("");
         ui->windowLabel->setText("Airplane");
@@ -80,6 +87,7 @@ void configvehiclesettings::load(QString file){
     }else if(s == "" && state != loadState){
         currentTemplate = NULL;
         setLoadState();
+    //Only fails if the VID is not present or the file is unreadable
     }else{
         QErrorMessage *msg = new QErrorMessage(this);
         ui->loadedVehicle->setText("");
@@ -104,6 +112,7 @@ void configvehiclesettings::save(){
     }
 }
 
+//Changes the text of the buttons accordingly
 void configvehiclesettings::buttonHandler(){
     QObject* obj = sender();
     if(obj == saveButton){

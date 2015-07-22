@@ -4,6 +4,7 @@
 #include <QGraphicsDropShadowEffect>
 #include <QDebug>
 
+//BUTTON MODEL
 //Originally planned on having a dropshadow effect for this
 //unfortunately, adding a dropshadow effect caused the entire button to vanish
 //A possible cause might be that there are too many parents for this widget that also have drop shadows.

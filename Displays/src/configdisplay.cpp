@@ -35,7 +35,7 @@ void configdisplay::save(){
 }
 
 void configdisplay::update(){
-    QSettings settings("../Stabilis-GUI/Stabilis.ini", QSettings::IniFormat);
+    QSettings settings(":/files/Stabilis.ini", QSettings::IniFormat);
     settings.beginGroup("Settings");
     setTheme(QColor(settings.value("primary").toString()), QColor(settings.value("secondary").toString()), QColor(settings.value("font").toString()));
     settings.endGroup();

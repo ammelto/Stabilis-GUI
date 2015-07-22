@@ -16,12 +16,14 @@ sidemenu::sidemenu(QWidget *parent) :
     ui->setupUi(this);
     QResource::registerResource(":/Resources.qrc");
 
+    //Loads the Roboto font
     qDebug() << QFontDatabase::addApplicationFont(":/fonts/Resources/fonts/Roboto-BoldItalic.ttf");
     qDebug() << QFontDatabase::addApplicationFont(":/fonts/Resources/fonts/Roboto-Thin.ttf");
     qDebug() << QFontDatabase::addApplicationFont(":/fonts/Resources/fonts/Roboto-Regular.ttf");
     QFont font = QFont("Roboto",12);
     font.setStyleName("Thin");
 
+    //Loads icons for each menu button and installs the event filter
     homeIconSource = QPixmap(":/icons/Resources/Icons/home63.png");
     ui->home->installEventFilter(this);
     ui->homeLabelText->setFont(font);
@@ -56,21 +58,28 @@ void sidemenu::setTheme(QColor p, QColor s, QColor font){
     setDisplay(home);
 }
 
+//Basically an action listener
+//Uses an event filter rather than a mouse listener or something
+//because the event filter allows us to listen for the object before the event
+//and then determine the action to take based off the event within that object
 bool sidemenu::eventFilter(QObject *obj, QEvent *event){
     if(obj == ui->home){
         switch(event->type()){
+        //Highlights the button as the moust enters
         case (QEvent::Enter):
             pal = ui->home->palette();
             pal.setColor(ui->home->backgroundRole(), secondaryColor);
             ui->home->setPalette(pal);
             ui->home->setAutoFillBackground(true);
             break;
+        //Dehighlights as the mouse leaves
         case (QEvent::Leave):
             pal = ui->home->palette();
             pal.setColor(ui->home->backgroundRole(), primaryColor);
             ui->home->setPalette(pal);
             ui->home->setAutoFillBackground(true);
             break;
+        //Signal to main window slot
         case (QEvent::MouseButtonPress):
             setDisplay(home);
             break;
@@ -181,6 +190,7 @@ bool sidemenu::eventFilter(QObject *obj, QEvent *event){
     return QObject::eventFilter(obj, event);
 }
 
+//Repaints the icons depending on the theme
 void sidemenu::repaintIcons(){
 
     QPixmap homeIcon = homeIconSource;
@@ -233,7 +243,9 @@ void sidemenu::repaintIcons(){
 
 }
 
+//Repaints the buttons to their default colors.
 void sidemenu::repaintButtons(){
+    //These lines existed as measurement tools. Ignore these, but don't erase them. Could be useful later.
 /*
     pal = ui->LINE->palette();
     pal.setColor(this->backgroundRole(), QColor(0,0,0));
@@ -315,6 +327,7 @@ void sidemenu::repaintButtons(){
 
 }
 
+//Moves the bar, animation is planned but right now it just snaps into place
 void sidemenu::moveBar(int currentDisplay){
     repaintButtons();
     switch(currentDisplay){
