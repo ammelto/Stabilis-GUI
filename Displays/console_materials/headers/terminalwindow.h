@@ -3,6 +3,9 @@
 
 #include <QWidget>
 #include <QPlainTextEdit>
+
+#define MAX_INPUT 5000
+
 namespace Ui {
 class TerminalWindow;
 }
@@ -23,9 +26,19 @@ private:
     void mousePressEvent(QMouseEvent *e);
     void mouseDoubleClickEvent(QMouseEvent *e);
     void contextMenuEvent(QContextMenuEvent *e);
-
+    void sendCommand();
 public:
     bool localEchoEnabled;
+
+signals:
+    void writeCommand(QString command);
+
+public slots:
+    void writeOut(QString text);
+
+private:
+    char* input_buffer[MAX_INPUT];
+
 };
 
 

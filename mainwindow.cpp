@@ -81,6 +81,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(windowDisplay, SIGNAL(setTheme(QColor,QColor,QColor)),this,SLOT(setTheme(QColor,QColor,QColor)));
 
     connect(configDisplay->networkSettings, SIGNAL(startConnection(QString,QString,QString,QString)), consoleDisplay, SLOT(connectConsole(QString,QString,QString,QString)));
+    connect(consoleDisplay, SIGNAL(connectionWorked()), this, SLOT(connectionWorked());
 
     //Loads the theme colors from the ini file.
     QSettings settings(":/files/Stabilis.ini", QSettings::IniFormat);
@@ -90,6 +91,10 @@ MainWindow::MainWindow(QWidget *parent) :
     settings.endGroup();
 
 }
+
+void MainWindow::connectionWorked(){
+
+};
 
 //Since the window manager does not recognize the custom title bar
 //window movement had to be reimplemented by the following two frunctions

@@ -56,18 +56,21 @@ console_thread::console_thread(consoledisplay* console_control, remote_connectio
  *
  * */
 void console_thread::run(){
-    begin_console_thread(this->data);
-    clean_up(this->data);
+    int err;
+    err = begin_console_thread(this->data);
+    err = clean_up(this->data);
     return;
 }
 
-static void begin_console_thread(remote_connection_data* data){
+int console_thread::begin_console_thread(remote_connection_data* data){
+    int err;
+
     err = open_console(data);
     console_control->connectCallback(err);
     if(err){
-        return;
+        return err;
     }
-    run_loop(data);
+    err = run_shell(data);
 }
 
 /*
@@ -76,8 +79,10 @@ static void begin_console_thread(remote_connection_data* data){
  *
  *The global struct can also signal this function to return / clean up
  *
+ *This loop never clears flags. Flags should be cleared in the call back handlers
+ *
  * */
-static void run_shell(remote_connection_data* data){
+int console_thread::run_shell(remote_connection_data* data){
     int err = 0;
 
     while(1){
@@ -86,29 +91,50 @@ static void run_shell(remote_connection_data* data){
             break;
         }
         if(data->instruction_flags & WRITE_COMMAND){
-
+            err = write_command_and_read(data);
+            console_control->writeCommandCallback(err);
         }
         if(data->instruction_flags & READ_COMMAND){
 
         }
-        if(data->instruction_flags & WRITE_FILE){
-
+        if(data->instruction_flags & SEND_FILE){
+            err = send_file(data);
+            console_control->sendFileCallback(err);
         }
-        if(data->instruction_flags & READ_FILE){
-
+        if(data->instruction_flags & RECEIVE_FILE){
+            console_control->receiveFileCallback(err);
         }
 
     }
 
 }
 
-static void clean_up(remote_connection_data* data){
+static int clean_up(remote_connection_data* data){
+    int rc;
 
+    /* De-init and pre-exit actions */
+    if (data->channel) {
+        libssh2_channel_free(data->channel);
+        data->channel = NULL;
+    }
+
+    rc = libssh2_session_disconnect(data->session, "Normal Shutdown");
+    if (rc) {
+        fprintf(stderr, "Session disconnect error\n");
+        return (EXIT_FAILURE);
+    } else
+        printf("Session finished successful\n");
+
+    libssh2_session_free(data->session);
+
+    close(data->sock);
+
+    libssh2_exit();
 
 }
 
 
-int open_console(remote_connection_data* data) {
+static int open_console(remote_connection_data* data) {
 
     const char *hostaddr = "192.168.7.2";
     const char *commandline = "uptime";
@@ -121,8 +147,6 @@ int open_console(remote_connection_data* data) {
     struct sockaddr_in sin;
     LIBSSH2_SESSION *session;
     LIBSSH2_CHANNEL *channel;
-    char command[BUFSIZ];
-    char inputbuf[BUFSIZ];
     WSADATA wsaData;
     WORD wVersionRequested;
 
@@ -202,108 +226,48 @@ int open_console(remote_connection_data* data) {
         fprintf(stderr, "Unable to request shell on allocated pty\n");
         return (EXIT_FAILURE);
     }
-
-    /* Main loop starts here.
-     * In it you will be requested to input a command
-     * command will be executed at remote side
-     * an you will get output from it */
-    /*
-     rc = libssh2_channel_write(channel, "\n", strlen("\n"));
-    do{
-
-    rc = libssh2_channel_read(channel, inputbuf, BUFSIZ);
-    libssh2_channel_flush_ex(channel, LIBSSH2_CHANNEL_FLUSH_ALL);
-    printf("Remote side output:\n %s\n", inputbuf);
-    }
-    while(strstr(inputbuf, "root@") == NULL);
-    printf("Remote side output:\n %s\n", inputbuf);*/
-libssh2_channel_set_blocking(channel, 0);
-    do {
-        /* Request for command input */
-        printf("$ ");
-        fgets(command, BUFSIZ, stdin);
-        printf("Command is %s", command);
-        if (strcmp(command, "\n") == 0) {
-            printf("Empty command\n");
-            continue;
-        }
-        //libssh2_channel_flush_ex(channel, LIBSSH2_CHANNEL_FLUSH_ALL);
-        /* Write command to stdin of remote shell */
-        rc = libssh2_channel_write(channel, command, strlen(command));
-        //printf("Channel write return value is %d\n", rc);
-
-        /* Read output from remote side */
-usleep(200000);
-       libssh2_channel_read(channel, inputbuf, BUFSIZ);
-            printf("Remote side output:\n %s\n", inputbuf);
-    } while (strcmp(command, EXIT_COMMAND) != 0);
-    /* Main loop ends here */
-
-    /* De-init and pre-exit actions */
-    if (channel) {
-        libssh2_channel_free(channel);
-        channel = NULL;
-    }
-
-    rc = libssh2_session_disconnect(session, "Normal Shutdown");
-    if (rc) {
-        fprintf(stderr, "Session disconnect error\n");
-        return (EXIT_FAILURE);
-    } else
-        printf("Session finished successful\n");
-
-    libssh2_session_free(session);
-
-    close(sock);
-
-    libssh2_exit();
+    data->sock = sock;
+    data->channel = channel;
+    data->session = session;
 
     return (EXIT_SUCCESS);
 }
 
 
-int run_shell(){
+static int write_command_and_read(remote_connection_data* data){
+    int rc;
 
-    do {
-        /* Request for command input */
-        printf("$ ");
-        fgets(command, BUFSIZ, stdin);
-        printf("Command is %s", command);
-        if (strcmp(command, "\n") == 0) {
-            printf("Empty command\n");
-            continue;
-        }
-        //libssh2_channel_flush_ex(channel, LIBSSH2_CHANNEL_FLUSH_ALL);
-        /* Write command to stdin of remote shell */
-        rc = libssh2_channel_write(channel, command, strlen(command));
-        //printf("Channel write return value is %d\n", rc);
+    printf("Command is %s", data->command);
+    if (strcmp(data->command, "\n") == 0) {
+        printf("Empty command\n");
+        return -1;
+    }
+    //libssh2_channel_flush_ex(channel, LIBSSH2_CHANNEL_FLUSH_ALL);
+    /* Write command to stdin of remote shell */
+    rc = libssh2_channel_write(data->channel, data->command, strlen(data->command));
+    printf("Channel write return value is %d\n", rc);
 
-        /* Read output from remote side */
-usleep(200000);
-       libssh2_channel_read(channel, inputbuf, BUFSIZ);
-            printf("Remote side output:\n %s\n", inputbuf);
-    } while (strcmp(command, EXIT_COMMAND) != 0);
-    /* Main loop ends here */
-
-
-
-return 0;
-
+    /* Read output from remote side */
+    usleep(200000);
+    rc = libssh2_channel_read(data->channel, data->inputbuf, BUFSIZ);
+    printf("Remote side output:\n %s\n", data->inputbuf);
+    return rc;
 }
-
 
 /*
  *This function attempts to write a file to a remote file
  *
  *
  * */
-int send_file(char* src, char* remote_dest){
+static int send_file(remote_connection_data* data){
 
 
 return 0;
 }
 
-int receive_file(char* remote_src, char* dest){
+static int receive_file(remote_connection_data* data){
+
+    return 0;
 
 }
 

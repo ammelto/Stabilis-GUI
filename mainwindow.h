@@ -33,6 +33,7 @@ public slots:
      void setState(int state);
      void setDisplay(int display);
      void setTheme(QColor p,QColor s,QColor f);
+     void connectionWorked();
 
 private:
     enum states{close, maximize, minimize, windowed};

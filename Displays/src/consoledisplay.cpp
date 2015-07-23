@@ -13,6 +13,10 @@ consoledisplay::consoledisplay(QWidget* parent) :
 
 
     terminal = new TerminalWindow(ui->console);
+
+    connect(this, SIGNAL(writeOut(QString text)), terminal, SLOT(writeOut(QString text)));
+    connect(terminal, SIGNAL(writeCommand(QString command)), this, SLOT(writeCommand(QString command)));
+    //connect(terminal, SIGNAL(sendFi(QString command)), this, SLOT(writeCommand()));
 }
 
 consoledisplay::~consoledisplay()
@@ -30,7 +34,6 @@ consoledisplay::~consoledisplay()
  *
  * */
 int consoledisplay::connectConsole(QString host, QString port, QString username, QString password){
-
     remote_connection_data* data;
 
     if(host == NULL || port == NULL || username == NULL || password == NULL){
@@ -54,10 +57,18 @@ int consoledisplay::connectConsole(QString host, QString port, QString username,
  * */
 void consoledisplay::connectCallback(int status){
 
-
-
+    if(status == -1){
+        delete(con_thread);
+        con_thread = NULL;
+    }
+    else{
+        connectionWorked();
+    }
 
 }
+
+
+
 
 /*
  * writeCommand
@@ -70,8 +81,10 @@ void consoledisplay::connectCallback(int status){
  *
  *
  * */
-int consoledisplay::writeCommand(){
-
+int consoledisplay::writeCommand(QString command){
+    if(con_thread == NULL){
+        return -1;
+    }
 
 }
 
@@ -82,11 +95,34 @@ int consoledisplay::writeCommand(){
  *call back after an attempt to write a command to the target
  *
  * */
-void consoledisplay::writeCallback(int status){
+void consoledisplay::writeCommandCallback(int status){
 
 
 }
 
+int consoledisplay::sendFile(char* local_src, char* remote_dest){
+    if(con_thread == NULL){
+        return -1;
+    }
+
+    return 0;
+}
+
+void consoledisplay::sendFileCallback(int status){
+
+}
+
+int consoledisplay::receiveFile(char* local_dest, char* remote_src){
+    if(con_thread == NULL){
+        return -1;
+    }
+
+    return 0;
+}
+
+void consoledisplay::receiveFileCallback(int status){
+
+}
 
 /*
  *readMessage

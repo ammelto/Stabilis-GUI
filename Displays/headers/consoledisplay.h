@@ -17,9 +17,12 @@ public:
     ~consoledisplay();
     int connectConsole();
     void connectCallback(int status);
-    int writeCommand();
-    void writeCallback(int status);
+    void writeCommandCallback(int status);
     void readMessage();
+    int sendFile(char* local_src, char* remote_dest);
+    int receiveFile(char* local_dest, char* remote_src);
+    void sendFileCallback(int status);
+    void receiveFileCallback(int status);
 
 private:
     Ui::consoledisplay *ui;
@@ -27,6 +30,11 @@ private:
 
 public slots:
     int connectConsole(QString host, QString port, QString username, QString password);
+    int writeCommand(QString command);
+
+signals:
+    void connectionWorked();
+
 };
 
 #endif // CONSOLEDISPLAY_H

@@ -2,6 +2,8 @@
 #include "ui_terminalwindow.h"
 #include <QGraphicsEffect>
 #include <QScrollBar>
+#include <QTextBlock>
+#include <QTextDocument>
 #include <QtCore/QDebug>
 
 TerminalWindow::TerminalWindow(QWidget *parent)
@@ -63,6 +65,7 @@ void TerminalWindow::keyPressEvent(QKeyEvent *e)
     case Qt::Key_Up:
     case Qt::Key_Down:
     case Qt::Key_Enter:
+        sendCommand();
         break;
     default:
         if (localEchoEnabled)
@@ -70,6 +73,26 @@ void TerminalWindow::keyPressEvent(QKeyEvent *e)
         //emit getData(e->text().toLocal8Bit());
     }
 }
+
+void TerminalWindow::sendCommand(){
+    QString command;
+   // QTextDocument *doc = this->document();
+   // const QTextBlock tb = doc->findBlockByLineNumber(1); // The second line.
+   // QString command = tb.text(); // returns 'is'
+    command = this->document()->end().text();
+    writeCommand(command);
+    //this->textCursor().
+}
+
+void TerminalWindow::writeOut(QString text){
+
+    insertPlainText(text);
+
+    QScrollBar *bar = verticalScrollBar();
+    bar->setValue(bar->maximum());
+
+}
+
 
 void TerminalWindow::mousePressEvent(QMouseEvent *e)
 {
