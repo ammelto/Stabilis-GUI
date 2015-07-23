@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>confignetworksettings</class>
+ <widget class="QWidget" name="confignetworksettings">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>355</width>
+    <height>294</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QLabel" name="windowLabel">
+   <property name="geometry">
+    <rect>
+     <x>5</x>
+     <y>5</y>
+     <width>200</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	color: #616161
+}</string>
+   </property>
+   <property name="text">
+    <string>Network</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="addressLabel">
+   <property name="geometry">
+    <rect>
+     <x>15</x>
+     <y>30</y>
+     <width>251</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string>Host name</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="addressDetail">
+   <property name="geometry">
+    <rect>
+     <x>15</x>
+     <y>50</y>
+     <width>220</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	color: #424242
+}</string>
+   </property>
+   <property name="text">
+    <string>Destination address of Stabilis</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="addressValue" native="true">
+   <property name="geometry">
+    <rect>
+     <x>235</x>
+     <y>50</y>
+     <width>105</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="portDetail">
+   <property name="geometry">
+    <rect>
+     <x>15</x>
+     <y>70</y>
+     <width>220</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	color: #424242
+}</string>
+   </property>
+   <property name="text">
+    <string>Destination port</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="portValue" native="true">
+   <property name="geometry">
+    <rect>
+     <x>235</x>
+     <y>70</y>
+     <width>105</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="connectButton" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>264</y>
+     <width>355</width>
+     <height>30</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="userName">
+   <property name="geometry">
+    <rect>
+     <x>15</x>
+     <y>118</y>
+     <width>220</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	color: #424242
+}</string>
+   </property>
+   <property name="text">
+    <string>Username</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="userLabel">
+   <property name="geometry">
+    <rect>
+     <x>15</x>
+     <y>98</y>
+     <width>251</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string>Login</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="userPassword">
+   <property name="geometry">
+    <rect>
+     <x>15</x>
+     <y>138</y>
+     <width>220</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	color: #424242
+}</string>
+   </property>
+   <property name="text">
+    <string>Password</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="userPasswordValue" native="true">
+   <property name="geometry">
+    <rect>
+     <x>235</x>
+     <y>138</y>
+     <width>105</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="userNameValue" native="true">
+   <property name="geometry">
+    <rect>
+     <x>235</x>
+     <y>118</y>
+     <width>105</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="connectionLabel">
+   <property name="geometry">
+    <rect>
+     <x>255</x>
+     <y>5</y>
+     <width>100</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	color: #616161
+}</string>
+   </property>
+   <property name="text">
+    <string>Disconnected</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

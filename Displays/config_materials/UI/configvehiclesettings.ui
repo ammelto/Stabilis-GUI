@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>configvehiclesettings</class>
+ <widget class="QWidget" name="configvehiclesettings">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>338</width>
+    <height>528</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QLabel" name="windowLabel">
+   <property name="geometry">
+    <rect>
+     <x>5</x>
+     <y>5</y>
+     <width>100</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	color: #616161
+}</string>
+   </property>
+   <property name="text">
+    <string>Vehicle</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="loadedVehicle">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>5</y>
+     <width>243</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	color: #616161
+}</string>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;right&quot;&gt;Skyhunter&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="advancedButton" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>498</y>
+     <width>113</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+  </widget>
+  <widget class="QWidget" name="loadVehicleButton" native="true">
+   <property name="geometry">
+    <rect>
+     <x>113</x>
+     <y>498</y>
+     <width>113</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+  </widget>
+  <widget class="QWidget" name="saveVehicleButton" native="true">
+   <property name="geometry">
+    <rect>
+     <x>226</x>
+     <y>498</y>
+     <width>113</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+  </widget>
+  <widget class="QWidget" name="settingsArea" native="true">
+   <property name="geometry">
+    <rect>
+     <x>15</x>
+     <y>30</y>
+     <width>308</width>
+     <height>468</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="overlay">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>338</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <zorder>windowLabel</zorder>
+  <zorder>loadedVehicle</zorder>
+  <zorder>saveVehicleButton</zorder>
+  <zorder>loadVehicleButton</zorder>
+  <zorder>advancedButton</zorder>
+  <zorder>settingsArea</zorder>
+  <zorder>overlay</zorder>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

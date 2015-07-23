@@ -1,0 +1,583 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>airplaneTemplate</class>
+ <widget class="QWidget" name="airplaneTemplate">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>308</width>
+    <height>468</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QLabel" name="zPIDDetail">
+   <property name="geometry">
+    <rect>
+     <x>1</x>
+     <y>196</y>
+     <width>200</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	color: #424242
+}</string>
+   </property>
+   <property name="text">
+    <string>Z K(P,I,D)</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="referencesLabel">
+   <property name="geometry">
+    <rect>
+     <x>1</x>
+     <y>312</y>
+     <width>251</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string>Vehicle references</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="yPIDDetail">
+   <property name="geometry">
+    <rect>
+     <x>1</x>
+     <y>176</y>
+     <width>200</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	color: #424242
+}</string>
+   </property>
+   <property name="text">
+    <string>Y K(P,I,D)</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="bankPitchPhiDetail">
+   <property name="geometry">
+    <rect>
+     <x>1</x>
+     <y>68</y>
+     <width>200</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	color: #424242
+}</string>
+   </property>
+   <property name="text">
+    <string>Phi limit</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="bankPitchThetaDetail">
+   <property name="geometry">
+    <rect>
+     <x>1</x>
+     <y>88</y>
+     <width>200</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	color: #424242
+}</string>
+   </property>
+   <property name="text">
+    <string>Theta limit</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="stallLabel">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>251</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string>Airplane stall</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="kThrottleDetail">
+   <property name="geometry">
+    <rect>
+     <x>1</x>
+     <y>284</y>
+     <width>180</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	color: #424242
+}</string>
+   </property>
+   <property name="text">
+    <string>Throttle H(P,I,D)</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="innerLoopLabel">
+   <property name="geometry">
+    <rect>
+     <x>1</x>
+     <y>136</y>
+     <width>251</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string>Inner loop alttitude gains</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="bankPitchLimit">
+   <property name="geometry">
+    <rect>
+     <x>1</x>
+     <y>48</y>
+     <width>251</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string>Bank angle and pitch angle</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="referenceOneDetail">
+   <property name="geometry">
+    <rect>
+     <x>1</x>
+     <y>332</y>
+     <width>200</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	color: #424242
+}</string>
+   </property>
+   <property name="text">
+    <string>Path</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="hLongitudeDetail">
+   <property name="geometry">
+    <rect>
+     <x>1</x>
+     <y>264</y>
+     <width>200</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	color: #424242
+}</string>
+   </property>
+   <property name="text">
+    <string>Longitude H(P,I,D)</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="referenceTwoDetail">
+   <property name="geometry">
+    <rect>
+     <x>1</x>
+     <y>352</y>
+     <width>200</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	color: #424242
+}</string>
+   </property>
+   <property name="text">
+    <string>Inf</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="referenceThreeDetail">
+   <property name="geometry">
+    <rect>
+     <x>1</x>
+     <y>372</y>
+     <width>200</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	color: #424242
+}</string>
+   </property>
+   <property name="text">
+    <string>Orbit</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="bankPitchThtrottleDetail">
+   <property name="geometry">
+    <rect>
+     <x>1</x>
+     <y>108</y>
+     <width>200</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	color: #424242
+}</string>
+   </property>
+   <property name="text">
+    <string>Throttle limit</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="xyLatitudeDetail">
+   <property name="geometry">
+    <rect>
+     <x>1</x>
+     <y>244</y>
+     <width>200</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	color: #424242
+}</string>
+   </property>
+   <property name="text">
+    <string>Latitude XY(P,I,D)</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="outerLoopLabel">
+   <property name="geometry">
+    <rect>
+     <x>1</x>
+     <y>224</y>
+     <width>251</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string>Outer loop gains</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="xPIDDetail">
+   <property name="geometry">
+    <rect>
+     <x>1</x>
+     <y>156</y>
+     <width>200</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	color: #424242
+}</string>
+   </property>
+   <property name="text">
+    <string>X K(P,I,D)</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="stallDetail">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>20</y>
+     <width>200</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	color: #424242
+}</string>
+   </property>
+   <property name="text">
+    <string>Stall value for simulation</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="pathValue" native="true">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>332</y>
+     <width>108</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="orbitValue" native="true">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>372</y>
+     <width>108</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="infValue" native="true">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>352</y>
+     <width>108</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="throttleP" native="true">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>284</y>
+     <width>36</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="throttleI" native="true">
+   <property name="geometry">
+    <rect>
+     <x>234</x>
+     <y>284</y>
+     <width>36</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="throttleD" native="true">
+   <property name="geometry">
+    <rect>
+     <x>268</x>
+     <y>284</y>
+     <width>36</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="longitudeD" native="true">
+   <property name="geometry">
+    <rect>
+     <x>268</x>
+     <y>264</y>
+     <width>36</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="longitudeI" native="true">
+   <property name="geometry">
+    <rect>
+     <x>234</x>
+     <y>264</y>
+     <width>36</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="longitudeP" native="true">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>264</y>
+     <width>36</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="lattitudeD" native="true">
+   <property name="geometry">
+    <rect>
+     <x>268</x>
+     <y>244</y>
+     <width>36</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="lattitudeP" native="true">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>244</y>
+     <width>36</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="lattitudeI" native="true">
+   <property name="geometry">
+    <rect>
+     <x>234</x>
+     <y>244</y>
+     <width>36</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="zI" native="true">
+   <property name="geometry">
+    <rect>
+     <x>234</x>
+     <y>196</y>
+     <width>36</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="xP" native="true">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>160</y>
+     <width>36</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="zP" native="true">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>196</y>
+     <width>36</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="zD" native="true">
+   <property name="geometry">
+    <rect>
+     <x>268</x>
+     <y>196</y>
+     <width>36</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="xD" native="true">
+   <property name="geometry">
+    <rect>
+     <x>268</x>
+     <y>160</y>
+     <width>36</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="xI" native="true">
+   <property name="geometry">
+    <rect>
+     <x>234</x>
+     <y>160</y>
+     <width>36</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="yI" native="true">
+   <property name="geometry">
+    <rect>
+     <x>234</x>
+     <y>180</y>
+     <width>36</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="yP" native="true">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>180</y>
+     <width>36</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="yD" native="true">
+   <property name="geometry">
+    <rect>
+     <x>268</x>
+     <y>180</y>
+     <width>36</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="phiValue" native="true">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>68</y>
+     <width>108</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="thetaValue" native="true">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>88</y>
+     <width>108</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="throttleValue" native="true">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>108</y>
+     <width>108</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="stallValue" native="true">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>20</y>
+     <width>108</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

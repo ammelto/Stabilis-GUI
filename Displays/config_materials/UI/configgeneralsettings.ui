@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>configGeneralSettings</class>
+ <widget class="QWidget" name="configGeneralSettings">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>355</width>
+    <height>220</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QSlider" name="simulationToggle">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>45</y>
+     <width>31</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QSlider::groove:horizontal {
+background: #9E9E9E;
+height: 14px;
+border-radius: 7px;
+}
+
+QSlider::handle:horizontal {
+background:white;
+width: 12px;
+height: 14px;
+margin: 1px;
+border-radius: 5px;
+}
+</string>
+   </property>
+   <property name="maximum">
+    <number>1</number>
+   </property>
+   <property name="singleStep">
+    <number>1</number>
+   </property>
+   <property name="pageStep">
+    <number>100</number>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="windowLabel">
+   <property name="geometry">
+    <rect>
+     <x>5</x>
+     <y>5</y>
+     <width>345</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	color: #616161
+}</string>
+   </property>
+   <property name="text">
+    <string>General</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="simulationLabel">
+   <property name="geometry">
+    <rect>
+     <x>15</x>
+     <y>30</y>
+     <width>251</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string>Simulation mode</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="htlLabel">
+   <property name="geometry">
+    <rect>
+     <x>15</x>
+     <y>78</y>
+     <width>251</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string>HIL mode</string>
+   </property>
+  </widget>
+  <widget class="QSlider" name="htlToggle">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>92</y>
+     <width>31</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QSlider::groove:horizontal {
+background: #9E9E9E;
+height: 14px;
+border-radius: 7px;
+}
+
+QSlider::handle:horizontal {
+background:white;
+width: 12px;
+height: 14px;
+margin: 1px;
+border-radius: 5px;
+}
+</string>
+   </property>
+   <property name="maximum">
+    <number>1</number>
+   </property>
+   <property name="singleStep">
+    <number>1</number>
+   </property>
+   <property name="pageStep">
+    <number>100</number>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="gcsCommsLabel">
+   <property name="geometry">
+    <rect>
+     <x>15</x>
+     <y>124</y>
+     <width>251</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string>UART communication</string>
+   </property>
+  </widget>
+  <widget class="QSlider" name="gcsToggle">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>139</y>
+     <width>31</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QSlider::groove:horizontal {
+background: #9E9E9E;
+height: 14px;
+border-radius: 7px;
+}
+
+QSlider::handle:horizontal {
+background:white;
+width: 12px;
+height: 14px;
+margin: 1px;
+border-radius: 5px;
+}
+</string>
+   </property>
+   <property name="maximum">
+    <number>1</number>
+   </property>
+   <property name="singleStep">
+    <number>1</number>
+   </property>
+   <property name="pageStep">
+    <number>100</number>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="dataLoggingLabel">
+   <property name="geometry">
+    <rect>
+     <x>15</x>
+     <y>172</y>
+     <width>251</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string>Data logging</string>
+   </property>
+  </widget>
+  <widget class="QSlider" name="dataToggle">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>186</y>
+     <width>31</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QSlider::groove:horizontal {
+background: #9E9E9E;
+height: 14px;
+border-radius: 7px;
+}
+
+QSlider::handle:horizontal {
+background:white;
+width: 12px;
+height: 14px;
+margin: 1px;
+border-radius: 5px;
+}
+</string>
+   </property>
+   <property name="maximum">
+    <number>1</number>
+   </property>
+   <property name="singleStep">
+    <number>1</number>
+   </property>
+   <property name="pageStep">
+    <number>100</number>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="simDetailLabel">
+   <property name="geometry">
+    <rect>
+     <x>15</x>
+     <y>50</y>
+     <width>301</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	color: #424242
+}</string>
+   </property>
+   <property name="text">
+    <string>Enables simulation mode for XPlane</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="htlDetailLabel">
+   <property name="geometry">
+    <rect>
+     <x>15</x>
+     <y>97</y>
+     <width>301</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	color: #424242
+}</string>
+   </property>
+   <property name="text">
+    <string>Propellers should be disabled for copter simulation</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="gcsDetailLabel">
+   <property name="geometry">
+    <rect>
+     <x>15</x>
+     <y>144</y>
+     <width>301</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	color: #424242
+}</string>
+   </property>
+   <property name="text">
+    <string>Disabling defaults comms mode to UDP</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="dataDetailLabel">
+   <property name="geometry">
+    <rect>
+     <x>15</x>
+     <y>191</y>
+     <width>301</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	color: #424242
+}</string>
+   </property>
+   <property name="text">
+    <string>Stores data logs in your Stabilis folder</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

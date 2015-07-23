@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>configdisplay</class>
+ <widget class="QWidget" name="configdisplay">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>900</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QWidget" name="generalSettings" native="true">
+   <property name="geometry">
+    <rect>
+     <x>48</x>
+     <y>28</y>
+     <width>355</width>
+     <height>220</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="networkSettings" native="true">
+   <property name="geometry">
+    <rect>
+     <x>48</x>
+     <y>262</y>
+     <width>355</width>
+     <height>294</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="vehicleSettings" native="true">
+   <property name="geometry">
+    <rect>
+     <x>414</x>
+     <y>28</y>
+     <width>338</width>
+     <height>528</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="controllerSettings" native="true">
+   <property name="geometry">
+    <rect>
+     <x>48</x>
+     <y>570</y>
+     <width>704</width>
+     <height>300</height>
+    </rect>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

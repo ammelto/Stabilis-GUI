@@ -1,0 +1,1 @@
+not sure if libssh2 calls block or not. Should run write and read calls in our own secondary thread
