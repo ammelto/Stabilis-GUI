@@ -46,6 +46,8 @@ private:
 public slots:
     void select(QListWidgetItem *item);
     void buttonHandler();
+signals:
+    void globalSave();
 };
 
 #endif // CONFIGVEHICLESETTINGS_H

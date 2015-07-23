@@ -13,6 +13,994 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <widget class="QLabel" name="windowLabel">
+   <property name="geometry">
+    <rect>
+     <x>5</x>
+     <y>5</y>
+     <width>200</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	color: #616161
+}</string>
+   </property>
+   <property name="text">
+    <string>Peripherals</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="sensorBusDetail">
+   <property name="geometry">
+    <rect>
+     <x>15</x>
+     <y>50</y>
+     <width>140</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	color: #424242
+}</string>
+   </property>
+   <property name="text">
+    <string>Sensor Buses</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="sensorLabel">
+   <property name="geometry">
+    <rect>
+     <x>15</x>
+     <y>30</y>
+     <width>140</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string>Sensor details</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="sensorAddressDetail">
+   <property name="geometry">
+    <rect>
+     <x>15</x>
+     <y>70</y>
+     <width>120</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	color: #424242
+}</string>
+   </property>
+   <property name="text">
+    <string>Sensor Address</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="barometerAddressDetail">
+   <property name="geometry">
+    <rect>
+     <x>15</x>
+     <y>110</y>
+     <width>120</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	color: #424242
+}</string>
+   </property>
+   <property name="text">
+    <string>Barometer Addresses</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="barometerBusDetail">
+   <property name="geometry">
+    <rect>
+     <x>15</x>
+     <y>90</y>
+     <width>120</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	color: #424242
+}</string>
+   </property>
+   <property name="text">
+    <string>Barometer Buses</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="IMUDetail">
+   <property name="geometry">
+    <rect>
+     <x>15</x>
+     <y>130</y>
+     <width>120</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	color: #424242
+}</string>
+   </property>
+   <property name="text">
+    <string>IMU</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="radioDetail">
+   <property name="geometry">
+    <rect>
+     <x>15</x>
+     <y>150</y>
+     <width>120</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	color: #424242
+}</string>
+   </property>
+   <property name="text">
+    <string>Radio</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="oneDetail">
+   <property name="geometry">
+    <rect>
+     <x>175</x>
+     <y>35</y>
+     <width>15</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	color: #424242
+}</string>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;1&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="twoDetail">
+   <property name="geometry">
+    <rect>
+     <x>225</x>
+     <y>35</y>
+     <width>15</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	color: #424242
+}</string>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;2&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="fiveDetail">
+   <property name="geometry">
+    <rect>
+     <x>375</x>
+     <y>35</y>
+     <width>15</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	color: #424242
+}</string>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;5&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="fourLabel">
+   <property name="geometry">
+    <rect>
+     <x>325</x>
+     <y>35</y>
+     <width>15</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	color: #424242
+}</string>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;4&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="threeLabel">
+   <property name="geometry">
+    <rect>
+     <x>275</x>
+     <y>35</y>
+     <width>15</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	color: #424242
+}</string>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;3&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="F00" native="true">
+   <property name="geometry">
+    <rect>
+     <x>155</x>
+     <y>50</y>
+     <width>50</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="F01" native="true">
+   <property name="geometry">
+    <rect>
+     <x>205</x>
+     <y>50</y>
+     <width>50</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="F04" native="true">
+   <property name="geometry">
+    <rect>
+     <x>355</x>
+     <y>50</y>
+     <width>50</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="F02" native="true">
+   <property name="geometry">
+    <rect>
+     <x>255</x>
+     <y>50</y>
+     <width>50</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="F03" native="true">
+   <property name="geometry">
+    <rect>
+     <x>305</x>
+     <y>50</y>
+     <width>50</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="F14" native="true">
+   <property name="geometry">
+    <rect>
+     <x>355</x>
+     <y>70</y>
+     <width>50</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="F12" native="true">
+   <property name="geometry">
+    <rect>
+     <x>255</x>
+     <y>70</y>
+     <width>50</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="F13" native="true">
+   <property name="geometry">
+    <rect>
+     <x>305</x>
+     <y>70</y>
+     <width>50</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="F10" native="true">
+   <property name="geometry">
+    <rect>
+     <x>155</x>
+     <y>70</y>
+     <width>50</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="F11" native="true">
+   <property name="geometry">
+    <rect>
+     <x>205</x>
+     <y>70</y>
+     <width>50</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="F24" native="true">
+   <property name="geometry">
+    <rect>
+     <x>355</x>
+     <y>90</y>
+     <width>50</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="F22" native="true">
+   <property name="geometry">
+    <rect>
+     <x>255</x>
+     <y>90</y>
+     <width>50</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="F23" native="true">
+   <property name="geometry">
+    <rect>
+     <x>305</x>
+     <y>90</y>
+     <width>50</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="F20" native="true">
+   <property name="geometry">
+    <rect>
+     <x>155</x>
+     <y>90</y>
+     <width>50</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="F21" native="true">
+   <property name="geometry">
+    <rect>
+     <x>205</x>
+     <y>90</y>
+     <width>50</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="F34" native="true">
+   <property name="geometry">
+    <rect>
+     <x>355</x>
+     <y>110</y>
+     <width>50</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="F32" native="true">
+   <property name="geometry">
+    <rect>
+     <x>255</x>
+     <y>110</y>
+     <width>50</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="F33" native="true">
+   <property name="geometry">
+    <rect>
+     <x>305</x>
+     <y>110</y>
+     <width>50</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="F30" native="true">
+   <property name="geometry">
+    <rect>
+     <x>155</x>
+     <y>110</y>
+     <width>50</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="F31" native="true">
+   <property name="geometry">
+    <rect>
+     <x>205</x>
+     <y>110</y>
+     <width>50</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="F44" native="true">
+   <property name="geometry">
+    <rect>
+     <x>355</x>
+     <y>130</y>
+     <width>50</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="F42" native="true">
+   <property name="geometry">
+    <rect>
+     <x>255</x>
+     <y>130</y>
+     <width>50</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="F43" native="true">
+   <property name="geometry">
+    <rect>
+     <x>305</x>
+     <y>130</y>
+     <width>50</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="F40" native="true">
+   <property name="geometry">
+    <rect>
+     <x>155</x>
+     <y>130</y>
+     <width>50</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="F41" native="true">
+   <property name="geometry">
+    <rect>
+     <x>205</x>
+     <y>130</y>
+     <width>50</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="F54" native="true">
+   <property name="geometry">
+    <rect>
+     <x>355</x>
+     <y>150</y>
+     <width>50</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="F52" native="true">
+   <property name="geometry">
+    <rect>
+     <x>255</x>
+     <y>150</y>
+     <width>50</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="F53" native="true">
+   <property name="geometry">
+    <rect>
+     <x>305</x>
+     <y>150</y>
+     <width>50</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="F50" native="true">
+   <property name="geometry">
+    <rect>
+     <x>155</x>
+     <y>150</y>
+     <width>50</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="F51" native="true">
+   <property name="geometry">
+    <rect>
+     <x>205</x>
+     <y>150</y>
+     <width>50</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="controllerLabel">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>30</y>
+     <width>100</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string>Controller</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="aileronDetail">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>50</y>
+     <width>100</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	color: #424242
+}</string>
+   </property>
+   <property name="text">
+    <string>Aileron</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="elevatorDetail">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>70</y>
+     <width>100</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	color: #424242
+}</string>
+   </property>
+   <property name="text">
+    <string>Elevator</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="rudderDetail">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>90</y>
+     <width>100</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	color: #424242
+}</string>
+   </property>
+   <property name="text">
+    <string>Rudder</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="throttleDetail">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>110</y>
+     <width>100</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	color: #424242
+}</string>
+   </property>
+   <property name="text">
+    <string>Throttle</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="flapDetail">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>130</y>
+     <width>100</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	color: #424242
+}</string>
+   </property>
+   <property name="text">
+    <string>Flap</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="auxilleryDetail">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>150</y>
+     <width>100</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	color: #424242
+}</string>
+   </property>
+   <property name="text">
+    <string>Auxillery</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="modeDetail">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>170</y>
+     <width>100</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	color: #424242
+}</string>
+   </property>
+   <property name="text">
+    <string>Mode</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="triggerDetail">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>190</y>
+     <width>100</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	color: #424242
+}</string>
+   </property>
+   <property name="text">
+    <string>Trigger</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="inDetail">
+   <property name="geometry">
+    <rect>
+     <x>575</x>
+     <y>35</y>
+     <width>15</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	color: #424242
+}</string>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;In&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="outDetail">
+   <property name="geometry">
+    <rect>
+     <x>625</x>
+     <y>35</y>
+     <width>20</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	color: #424242
+}</string>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Out&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="c00" native="true">
+   <property name="geometry">
+    <rect>
+     <x>555</x>
+     <y>50</y>
+     <width>50</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="c10" native="true">
+   <property name="geometry">
+    <rect>
+     <x>555</x>
+     <y>70</y>
+     <width>50</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="c20" native="true">
+   <property name="geometry">
+    <rect>
+     <x>555</x>
+     <y>90</y>
+     <width>50</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="c40" native="true">
+   <property name="geometry">
+    <rect>
+     <x>555</x>
+     <y>130</y>
+     <width>50</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="c60" native="true">
+   <property name="geometry">
+    <rect>
+     <x>555</x>
+     <y>170</y>
+     <width>50</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="c30" native="true">
+   <property name="geometry">
+    <rect>
+     <x>555</x>
+     <y>110</y>
+     <width>50</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="c50" native="true">
+   <property name="geometry">
+    <rect>
+     <x>555</x>
+     <y>150</y>
+     <width>50</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="c70" native="true">
+   <property name="geometry">
+    <rect>
+     <x>555</x>
+     <y>190</y>
+     <width>50</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="c01" native="true">
+   <property name="geometry">
+    <rect>
+     <x>610</x>
+     <y>50</y>
+     <width>50</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="c11" native="true">
+   <property name="geometry">
+    <rect>
+     <x>610</x>
+     <y>70</y>
+     <width>50</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="c21" native="true">
+   <property name="geometry">
+    <rect>
+     <x>610</x>
+     <y>90</y>
+     <width>50</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="c31" native="true">
+   <property name="geometry">
+    <rect>
+     <x>610</x>
+     <y>110</y>
+     <width>50</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="c41" native="true">
+   <property name="geometry">
+    <rect>
+     <x>610</x>
+     <y>130</y>
+     <width>50</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="c51" native="true">
+   <property name="geometry">
+    <rect>
+     <x>610</x>
+     <y>150</y>
+     <width>50</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="c61" native="true">
+   <property name="geometry">
+    <rect>
+     <x>610</x>
+     <y>170</y>
+     <width>50</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="c71" native="true">
+   <property name="geometry">
+    <rect>
+     <x>610</x>
+     <y>190</y>
+     <width>50</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="limitLabel">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>210</y>
+     <width>140</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string>Servo limits</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="aileronLimitDetail">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>230</y>
+     <width>100</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	color: #424242
+}</string>
+   </property>
+   <property name="text">
+    <string>Aileron limit</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="rudderLimitDetail">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>270</y>
+     <width>100</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	color: #424242
+}</string>
+   </property>
+   <property name="text">
+    <string>Rudder limit</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="elevatorLimitDetail">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>250</y>
+     <width>100</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	color: #424242
+}</string>
+   </property>
+   <property name="text">
+    <string>Elevator limit</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="rudderLimitValue" native="true">
+   <property name="geometry">
+    <rect>
+     <x>555</x>
+     <y>270</y>
+     <width>100</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="elevatorLimitValue" native="true">
+   <property name="geometry">
+    <rect>
+     <x>555</x>
+     <y>250</y>
+     <width>100</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="aileronLimitValue" native="true">
+   <property name="geometry">
+    <rect>
+     <x>555</x>
+     <y>230</y>
+     <width>100</width>
+     <height>15</height>
+    </rect>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

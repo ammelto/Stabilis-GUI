@@ -23,6 +23,7 @@ configdisplay::configdisplay(QWidget *parent) :
     vehicleSettings = new configvehiclesettings(ui->vehicleSettings, config);
 
     connect(config,SIGNAL(update()),this,SLOT(update()));
+    connect(vehicleSettings,SIGNAL(globalSave()),controllerSettings,SLOT(save()));
 
 }
 

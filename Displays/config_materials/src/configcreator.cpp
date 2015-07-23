@@ -596,12 +596,12 @@ void configcreator::setSensorBus2(QString v){
 
 void configcreator::setSensorAddress1(QString v){
     map.insert("Sensor Bus Address 1", v);
-    writeFile("~pSensorBusAddress1", v);
+    writeFile("~pSensorAddress1", v);
 }
 
 void configcreator::setSensorAddress2(QString v){
     map.insert("Sensor Bus Address 2", v);
-    writeFile("~pSensorBusAddress2", v);
+    writeFile("~pSensorAddress2", v);
 }
 
 void configcreator::setBaroBus1(QString v){

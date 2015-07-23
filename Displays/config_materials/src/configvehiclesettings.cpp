@@ -108,7 +108,7 @@ void configvehiclesettings::setTheme(QColor p, QColor s, QColor f){
 void configvehiclesettings::save(){
     if(airplaneSheet != NULL){
         airplaneSheet->save();
-        qDebug() << "SAVED";
+        this->globalSave();
     }
 }
 
@@ -123,9 +123,8 @@ void configvehiclesettings::buttonHandler(){
             qDebug() << "Load";
             setLoadState();
         }else if(state == loadState){
-            qDebug() << "Select";
-            setDefaultState();
-            load("../Userdata/" + fileList->getSelected());
+            qDebug() << "New";
+            setAdvancedState();
         }
     }else if(obj == advancedButton){
         if(state == defaultState){
@@ -170,6 +169,11 @@ void configvehiclesettings::setAdvancedState(){
     advancedButton->setButtonText("Cancel");
     loadButton->setButtonText("OK");
     saveButton->setButtonText("Load");
+    if(state == loadState) fileList->hide();
+    ui->loadedVehicle->setText("");
+    ui->windowLabel->setText("");
+    ui->overlay->setText("Create a new vehicle");
+    ui->overlay->setAlignment(Qt::AlignCenter);
     state = advancedState;
 
     if(newVehicle == NULL){
@@ -190,9 +194,9 @@ void configvehiclesettings::setLoadState(){
 
     advancedButton->setButtonText("Back");
     loadButton->setButtonText("Browse...");
-    saveButton->setButtonText("Select");
+    saveButton->setButtonText("New");
 
-    ui->overlay->setText("Load or create a vehicle");
+    ui->overlay->setText("Load a vehicle");
     ui->overlay->setAlignment(Qt::AlignCenter);
     ui->windowLabel->setText("");
     ui->loadedVehicle->setText("");
