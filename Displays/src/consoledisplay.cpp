@@ -8,6 +8,7 @@ consoledisplay::consoledisplay(QWidget *parent) :
     ui->setupUi(this);
 
 
+    terminal = new TerminalWindow(ui->console);
 }
 
 consoledisplay::~consoledisplay()
@@ -83,6 +84,5 @@ void consoledisplay::writeCallback(int status){
  *
  * */
 void consoledisplay::readMessage(){
-
 
 }

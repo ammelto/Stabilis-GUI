@@ -80,7 +80,6 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(sideMenu,SIGNAL(setDisplay(int)),this,SLOT(setDisplay(int)));
     connect(windowDisplay, SIGNAL(setTheme(QColor,QColor,QColor)),this,SLOT(setTheme(QColor,QColor,QColor)));
 
-    //QSettings settings("../v1.0/Stabilis-GUI/Stabilis.ini", QSettings::IniFormat);
 
     //Loads the theme colors from the ini file.
     QSettings settings(":/files/Stabilis.ini", QSettings::IniFormat);
@@ -88,7 +87,6 @@ MainWindow::MainWindow(QWidget *parent) :
     settings.beginGroup("Settings");
     this->setTheme(QColor(settings.value("primary").toString()), QColor(settings.value("secondary").toString()), QColor(settings.value("font").toString()));
     settings.endGroup();
-
 
 }
 

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>newVehicleDialog</class>
+ <widget class="QWidget" name="newVehicleDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>308</width>
+    <height>468</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QLabel" name="templateLabel">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>251</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="text">
+    <string>New Template</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="templateDetail">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>20</y>
+     <width>200</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	color: #424242
+}</string>
+   </property>
+   <property name="text">
+    <string>Vehicle Type</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="VIDBox">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>15</y>
+     <width>101</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+</string>
+   </property>
+   <item>
+    <property name="text">
+     <string>Airplane</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Car</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Copter</string>
+    </property>
+   </item>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
