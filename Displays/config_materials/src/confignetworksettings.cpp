@@ -9,7 +9,7 @@
 
 confignetworksettings::confignetworksettings(QWidget *parent, configcreator *config) :
     QWidget(parent),
-    ui(new Ui::confignetworksettings)
+    ui(new Ui::confignetworksettings)//what is this doing?
 {
     ui->setupUi(this);
 

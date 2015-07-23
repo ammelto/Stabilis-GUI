@@ -21,7 +21,7 @@ public:
     void save();
     ~configdisplay();
 
-private:
+public:
     configcontrollersettings *controllerSettings;
     configGeneralSettings *generalSettings;
     confignetworksettings *networkSettings;

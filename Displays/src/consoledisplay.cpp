@@ -1,7 +1,11 @@
 #include "../headers/consoledisplay.h"
 #include "ui_consoledisplay.h"
+#include "console.h"
 
-consoledisplay::consoledisplay(QWidget *parent) :
+
+console_thread* con_thread;
+
+consoledisplay::consoledisplay(QWidget* parent) :
     QWidget(parent),
     ui(new Ui::consoledisplay)
 {
@@ -25,8 +29,18 @@ consoledisplay::~consoledisplay()
  * and attempts to connect to the given target
  *
  * */
-void consoledisplay::connectConsole(){
+int consoledisplay::connectConsole(QString host, QString port, QString username, QString password){
 
+    remote_connection_data* data;
+
+    if(host == NULL || port == NULL || username == NULL || password == NULL){
+        return -1;
+    }
+
+    data = new remote_connection_data();
+
+    con_thread = new console_thread(this, data);
+    con_thread->start();
 
 
 }
@@ -56,7 +70,7 @@ void consoledisplay::connectCallback(int status){
  *
  *
  * */
-void consoledisplay::writeCommand(){
+int consoledisplay::writeCommand(){
 
 
 }

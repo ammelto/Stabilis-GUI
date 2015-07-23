@@ -1,9 +1,10 @@
-
+/*
+ * TODO:abstract these ssh functions into platform independent calls.
+ *include platform specific headers which link to platform specific definitions *
+ *
+ * */
 
 #include "console.h"
-#include <libssh2_config.h>
-#include <libssh2.h>
-#include <libssh2_sftp.h>
 
 #ifdef HAVE_WINSOCK2_H
 #include <windows.h>
@@ -37,7 +38,77 @@
 #include <ctype.h>
 
 
-int open_console() {
+/*
+ * One thread should be designed to handle multiple connections?
+ * For now it can only handle one.
+ *
+ * */
+console_thread::console_thread(consoledisplay* console_control, remote_connection_data* data){
+    this->data = data;
+    this->console_control = console_control;
+}
+
+
+/*
+ *The console thread will be created on connection and will run
+ *until connection fails or the user elects to terminate the connection
+ *
+ *
+ * */
+void console_thread::run(){
+    begin_console_thread(this->data);
+    clean_up(this->data);
+    return;
+}
+
+static void begin_console_thread(remote_connection_data* data){
+    err = open_console(data);
+    console_control->connectCallback(err);
+    if(err){
+        return;
+    }
+    run_loop(data);
+}
+
+/*
+ *This function runs continuously as a reader/writer
+ *and receives commands from a global struct.
+ *
+ *The global struct can also signal this function to return / clean up
+ *
+ * */
+static void run_shell(remote_connection_data* data){
+    int err = 0;
+
+    while(1){
+        // procedure is check termination flag, write command-wait-read remote, write file, read file
+        if(data->instruction_flags & TERMINATE){
+            break;
+        }
+        if(data->instruction_flags & WRITE_COMMAND){
+
+        }
+        if(data->instruction_flags & READ_COMMAND){
+
+        }
+        if(data->instruction_flags & WRITE_FILE){
+
+        }
+        if(data->instruction_flags & READ_FILE){
+
+        }
+
+    }
+
+}
+
+static void clean_up(remote_connection_data* data){
+
+
+}
+
+
+int open_console(remote_connection_data* data) {
 
     const char *hostaddr = "192.168.7.2";
     const char *commandline = "uptime";
@@ -189,3 +260,50 @@ usleep(200000);
 
     return (EXIT_SUCCESS);
 }
+
+
+int run_shell(){
+
+    do {
+        /* Request for command input */
+        printf("$ ");
+        fgets(command, BUFSIZ, stdin);
+        printf("Command is %s", command);
+        if (strcmp(command, "\n") == 0) {
+            printf("Empty command\n");
+            continue;
+        }
+        //libssh2_channel_flush_ex(channel, LIBSSH2_CHANNEL_FLUSH_ALL);
+        /* Write command to stdin of remote shell */
+        rc = libssh2_channel_write(channel, command, strlen(command));
+        //printf("Channel write return value is %d\n", rc);
+
+        /* Read output from remote side */
+usleep(200000);
+       libssh2_channel_read(channel, inputbuf, BUFSIZ);
+            printf("Remote side output:\n %s\n", inputbuf);
+    } while (strcmp(command, EXIT_COMMAND) != 0);
+    /* Main loop ends here */
+
+
+
+return 0;
+
+}
+
+
+/*
+ *This function attempts to write a file to a remote file
+ *
+ *
+ * */
+int send_file(char* src, char* remote_dest){
+
+
+return 0;
+}
+
+int receive_file(char* remote_src, char* dest){
+
+}
+

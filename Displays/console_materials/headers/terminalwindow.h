@@ -2,12 +2,12 @@
 #define TERMINALWINDOW_H
 
 #include <QWidget>
-
+#include <QPlainTextEdit>
 namespace Ui {
 class TerminalWindow;
 }
 
-class TerminalWindow : public QWidget
+class TerminalWindow : public QPlainTextEdit
 {
     Q_OBJECT
 
@@ -17,6 +17,17 @@ public:
 
 private:
     Ui::TerminalWindow *ui;
+    void putData(const QByteArray &data);
+    void setLocalEchoEnabled(bool set);
+    void keyPressEvent(QKeyEvent *e);
+    void mousePressEvent(QMouseEvent *e);
+    void mouseDoubleClickEvent(QMouseEvent *e);
+    void contextMenuEvent(QContextMenuEvent *e);
+
+public:
+    bool localEchoEnabled;
 };
+
+
 
 #endif // TERMINALWINDOW_H

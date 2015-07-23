@@ -15,15 +15,18 @@ class consoledisplay : public QWidget
 public:
     explicit consoledisplay(QWidget *parent = 0);
     ~consoledisplay();
-    void connectConsole();
+    int connectConsole();
     void connectCallback(int status);
-    void writeCommand();
+    int writeCommand();
     void writeCallback(int status);
     void readMessage();
 
 private:
     Ui::consoledisplay *ui;
     TerminalWindow *terminal;
+
+public slots:
+    int connectConsole(QString host, QString port, QString username, QString password);
 };
 
 #endif // CONSOLEDISPLAY_H

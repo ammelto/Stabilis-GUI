@@ -80,6 +80,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(sideMenu,SIGNAL(setDisplay(int)),this,SLOT(setDisplay(int)));
     connect(windowDisplay, SIGNAL(setTheme(QColor,QColor,QColor)),this,SLOT(setTheme(QColor,QColor,QColor)));
 
+    connect(configDisplay->networkSettings, SIGNAL(startConnection(QString,QString,QString,QString)), consoleDisplay, SLOT(connectConsole(QString,QString,QString,QString)));
 
     //Loads the theme colors from the ini file.
     QSettings settings(":/files/Stabilis.ini", QSettings::IniFormat);

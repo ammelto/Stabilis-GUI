@@ -23,7 +23,7 @@ LIBS += -static -LC:/Qt/Tools/mingw492_32/i686-w64-mingw32/lib/ -lcrypt32 #must 
 CONFIG += console
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
+mainwindow.cpp \
         sidemenu.cpp \
         titlebar.cpp \
         Displays\config_materials\src\configcontrollersettings.cpp\
@@ -40,13 +40,14 @@ SOURCES += main.cpp\
         slider.cpp \
         genericbutton.cpp \
         inputfield.cpp \
-        Displays/config_materials/src/airplanetemplate.cpp \
+        Displays\config_materials\src\airplanetemplate.cpp \
         Displays\config_materials\src\loadvehicledialog.cpp \
-    console.cpp
-
+        Displays\config_materials\src\newvehicledialog.cpp \
+        Displays/console_materials/src/terminalwindow.cpp \
+console.cpp
 
 HEADERS  += mainwindow.h \
-        sidemenu.h \
+ sidemenu.h \
         titlebar.h \
         Displays\config_materials\headers\configcontrollersettings.h\
         Displays\config_materials\headers\configgeneralsettings.h\
@@ -64,10 +65,12 @@ HEADERS  += mainwindow.h \
         inputfield.h \
         Displays/config_materials/headers/airplanetemplate.h \
         Displays/config_materials/headers/loadvehicledialog.h \
-    console.h
+        Displays/config_materials/headers/newvehicledialog.h \
+        Displays/console_materials/headers/terminalwindow.h \
+console.h
 
 FORMS    += UI\mainwindow.ui \
-        UI\sidemenu.ui \
+UI\sidemenu.ui \
         UI\titlebar.ui \
         UI\homedisplay.ui \
         UI\configdisplay.ui \
@@ -84,6 +87,8 @@ FORMS    += UI\mainwindow.ui \
         inputfield.ui \
         Displays/config_materials/UI/airplanetemplate.ui \
         Displays/config_materials/UI/loadvehicledialog.ui \
+        Displays/config_materials/UI/newvehicledialog.ui \
+        Displays/console_materials/UI/terminalwindow.ui \
 
 RESOURCES += \
     Resources.qrc
