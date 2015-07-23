@@ -11,7 +11,7 @@ LoadVehicleDialog::LoadVehicleDialog(QWidget *parent, configcreator *config) :
     ui->setupUi(this);
     conf = config;
 
-    QSettings settings("../Stabilis-GUI/Stabilis.ini", QSettings::IniFormat);
+    QSettings settings(":/files/Stabilis.ini", QSettings::IniFormat);
     settings.beginGroup("Settings");
     QString s = settings.value("secondary").toString();
     QString p = settings.value("primary").toString();

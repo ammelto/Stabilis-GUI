@@ -21,8 +21,11 @@ inputField::inputField(QWidget *parent, QRect r, QString s, QString d) :
     color.append("QWidget{ background: #9E9E9E; }");
     ui->selectionBar->setStyleSheet(color);
 
-    if(d != ""){
+    if(d != "" && d != "$PASSFIELD"){
         ui->lineEdit->setText(d);
+    }else if(d == "$PASSFIELD"){
+        ui->lineEdit->setEchoMode(QLineEdit::Password);
+        ui->lineEdit->setInputMethodHints(Qt::ImhHiddenText| Qt::ImhNoPredictiveText|Qt::ImhNoAutoUppercase);
     }
 }
 

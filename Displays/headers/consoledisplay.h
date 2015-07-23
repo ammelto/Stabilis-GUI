@@ -1,5 +1,6 @@
 #ifndef CONSOLEDISPLAY_H
 #define CONSOLEDISPLAY_H
+#include "../console_materials/headers/terminalwindow.h"
 
 #include <QWidget>
 
@@ -17,6 +18,7 @@ public:
 
 private:
     Ui::consoledisplay *ui;
+    TerminalWindow *terminal;
 };
 
 #endif // CONSOLEDISPLAY_H

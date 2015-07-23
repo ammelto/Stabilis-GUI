@@ -3,6 +3,7 @@
 #include "../headers/configvehiclesettings.h"
 #include "../headers/airplanetemplate.h"
 #include "../headers/loadvehicledialog.h"
+#include "../headers/newvehicledialog.h"
 #include "./configcreator.h"
 #include "./genericbutton.h"
 #include <QListWidget>
@@ -29,6 +30,7 @@ private:
     };
     configcreator *conf;
     QWidget *currentTemplate;
+    newVehicleDialog *newVehicle;
     LoadVehicleDialog *fileList;
     airplaneTemplate *airplaneSheet;
     genericButton *advancedButton;

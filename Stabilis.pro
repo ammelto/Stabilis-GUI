@@ -33,8 +33,10 @@ SOURCES += main.cpp\
         slider.cpp \
         genericbutton.cpp \
         inputfield.cpp \
-        Displays/config_materials/src/airplanetemplate.cpp \
-        Displays\config_materials\src\loadvehicledialog.cpp
+        Displays\config_materials\src\airplanetemplate.cpp \
+        Displays\config_materials\src\loadvehicledialog.cpp \
+        Displays\config_materials\src\newvehicledialog.cpp \
+        Displays/console_materials/src/terminalwindow.cpp \
 
 
 HEADERS  += mainwindow.h \
@@ -56,6 +58,8 @@ HEADERS  += mainwindow.h \
         inputfield.h \
         Displays/config_materials/headers/airplanetemplate.h \
         Displays/config_materials/headers/loadvehicledialog.h \
+        Displays/config_materials/headers/newvehicledialog.h \
+        Displays/console_materials/headers/terminalwindow.h \
 
 FORMS    += UI\mainwindow.ui \
         UI\sidemenu.ui \
@@ -75,6 +79,8 @@ FORMS    += UI\mainwindow.ui \
         inputfield.ui \
         Displays/config_materials/UI/airplanetemplate.ui \
         Displays/config_materials/UI/loadvehicledialog.ui \
+        Displays/config_materials/UI/newvehicledialog.ui \
+        Displays/console_materials/UI/terminalwindow.ui \
 
 RESOURCES += \
     Resources.qrc

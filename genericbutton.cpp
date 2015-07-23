@@ -73,6 +73,21 @@ bool genericButton::eventFilter(QObject *obj, QEvent *event){
     return QObject::eventFilter(obj, event);
 }
 
+void genericButton::disable(){
+    this->removeEventFilter(this);
+    QString color;
+    color.append("QLabel{ background: " + secondary.name() + "; }");
+    this->setStyleSheet(color);
+}
+
+void genericButton::enable(){
+    this->installEventFilter(this);
+    QString color;
+    color.append("QLabel{ background: " + primary.name() + "; }");
+    this->setStyleSheet(color);
+}
+
+
 genericButton::~genericButton()
 {
     delete ui;

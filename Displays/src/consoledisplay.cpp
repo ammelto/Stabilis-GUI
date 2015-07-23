@@ -7,6 +7,7 @@ consoledisplay::consoledisplay(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    terminal = new TerminalWindow(ui->console);
 
 }
 

@@ -120,8 +120,8 @@ void configvehiclesettings::buttonHandler(){
             this->save();
             qDebug() << "Save";
         }else if(state == advancedState){
-            qDebug() << "Unused";
-            setDefaultState();
+            qDebug() << "Load";
+            setLoadState();
         }else if(state == loadState){
             qDebug() << "Select";
             setDefaultState();
@@ -157,19 +157,35 @@ void configvehiclesettings::setDefaultState(){
     loadButton->setButtonText("Load");
     saveButton->setButtonText("Save");
     if(state == loadState) fileList->hide();
+    if(state == advancedState) newVehicle->hide();
     if(currentTemplate != NULL) currentTemplate->show();
+
+    ui->loadedVehicle->setText(conf->getValue("Name"));
+    ui->overlay->setText("");
+    if(currentTemplate = airplaneSheet) ui->windowLabel->setText("Airplane");
     state = defaultState;
 }
 
 void configvehiclesettings::setAdvancedState(){
     advancedButton->setButtonText("Cancel");
     loadButton->setButtonText("OK");
-    saveButton->setButtonText("Unused");
+    saveButton->setButtonText("Load");
     state = advancedState;
-    currentTemplate->hide();
+
+    if(newVehicle == NULL){
+        newVehicle = new newVehicleDialog(ui->settingsArea);
+        newVehicle->show();
+    }else{
+        newVehicle->show();
+    }
+
+    if(currentTemplate != NULL){
+        currentTemplate->hide();
+    }
 }
 
 void configvehiclesettings::setLoadState(){
+    if(state == advancedState) newVehicle->hide();
     state = loadState;
 
     advancedButton->setButtonText("Back");

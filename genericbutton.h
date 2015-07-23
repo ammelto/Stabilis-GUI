@@ -16,6 +16,8 @@ public:
     void setButtonText(QString s);
     void setLocation(QRect r);
     void setTheme(QColor p, QColor s, QColor f);
+    void disable();
+    void enable();
     ~genericButton();
 
 private:
