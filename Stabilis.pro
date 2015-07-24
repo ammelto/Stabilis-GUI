@@ -37,6 +37,8 @@ SOURCES += main.cpp\
         Displays\config_materials\src\loadvehicledialog.cpp \
         Displays\config_materials\src\newvehicledialog.cpp \
         Displays/console_materials/src/terminalwindow.cpp \
+        Displays/docs_materials/src/docsnavmenu.cpp \
+        Displays/docs_materials/src/docscontentwindow.cpp
 
 
 HEADERS  += mainwindow.h \
@@ -60,6 +62,8 @@ HEADERS  += mainwindow.h \
         Displays/config_materials/headers/loadvehicledialog.h \
         Displays/config_materials/headers/newvehicledialog.h \
         Displays/console_materials/headers/terminalwindow.h \
+        Displays/docs_materials/headers/docsnavmenu.h \
+        Displays/docs_materials/headers/docscontentwindow.h
 
 FORMS    += UI\mainwindow.ui \
         UI\sidemenu.ui \
@@ -81,6 +85,8 @@ FORMS    += UI\mainwindow.ui \
         Displays/config_materials/UI/loadvehicledialog.ui \
         Displays/config_materials/UI/newvehicledialog.ui \
         Displays/console_materials/UI/terminalwindow.ui \
+        Displays/docs_materials/UI/docsnavmenu.ui \
+        Displays/docs_materials/UI/docscontentwindow.ui
 
 RESOURCES += \
     Resources.qrc

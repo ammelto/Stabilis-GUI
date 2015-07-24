@@ -6,6 +6,9 @@ docsdisplay::docsdisplay(QWidget *parent) :
     ui(new Ui::docsdisplay)
 {
     ui->setupUi(this);
+
+    nav = new DocsNavMenu(ui->navWindow);
+    content = new DocsContentWindow(ui->mainPage);
 }
 
 docsdisplay::~docsdisplay()

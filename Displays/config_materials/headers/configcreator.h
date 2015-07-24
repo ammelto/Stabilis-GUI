@@ -12,6 +12,7 @@ class configcreator : public QObject
 public:
     void loadFile(QString s);
     void writeFile(QString s, QString v);
+    void revert();
     QString readFile(QString s);
     QString getValue(QString key);
 
@@ -82,6 +83,7 @@ public:
 
 protected:
     QFile *loadedFile;
+    QFile *previousFile;
 
 private:
     QMap<QString, QString> map;

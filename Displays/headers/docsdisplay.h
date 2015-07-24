@@ -1,6 +1,8 @@
 #ifndef DOCSDISPLAY_H
 #define DOCSDISPLAY_H
 
+#include "../docs_materials/headers/docscontentwindow.h"
+#include "../docs_materials/headers/docsnavmenu.h"
 #include <QWidget>
 
 namespace Ui {
@@ -16,6 +18,8 @@ public:
     ~docsdisplay();
 
 private:
+    DocsNavMenu *nav;
+    DocsContentWindow *content;
     Ui::docsdisplay *ui;
 };
 

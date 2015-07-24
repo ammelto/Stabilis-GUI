@@ -6,24 +6,31 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>672</width>
-    <height>552</height>
+    <width>800</width>
+    <height>634</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QLabel" name="label">
+  <widget class="QWidget" name="mainPage" native="true">
    <property name="geometry">
     <rect>
-     <x>400</x>
-     <y>420</y>
-     <width>271</width>
-     <height>131</height>
+     <x>263</x>
+     <y>28</y>
+     <width>489</width>
+     <height>578</height>
     </rect>
    </property>
-   <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:72pt;&quot;&gt;DOCS&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+  </widget>
+  <widget class="QWidget" name="navWindow" native="true">
+   <property name="geometry">
+    <rect>
+     <x>48</x>
+     <y>28</y>
+     <width>200</width>
+     <height>578</height>
+    </rect>
    </property>
   </widget>
  </widget>

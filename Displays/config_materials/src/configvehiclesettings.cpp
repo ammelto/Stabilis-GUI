@@ -92,6 +92,7 @@ void configvehiclesettings::load(QString file){
         QErrorMessage *msg = new QErrorMessage(this);
         ui->loadedVehicle->setText("");
         msg->showMessage("File not recognized. Check your vehicle ID and try again.");
+        conf->revert();
     }
 }
 

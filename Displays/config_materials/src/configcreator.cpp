@@ -25,12 +25,13 @@ configcreator::configcreator()
 
 void configcreator::loadFile(QString s){
     if(s == "") return;
-
+    if(loadedFile != NULL) previousFile = loadedFile;
     loadedFile = new QFile(s);
 
     if(loadedFile->exists()){
 ;
         qDebug() << loadedFile;
+
         createMap();
         if(getValue("Vehicle ID") != ""){
             QSettings settings("../Stabilis-GUI/Stabilis.ini", QSettings::IniFormat);
@@ -67,6 +68,14 @@ QString configcreator::readFile(QString s){
         //Does not exist
     }
     return "";
+}
+
+void configcreator::revert(){
+    if(previousFile != NULL){
+        loadedFile = previousFile;
+        createMap();
+        update();
+    }
 }
 
 void configcreator::createMap(){
