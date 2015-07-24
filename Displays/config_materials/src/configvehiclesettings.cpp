@@ -46,7 +46,7 @@ configvehiclesettings::configvehiclesettings(QWidget *parent, configcreator *con
     loadButton->setButtonText("Load vehicle");
     saveButton->setButtonText("Save vehicle");
 
-    QSettings settings("../Stabilis-GUI/Stabilis.ini", QSettings::IniFormat);
+    QSettings settings(":/files/Stabilis.ini", QSettings::IniFormat);
     settings.beginGroup("Vehicle");
     load(settings.value("load").toString());
     settings.endGroup();
@@ -58,16 +58,18 @@ configvehiclesettings::configvehiclesettings(QWidget *parent, configcreator *con
 }
 
 void configvehiclesettings::load(QString file){
-    if(!file.contains(".stb")){
-        file.append(".stb");
-    }
-    qDebug() << file;
-    conf->loadFile(file);
-    QString s = conf->getValue("Vehicle ID");
-    qDebug() << s;
+    QString s = "";
+    if(file != ""){
+        if(!file.contains(".stb")) file.append(".stb");
 
-    ui->loadedVehicle->setText(conf->getValue("Name"));
-    ui->loadedVehicle->setAlignment(Qt::AlignRight);
+        qDebug() << file;
+        conf->loadFile(file);
+        s = conf->getValue("Vehicle ID");
+        qDebug() << s;
+
+        ui->loadedVehicle->setText(conf->getValue("Name"));
+        ui->loadedVehicle->setAlignment(Qt::AlignRight);
+    }
 
     //5 represents an airplane ID
     if(s == "5"){

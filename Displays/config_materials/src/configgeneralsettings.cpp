@@ -43,11 +43,18 @@ configGeneralSettings::configGeneralSettings(QWidget *parent, configcreator *con
     connect(ui->gcsToggle,SIGNAL(valueChanged(int)),this,SLOT(toggleListener(int)));
     connect(conf,SIGNAL(update()),this,SLOT(update()));
 
-
+    if(conf->getValue("Vehicle ID") == ""){
+        ui->simulationToggle->setEnabled(false);
+        ui->htlToggle->setEnabled(false);
+        ui->gcsToggle->setEnabled(false);
+        ui->dataToggle->setEnabled(false);
+    }
 }
 
 void configGeneralSettings::toggleListener(int value){
     QObject* obj = sender();
+
+    if(conf->getValue("Vehicle ID") == "") return;
 
     QSettings settings(":/files/Stabilis.ini", QSettings::IniFormat);
     settings.beginGroup("Settings");
@@ -108,6 +115,18 @@ void configGeneralSettings::update(){
     ui->htlToggle->setValue(conf->getValue("HIL Mode").toInt());
     ui->gcsToggle->setValue(conf->getValue("Comms Mode").toInt());
     ui->dataToggle->setValue(conf->getValue("Data Logging").toInt());
+
+    if(conf->getValue("Vehicle ID") == ""){
+        ui->simulationToggle->setEnabled(false);
+        ui->htlToggle->setEnabled(false);
+        ui->gcsToggle->setEnabled(false);
+        ui->dataToggle->setEnabled(false);
+    }else{
+        ui->simulationToggle->setEnabled(true);
+        ui->htlToggle->setEnabled(true);
+        ui->gcsToggle->setEnabled(true);
+        ui->dataToggle->setEnabled(true);
+    }
 }
 
 void configGeneralSettings::save(){

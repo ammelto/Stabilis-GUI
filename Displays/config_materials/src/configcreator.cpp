@@ -11,6 +11,7 @@ configcreator::configcreator()
 {
     if(!QDir("../Userdata").exists()){
         QDir().mkdir("../Userdata");
+        qDebug() << "Userdata directory created";
     }
 
     /*

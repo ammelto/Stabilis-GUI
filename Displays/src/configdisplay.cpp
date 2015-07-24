@@ -15,6 +15,7 @@ configdisplay::configdisplay(QWidget *parent) :
 {
 
     ui->setupUi(this);
+
     configcreator *config = new configcreator;
 
     controllerSettings = new configcontrollersettings(ui->controllerSettings, config);
@@ -25,11 +26,14 @@ configdisplay::configdisplay(QWidget *parent) :
     connect(config,SIGNAL(update()),this,SLOT(update()));
     connect(vehicleSettings,SIGNAL(globalSave()),controllerSettings,SLOT(save()));
 
+
 }
 
 void configdisplay::setTheme(QColor p, QColor s, QColor f){
+
     vehicleSettings->setTheme(p,s,f);
     networkSettings->setTheme(p,s,f);
+
 }
 
 void configdisplay::save(){

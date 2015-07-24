@@ -28,14 +28,14 @@ private:
     enum{
         defaultState, advancedState, loadState, newState
     };
-    configcreator *conf;
-    QWidget *currentTemplate;
-    newVehicleDialog *newVehicle;
-    LoadVehicleDialog *fileList;
-    airplaneTemplate *airplaneSheet;
-    genericButton *advancedButton;
-    genericButton *loadButton;
-    genericButton *saveButton;
+    configcreator *conf = NULL;
+    QWidget *currentTemplate = NULL;
+    newVehicleDialog *newVehicle = NULL;
+    LoadVehicleDialog *fileList = NULL;
+    airplaneTemplate *airplaneSheet = NULL;
+    genericButton *advancedButton = NULL;
+    genericButton *loadButton = NULL;
+    genericButton *saveButton = NULL;
 
     void load(QString file);
     void setDefaultState();

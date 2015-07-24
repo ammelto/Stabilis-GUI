@@ -1,4 +1,4 @@
-#include "../Stabilis-GUI/Displays/config_materials/headers/loadvehicledialog.h"
+#include "./Displays/config_materials/headers/loadvehicledialog.h"
 #include "../headers/configcreator.h"
 #include "ui_loadvehicledialog.h"
 #include <QSettings>
