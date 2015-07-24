@@ -44,18 +44,33 @@
  *
  * */
 console_thread::console_thread(consoledisplay* console_control, remote_connection_data* data){
-    this->data = data;
+    //this constructor runs from the GUI thread
+
     this->console_control = console_control;
+
+    /*
+     *SIGNAL/SLOT cross thread magic allows us to get to GUI safe code *from* this thread.
+     *Basically, the SLOT functions get put in a queue when SIGNALed, and they get run when the GUI thread does its refresh loop.
+     *
+     * */
+    connect(this, SIGNAL(readMessage(int,remote_connection_data*)), console_control, SLOT(readMessage(int,remote_connection_data*)));
+    connect(this, SIGNAL(writeCommandCallback(int,remote_connection_data*)), console_control, SLOT(writeCommandCallback(int,remote_connection_data*)));
+    connect(this, SIGNAL(sendFileCallback(int,remote_connection_data*)), console_control, SLOT(sendFileCallback(int,remote_connection_data*)));
+    connect(this, SIGNAL(receiveFileCallback(int,remote_connection_data*)), console_control, SLOT(receiveFileCallback(int,remote_connection_data*)));
+    connect(this, SIGNAL(connectCallback(int,remote_connection_data*)), console_control, SLOT(connectCallback(int,remote_connection_data*)));
+
+    this->data = data;
 }
 
 
 /*
  *The console thread will be created on connection and will run
- *until connection fails or the user elects to terminate the connection
- *
+ *until connection fails or the user elects to terminate the connection *
  *
  * */
 void console_thread::run(){
+    //thread begin
+    while(data == NULL);//waiting for constructor to finish
     int err;
     err = begin_console_thread(this->data);
     err = clean_up(this->data);
@@ -66,11 +81,14 @@ int console_thread::begin_console_thread(remote_connection_data* data){
     int err;
 
     err = open_console(data);
-    console_control->connectCallback(err);
+    connectCallback(err, data);
     if(err){
-        return err;
+        //return err;
     }
+    //this one loops
     err = run_shell(data);
+
+    return err;
 }
 
 /*
@@ -91,18 +109,25 @@ int console_thread::run_shell(remote_connection_data* data){
             break;
         }
         if(data->instruction_flags & WRITE_COMMAND){
-            err = write_command_and_read(data);
-            console_control->writeCommandCallback(err);
+            err = write_command(data);
+            writeCommandCallback(err, data);
+            //if(!err){
+                /* Read output from remote side */
+                usleep(200000);
+                err = read_remote(data);
+                readMessage(err, data);
+           // }
         }
         if(data->instruction_flags & READ_COMMAND){
-
+            err = read_remote(data);
+            readMessage(err, data);
         }
         if(data->instruction_flags & SEND_FILE){
             err = send_file(data);
-            console_control->sendFileCallback(err);
+            sendFileCallback(err, data);
         }
         if(data->instruction_flags & RECEIVE_FILE){
-            console_control->receiveFileCallback(err);
+            receiveFileCallback(err, data);
         }
 
     }
@@ -152,19 +177,20 @@ static int open_console(remote_connection_data* data) {
 
     wVersionRequested = MAKEWORD(2,2);
 
+    err = WSAStartup(wVersionRequested, &wsaData);
+    if (err != 0) {
+        /* Tell the user that we could not find a usable */
+        /* Winsock DLL.                                  */
+        printf("WSAStartup failed with error: %d\n", err);
+        return 1;
+    }
     /* Libss2 init block */
     rc = libssh2_init(0);
     if (rc) {
         fprintf(stderr, "Error: libssh_init()\n");
         return (EXIT_FAILURE);
     }
-    err = WSAStartup(wVersionRequested, &wsaData);
-        if (err != 0) {
-            /* Tell the user that we could not find a usable */
-            /* Winsock DLL.                                  */
-            printf("WSAStartup failed with error: %d\n", err);
-            return 1;
-        }
+
     /* Creating socket */
     sock = socket(AF_INET, SOCK_STREAM, 0);
     if (sock == INVALID_SOCKET) {
@@ -234,21 +260,26 @@ static int open_console(remote_connection_data* data) {
 }
 
 
-static int write_command_and_read(remote_connection_data* data){
+static int write_command(remote_connection_data* data){
     int rc;
 
-    printf("Command is %s", data->command);
+    printf("Command is %s\n", data->command);
     if (strcmp(data->command, "\n") == 0) {
         printf("Empty command\n");
         return -1;
     }
-    //libssh2_channel_flush_ex(channel, LIBSSH2_CHANNEL_FLUSH_ALL);
     /* Write command to stdin of remote shell */
     rc = libssh2_channel_write(data->channel, data->command, strlen(data->command));
     printf("Channel write return value is %d\n", rc);
 
-    /* Read output from remote side */
-    usleep(200000);
+    return rc;
+
+}
+
+static int read_remote(remote_connection_data* data){
+
+    int rc;
+
     rc = libssh2_channel_read(data->channel, data->inputbuf, BUFSIZ);
     printf("Remote side output:\n %s\n", data->inputbuf);
     return rc;
@@ -261,8 +292,169 @@ static int write_command_and_read(remote_connection_data* data){
  * */
 static int send_file(remote_connection_data* data){
 
+    int sock, i, auth_pw = 1;
+            struct sockaddr_in sin;
+            const char *fingerprint;
+            LIBSSH2_SESSION *session;
+            const char *hostaddr = "192.168.7.2";
+            const char *username="root";
+            const char *password="root";
+            const char *loclfile=data->local_path;//"/home/nolander/Desktop/UC_UAS_STUDIO.setup.sh";
+            const char *sftppath=data->remote_path;//"/tmp/adfsdf";
+            int rc;
+            FILE *local;
+            LIBSSH2_SFTP *sftp_session;
+            LIBSSH2_SFTP_HANDLE *sftp_handle;
+            char mem[1024*100];
+            size_t nread;
+            char *ptr;
 
-return 0;
+        #ifdef WIN32
+            WSADATA wsadata;
+            int err;
+
+            err = WSAStartup(MAKEWORD(2,0), &wsadata);
+            if (err != 0) {
+                fprintf(stderr, "WSAStartup failed with error: %d\n", err);
+                return 1;
+            }
+        #endif
+
+
+            rc = libssh2_init (0);
+            if (rc != 0) {
+                fprintf (stderr, "libssh2 initialization failed (%d)\n", rc);
+                return 1;
+            }
+
+            local = fopen(loclfile, "rb");
+            if (!local) {
+                fprintf(stderr, "Can't open local file %s\n", loclfile);
+                return -1;
+            }
+
+            /*
+             * The application code is responsible for creating the socket
+             * and establishing the connection
+             */
+            sock = socket(AF_INET, SOCK_STREAM, 0);
+
+            sin.sin_family = AF_INET;
+            sin.sin_port = htons(22);
+            sin.sin_addr.s_addr = inet_addr(hostaddr);
+            if (connect(sock, (struct sockaddr*)(&sin),
+                    sizeof(struct sockaddr_in)) != 0) {
+                fprintf(stderr, "failed to connect!\n");
+                return -1;
+            }
+
+            /* Create a session instance
+             */
+            session = libssh2_session_init();
+            if(!session)
+                return -1;
+
+            /* Since we have set non-blocking, tell libssh2 we are blocking */
+            libssh2_session_set_blocking(session, 1);
+
+            /* ... start it up. This will trade welcome banners, exchange keys,
+             * and setup crypto, compression, and MAC layers
+             */
+            rc = libssh2_session_handshake(session, sock);
+            if(rc) {
+                fprintf(stderr, "Failure establishing SSH session: %d\n", rc);
+                return -1;
+            }
+
+            /* At this point we havn't yet authenticated.  The first thing to do
+             * is check the hostkey's fingerprint against our known hosts Your app
+             * may have it hard coded, may go to a file, may present it to the
+             * user, that's your call
+             */
+            fingerprint = libssh2_hostkey_hash(session, LIBSSH2_HOSTKEY_HASH_SHA1);
+            fprintf(stderr, "Fingerprint: ");
+            for(i = 0; i < 20; i++) {
+                fprintf(stderr, "%02X ", (unsigned char)fingerprint[i]);
+            }
+            fprintf(stderr, "\n");
+
+            if (auth_pw) {
+                /* We could authenticate via password */
+                if (libssh2_userauth_password(session, username, password)) {
+                    fprintf(stderr, "Authentication by password failed.\n");
+                    goto shutdown;
+                }
+            } else {
+                /* Or by public key */
+                if (libssh2_userauth_publickey_fromfile(session, username,
+                                    "/home/username/.ssh/id_rsa.pub",
+                                    "/home/username/.ssh/id_rsa",
+                                    password)) {
+                    fprintf(stderr, "\tAuthentication by public key failed\n");
+                    goto shutdown;
+                }
+            }
+
+            fprintf(stderr, "libssh2_sftp_init()!\n");
+            sftp_session = libssh2_sftp_init(session);
+
+            if (!sftp_session) {
+                fprintf(stderr, "Unable to init SFTP session\n");
+                goto shutdown;
+            }
+
+            fprintf(stderr, "libssh2_sftp_open()!\n");
+            /* Request a file via SFTP */
+            sftp_handle =
+                libssh2_sftp_open(sftp_session, sftppath,
+                              LIBSSH2_FXF_WRITE|LIBSSH2_FXF_CREAT|LIBSSH2_FXF_TRUNC,
+                              LIBSSH2_SFTP_S_IRUSR|LIBSSH2_SFTP_S_IWUSR|
+                              LIBSSH2_SFTP_S_IRGRP|LIBSSH2_SFTP_S_IROTH);
+
+            if (!sftp_handle) {
+                fprintf(stderr, "Unable to open file with SFTP\n");
+                goto shutdown;
+            }
+            fprintf(stderr, "libssh2_sftp_open() is done, now send data!\n");
+            do {
+                nread = fread(mem, 1, sizeof(mem), local);
+                if (nread <= 0) {
+                    /* end of file */
+                    break;
+                }
+                ptr = mem;
+
+                do {
+                    /* write data in a loop until we block */
+                    rc = libssh2_sftp_write(sftp_handle, ptr, nread);
+                    if(rc < 0)
+                        break;
+                    ptr += rc;
+                    nread -= rc;
+                } while (nread);
+
+            } while (rc > 0);
+
+            libssh2_sftp_close(sftp_handle);
+            libssh2_sftp_shutdown(sftp_session);
+
+        shutdown:
+            libssh2_session_disconnect(session,
+                                       "Normal Shutdown, Thank you for playing");
+            libssh2_session_free(session);
+
+        #ifdef WIN32
+            closesocket(sock);
+        #else
+            close(sock);
+        #endif
+            if (local)
+                fclose(local);
+            fprintf(stderr, "all done\n");
+
+            libssh2_exit();
+
+            return 0;
 }
 
 static int receive_file(remote_connection_data* data){

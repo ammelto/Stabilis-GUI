@@ -29,16 +29,18 @@ private:
     void sendCommand();
 public:
     bool localEchoEnabled;
+    void updateTerminal(char* text);
 
 signals:
-    void writeCommand(QString command);
+    int writeCommand(QString command);
 
 public slots:
     void writeOut(QString text);
 
 private:
     char* input_buffer[MAX_INPUT];
-
+    int cursor_stop_position = 1;
+    int prev_command_length;
 };
 
 

@@ -58,38 +58,62 @@ void TerminalWindow::setLocalEchoEnabled(bool set)
 
 void TerminalWindow::keyPressEvent(QKeyEvent *e)
 {
+    bool forwardEvent = true;
+    const int curs_pos = this->textCursor().positionInBlock();
+
     switch (e->key()) {
-    case Qt::Key_Backspace:
-    case Qt::Key_Left:
-    case Qt::Key_Right:
-    case Qt::Key_Up:
-    case Qt::Key_Down:
-    case Qt::Key_Enter:
-        sendCommand();
+        case Qt::Key_Return:
+            sendCommand();
         break;
-    default:
-        if (localEchoEnabled)
-            QPlainTextEdit::keyPressEvent(e);
-        //emit getData(e->text().toLocal8Bit());
+        case Qt::Key_Backspace:
+            if(curs_pos <= cursor_stop_position)
+                forwardEvent = false;
+        break;
+        case Qt::Key_Left:
+            if(curs_pos <= cursor_stop_position)
+                forwardEvent = false;
+        break;
+        //case Qt::Key_Right:
+        case Qt::Key_Up:
+            forwardEvent = false;
+        break;
+        case Qt::Key_Down:
+        break;
+
+        default:
+        break;
     }
+    if (localEchoEnabled && forwardEvent)
+        QPlainTextEdit::keyPressEvent(e);
 }
 
 void TerminalWindow::sendCommand(){
     QString command;
-   // QTextDocument *doc = this->document();
-   // const QTextBlock tb = doc->findBlockByLineNumber(1); // The second line.
-   // QString command = tb.text(); // returns 'is'
-    command = this->document()->end().text();
-    writeCommand(command);
-    //this->textCursor().
+    int err;
+    command = this->document()->findBlockByLineNumber(this->document()->blockCount()-1).text();
+    command = command.right(command.length()-cursor_stop_position+1);
+    printf("trying send write command\n");
+    err = writeCommand(command);
+    //if not err
+    prev_command_length = command.length();
 }
+
+void TerminalWindow::updateTerminal(char* text){
+
+    QString string;
+    string = string.fromUtf8(text);
+    moveCursor(QTextCursor::End);
+    insertPlainText(string);
+    QScrollBar *bar = verticalScrollBar();
+    bar->setValue(bar->maximum());
+    moveCursor(QTextCursor::End);
+    cursor_stop_position = this->textCursor().positionInBlock() - prev_command_length;
+}
+
 
 void TerminalWindow::writeOut(QString text){
 
-    insertPlainText(text);
 
-    QScrollBar *bar = verticalScrollBar();
-    bar->setValue(bar->maximum());
 
 }
 

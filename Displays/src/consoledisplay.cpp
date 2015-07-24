@@ -14,8 +14,8 @@ consoledisplay::consoledisplay(QWidget* parent) :
 
     terminal = new TerminalWindow(ui->console);
 
-    connect(this, SIGNAL(writeOut(QString text)), terminal, SLOT(writeOut(QString text)));
-    connect(terminal, SIGNAL(writeCommand(QString command)), this, SLOT(writeCommand(QString command)));
+    //connect(this, SIGNAL(writeOut(QString text)), terminal, SLOT(writeOut(QString text)));
+    connect(terminal, SIGNAL(writeCommand(QString)), this, SLOT(writeCommand(QString)));
     //connect(terminal, SIGNAL(sendFi(QString command)), this, SLOT(writeCommand()));
 }
 
@@ -37,12 +37,13 @@ int consoledisplay::connectConsole(QString host, QString port, QString username,
     remote_connection_data* data;
 
     if(host == NULL || port == NULL || username == NULL || password == NULL){
-        return -1;
+        //return -1;
     }
 
     data = new remote_connection_data();
 
     con_thread = new console_thread(this, data);
+
     con_thread->start();
 
 
@@ -55,15 +56,13 @@ int consoledisplay::connectConsole(QString host, QString port, QString username,
  *callback after attempt to connect to target
  *
  * */
-void consoledisplay::connectCallback(int status){
+void consoledisplay::connectCallback(int status,remote_connection_data* data){
 
     if(status == -1){
         delete(con_thread);
         con_thread = NULL;
     }
-    else{
-        connectionWorked();
-    }
+    connectionWorked(status);
 
 }
 
@@ -82,10 +81,35 @@ void consoledisplay::connectCallback(int status){
  *
  * */
 int consoledisplay::writeCommand(QString command){
+    printf("entering write command\n");
     if(con_thread == NULL){
+        printf("error: no connection\n");
         return -1;
     }
 
+    if(con_thread->data->instruction_flags & WRITE_COMMAND){
+        printf("error: console thread is busy\n");
+        return -2;
+    }
+
+    QByteArray ba = command.toLatin1();
+    char *res = ba.data();
+    printf("string is %s\n", res);
+    size_t len = strlen(res);
+    printf("Command is %d characters long\n", len);
+    if(len > BUFSIZ-10){
+        printf("error: command is too long.\n");
+        return -3;
+    }
+
+    //the order of setting flag and filling buffer matters for sync reasons.
+    //if we set the flag first, the console thread might write whatever was previously in the buffer
+    memcpy(con_thread->data->command,res, len);
+    con_thread->data->command[len] = 0;
+
+    con_thread->data->instruction_flags |= WRITE_COMMAND;
+    printf("writing command\n");
+    return 0;
 }
 
 
@@ -95,32 +119,9 @@ int consoledisplay::writeCommand(QString command){
  *call back after an attempt to write a command to the target
  *
  * */
-void consoledisplay::writeCommandCallback(int status){
-
-
-}
-
-int consoledisplay::sendFile(char* local_src, char* remote_dest){
-    if(con_thread == NULL){
-        return -1;
-    }
-
-    return 0;
-}
-
-void consoledisplay::sendFileCallback(int status){
-
-}
-
-int consoledisplay::receiveFile(char* local_dest, char* remote_src){
-    if(con_thread == NULL){
-        return -1;
-    }
-
-    return 0;
-}
-
-void consoledisplay::receiveFileCallback(int status){
+void consoledisplay::writeCommandCallback(int status,remote_connection_data* data){
+    //if(status == 0)
+        data->instruction_flags &= ~WRITE_COMMAND;
 
 }
 
@@ -133,6 +134,35 @@ void consoledisplay::receiveFileCallback(int status){
  *
  *
  * */
-void consoledisplay::readMessage(){
+void consoledisplay::readMessage(int status,remote_connection_data* data){
+    //if(status == 0){
+        terminal->updateTerminal(data->inputbuf);
+   // }
 
 }
+
+int consoledisplay::sendFile(char* local_src, char* remote_dest){
+    if(con_thread == NULL){
+        return -1;
+    }
+
+    return 0;
+}
+
+void consoledisplay::sendFileCallback(int status,remote_connection_data* data){
+
+}
+
+int consoledisplay::receiveFile(char* local_dest, char* remote_src){
+    if(con_thread == NULL){
+        return -1;
+    }
+
+    return 0;
+}
+
+void consoledisplay::receiveFileCallback(int status,remote_connection_data* data){
+
+}
+
+

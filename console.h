@@ -42,20 +42,29 @@ typedef struct remote_connection_data{
 } remote_connection, p_remote_connection;
 
 class console_thread : public QThread{
+    Q_OBJECT
 public:
     console_thread(consoledisplay* console_control, remote_connection_data* data);
+    remote_connection_data* data;
 protected:
     void run();
 
 private:
-    remote_connection_data* data;
     consoledisplay* console_control;
     int begin_console_thread(remote_connection_data* data);
     int run_shell(remote_connection_data* data);
+
+signals:
+    void sendFileCallback(int ,remote_connection_data* );
+    void receiveFileCallback(int ,remote_connection_data* );
+    void connectCallback(int ,remote_connection_data* );
+    void writeCommandCallback(int ,remote_connection_data* );
+    void readMessage(int , remote_connection_data* );
 };
 
 static int clean_up(remote_connection_data* data);
-static int write_command_and_read(remote_connection_data* data);
+static int write_command(remote_connection_data* data);
+static int read_remote(remote_connection_data* data);
 static int receive_file(remote_connection_data* data);
 static int send_file(remote_connection_data* data);
 static int open_console(remote_connection_data* data);
