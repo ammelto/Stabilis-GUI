@@ -1,6 +1,5 @@
 #include <qthread.h>
 #include "Displays/headers/consoledisplay.h"
-#include <libssh2_config.h>
 #include <libssh2.h>
 #include <libssh2_sftp.h>
 #ifndef CONSOLE_H
@@ -59,7 +58,7 @@ signals:
     void receiveFileCallback(int ,remote_connection_data* );
     void connectCallback(int ,remote_connection_data* );
     void writeCommandCallback(int ,remote_connection_data* );
-    void readMessage(int , remote_connection_data* );
+    void readMessageCallback(int , remote_connection_data* );
 };
 
 static int clean_up(remote_connection_data* data);

@@ -6,6 +6,7 @@
 
 #include "console.h"
 
+#include <libssh2_config.h>
 #ifdef HAVE_WINSOCK2_H
 #include <windows.h>
 # include <winsock2.h>
@@ -53,7 +54,7 @@ console_thread::console_thread(consoledisplay* console_control, remote_connectio
      *Basically, the SLOT functions get put in a queue when SIGNALed, and they get run when the GUI thread does its refresh loop.
      *
      * */
-    connect(this, SIGNAL(readMessage(int,remote_connection_data*)), console_control, SLOT(readMessage(int,remote_connection_data*)));
+    connect(this, SIGNAL(readMessageCallback(int,remote_connection_data*)), console_control, SLOT(readMessageCallback(int,remote_connection_data*)));
     connect(this, SIGNAL(writeCommandCallback(int,remote_connection_data*)), console_control, SLOT(writeCommandCallback(int,remote_connection_data*)));
     connect(this, SIGNAL(sendFileCallback(int,remote_connection_data*)), console_control, SLOT(sendFileCallback(int,remote_connection_data*)));
     connect(this, SIGNAL(receiveFileCallback(int,remote_connection_data*)), console_control, SLOT(receiveFileCallback(int,remote_connection_data*)));
@@ -115,12 +116,12 @@ int console_thread::run_shell(remote_connection_data* data){
                 /* Read output from remote side */
                 usleep(200000);
                 err = read_remote(data);
-                readMessage(err, data);
+                readMessageCallback(err, data);
            // }
         }
         if(data->instruction_flags & READ_COMMAND){
             err = read_remote(data);
-            readMessage(err, data);
+            readMessageCallback(err, data);
         }
         if(data->instruction_flags & SEND_FILE){
             err = send_file(data);
@@ -172,18 +173,16 @@ static int open_console(remote_connection_data* data) {
     struct sockaddr_in sin;
     LIBSSH2_SESSION *session;
     LIBSSH2_CHANNEL *channel;
-    WSADATA wsaData;
-    WORD wVersionRequested;
+#ifdef WIN32
+    WSADATA wsadata;
+    int err;
 
-    wVersionRequested = MAKEWORD(2,2);
-
-    err = WSAStartup(wVersionRequested, &wsaData);
+    err = WSAStartup(MAKEWORD(2,0), &wsadata);
     if (err != 0) {
-        /* Tell the user that we could not find a usable */
-        /* Winsock DLL.                                  */
-        printf("WSAStartup failed with error: %d\n", err);
+        fprintf(stderr, "WSAStartup failed with error: %d\n", err);
         return 1;
     }
+#endif
     /* Libss2 init block */
     rc = libssh2_init(0);
     if (rc) {
@@ -193,8 +192,8 @@ static int open_console(remote_connection_data* data) {
 
     /* Creating socket */
     sock = socket(AF_INET, SOCK_STREAM, 0);
-    if (sock == INVALID_SOCKET) {
-        sock = WSAGetLastError();
+    if (sock == -1){//INVALID_SOCKET) {
+        //sock = WSAGetLastError();
         perror("socket");
         return (EXIT_FAILURE);
     }
@@ -279,10 +278,16 @@ static int write_command(remote_connection_data* data){
 static int read_remote(remote_connection_data* data){
 
     int rc;
-
+    //libssh2 strangely returns the number of bytes read OR an error (negative value)
     rc = libssh2_channel_read(data->channel, data->inputbuf, BUFSIZ);
-    printf("Remote side output:\n %s\n", data->inputbuf);
-    return rc;
+
+    if(rc > 0){
+        data->inputbuf[rc] = 0;//string termination
+        printf("Remote side output:\n %s\n", data->inputbuf);
+        return 0;
+    }
+    else
+        return rc;
 }
 
 /*

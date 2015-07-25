@@ -105,10 +105,16 @@ int consoledisplay::writeCommand(QString command){
     //the order of setting flag and filling buffer matters for sync reasons.
     //if we set the flag first, the console thread might write whatever was previously in the buffer
     memcpy(con_thread->data->command,res, len);
-    con_thread->data->command[len] = 0;
 
+    //insert null character to terminate string. We don't have to clear the buffer everytime
+    con_thread->data->command[len] = NEW_LINE_CHAR;
+    con_thread->data->command[len+1] = 0;
+
+    //signal console thread
     con_thread->data->instruction_flags |= WRITE_COMMAND;
+
     printf("writing command\n");
+
     return 0;
 }
 
@@ -125,6 +131,25 @@ void consoledisplay::writeCommandCallback(int status,remote_connection_data* dat
 
 }
 
+
+int consoledisplay::readMessage(){
+    printf("entering read message\n");
+    if(con_thread == NULL){
+        printf("error: no connection\n");
+        return -1;
+    }
+
+    if(con_thread->data->instruction_flags & READ_COMMAND){
+        printf("error: console thread is busy\n");
+        return -2;
+    }
+
+    con_thread->data->instruction_flags |= READ_COMMAND;
+
+    return 0;
+
+}
+
 /*
  *readMessage
  *
@@ -134,7 +159,8 @@ void consoledisplay::writeCommandCallback(int status,remote_connection_data* dat
  *
  *
  * */
-void consoledisplay::readMessage(int status,remote_connection_data* data){
+void consoledisplay::readMessageCallback(int status,remote_connection_data* data){
+    data->instruction_flags &= ~READ_COMMAND;
     //if(status == 0){
         terminal->updateTerminal(data->inputbuf);
    // }

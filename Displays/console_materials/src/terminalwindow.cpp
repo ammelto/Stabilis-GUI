@@ -91,7 +91,7 @@ void TerminalWindow::sendCommand(){
     QString command;
     int err;
     command = this->document()->findBlockByLineNumber(this->document()->blockCount()-1).text();
-    command = command.right(command.length()-cursor_stop_position+1);
+    command = command.right(command.length()-cursor_stop_position);
     printf("trying send write command\n");
     err = writeCommand(command);
     //if not err
@@ -107,7 +107,7 @@ void TerminalWindow::updateTerminal(char* text){
     QScrollBar *bar = verticalScrollBar();
     bar->setValue(bar->maximum());
     moveCursor(QTextCursor::End);
-    cursor_stop_position = this->textCursor().positionInBlock() - prev_command_length;
+    cursor_stop_position = this->textCursor().positionInBlock();
 }
 
 

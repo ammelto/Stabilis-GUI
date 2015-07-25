@@ -29,15 +29,20 @@ private:
 public slots:
     int connectConsole(QString host, QString port, QString username, QString password);
     int writeCommand(QString command);
+    int readMessage();
     void sendFileCallback(int status,remote_connection_data* data);
     void receiveFileCallback(int status,remote_connection_data* data);
     void connectCallback(int status,remote_connection_data* data);
     void writeCommandCallback(int status,remote_connection_data* data);
-    void readMessage(int status, remote_connection_data* data);
+    void readMessageCallback(int status, remote_connection_data* data);
 
 signals:
     void connectionWorked(int);
 
 };
+
+//static const char* new_line = "\n";
+static const char NEW_LINE_CHAR = ((char *)("\n"))[0];
+
 
 #endif // CONSOLEDISPLAY_H
