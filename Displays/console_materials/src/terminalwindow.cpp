@@ -61,6 +61,18 @@ void TerminalWindow::keyPressEvent(QKeyEvent *e)
     bool forwardEvent = true;
     const int curs_pos = this->textCursor().positionInBlock();
 
+    if(opt != NONE){
+        switch(e->key()){
+            case Qt::Key_Return:
+                doOption(opt);
+            break;
+            case Qt::Key_Left:
+                cycleOptions();
+            break;
+        }
+        return;
+    }
+
     switch (e->key()) {
         case Qt::Key_Return:
             sendCommand();
@@ -70,10 +82,11 @@ void TerminalWindow::keyPressEvent(QKeyEvent *e)
                 forwardEvent = false;
         break;
         case Qt::Key_Left:
-            if(curs_pos <= cursor_stop_position)
+            if(curs_pos <= cursor_stop_position){
+                cycleOptions();
                 forwardEvent = false;
+            }
         break;
-        //case Qt::Key_Right:
         case Qt::Key_Up:
             forwardEvent = false;
         break;
@@ -85,6 +98,54 @@ void TerminalWindow::keyPressEvent(QKeyEvent *e)
     }
     if (localEchoEnabled && forwardEvent)
         QPlainTextEdit::keyPressEvent(e);
+}
+
+void TerminalWindow::cycleOptions(){
+    //cursor().h
+    QTextCursor cursor = textCursor();
+    //textCursor().setPosition(5, QTextCursor::KeepAnchor);
+    switch(opt){
+        case NONE:
+            insertPlainText(disconnect);
+            opt = DISCONNECT;
+            break;
+        case DISCONNECT:
+            insertPlainText(transfer_file);
+            opt = TRANSFER_FILE;
+        break;
+        case TRANSFER_FILE:
+            insertPlainText(receive_file);
+            opt = RECEIVE_FILE;
+        break;
+        case RECEIVE_FILE:
+            insertPlainText(none);
+            opt = NONE;
+            return;
+        break;
+    }
+
+    cursor.movePosition(QTextCursor::Left, QTextCursor::KeepAnchor, textCursor().positionInBlock() - cursor_stop_position);
+    setTextCursor(cursor);
+}
+
+void TerminalWindow::doOption(option opt){
+    switch(opt){
+        case DISCONNECT:
+        break;
+    case TRANSFER_FILE:
+        break;
+    case RECEIVE_FILE:
+        break;
+
+
+    }
+
+}
+
+void TerminalWindow::showPrevCommand(int line){
+
+    //read file for command
+
 }
 
 void TerminalWindow::sendCommand(){

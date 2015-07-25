@@ -5,7 +5,7 @@
 #include <QPlainTextEdit>
 
 #define MAX_INPUT 5000
-
+typedef enum options{TRANSFER_FILE, RECEIVE_FILE, DISCONNECT, NONE} option;
 namespace Ui {
 class TerminalWindow;
 }
@@ -27,6 +27,9 @@ private:
     void mouseDoubleClickEvent(QMouseEvent *e);
     void contextMenuEvent(QContextMenuEvent *e);
     void sendCommand();
+    void showPrevCommand(int line);
+    void cycleOptions();
+    void doOption(option opt);
 public:
     bool localEchoEnabled;
     void updateTerminal(char* text);
@@ -41,6 +44,11 @@ private:
     char* input_buffer[MAX_INPUT];
     int cursor_stop_position = 1;
     int prev_command_length;
+    option opt = NONE;
+    QString transfer_file = "TRANSFER FILE";
+    QString receive_file = "RECEIVE FILE";
+    QString disconnect = "DISCONNECT";
+    QString none = " ";
 };
 
 
