@@ -96,9 +96,7 @@ int console_thread::begin_console_thread(remote_connection_data* data){
  *This function runs continuously as a reader/writer
  *and receives commands from a global struct.
  *
- *The global struct can also signal this function to return / clean up
- *
- *This loop never clears flags. Flags should be cleared in the call back handlers
+ *The global struct can also signal this function to terminate, return / clean up
  *
  * */
 int console_thread::run_shell(remote_connection_data* data){
@@ -112,6 +110,7 @@ int console_thread::run_shell(remote_connection_data* data){
         if(data->instruction_flags & WRITE_COMMAND){
             err = write_command(data);
             writeCommandCallback(err, data);
+            data->instruction_flags &= ~WRITE_COMMAND;
             //if(!err){
                 /* Read output from remote side */
                 usleep(200000);
@@ -122,12 +121,14 @@ int console_thread::run_shell(remote_connection_data* data){
         if(data->instruction_flags & READ_COMMAND){
             err = read_remote(data);
             readMessageCallback(err, data);
+            data->instruction_flags &= ~READ_COMMAND;
         }
         if(data->instruction_flags & SEND_FILE){
             err = send_file(data);
             sendFileCallback(err, data);
         }
         if(data->instruction_flags & RECEIVE_FILE){
+            printf("herere5\n");
             receiveFileCallback(err, data);
         }
 
@@ -169,7 +170,6 @@ static int open_console(remote_connection_data* data) {
     /* Variables to don't touch */
     int rc;
     int sock;
-    int err;
     struct sockaddr_in sin;
     LIBSSH2_SESSION *session;
     LIBSSH2_CHANNEL *channel;

@@ -88,7 +88,7 @@ int consoledisplay::writeCommand(QString command){
     }
 
     if(con_thread->data->instruction_flags & WRITE_COMMAND){
-        printf("error: console thread is busy\n");
+        printf("error writing: console thread is busy\n");
         return -2;
     }
 
@@ -109,7 +109,7 @@ int consoledisplay::writeCommand(QString command){
     //insert null character to terminate string. We don't have to clear the buffer everytime
     con_thread->data->command[len] = NEW_LINE_CHAR;
     con_thread->data->command[len+1] = 0;
-
+    printf("new line char value is %d\n", NEW_LINE_CHAR);
     //signal console thread
     con_thread->data->instruction_flags |= WRITE_COMMAND;
 
@@ -140,7 +140,7 @@ int consoledisplay::readMessage(){
     }
 
     if(con_thread->data->instruction_flags & READ_COMMAND){
-        printf("error: console thread is busy\n");
+        printf("error reading: console thread is busy\n");
         return -2;
     }
 

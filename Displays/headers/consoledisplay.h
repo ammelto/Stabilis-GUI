@@ -42,7 +42,7 @@ signals:
 };
 
 //static const char* new_line = "\n";
-static const char NEW_LINE_CHAR = ((char *)("\n"))[0];
+static const char NEW_LINE_CHAR = ((char *)("\r"))[0];
 
 
 #endif // CONSOLEDISPLAY_H

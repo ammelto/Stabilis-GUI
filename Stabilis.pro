@@ -4,29 +4,31 @@
 #
 #-------------------------------------------------
 
-QT       += -shared core
+QT       += core
 
-QT       += -shared gui
+QT       += gui
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = Stabilis
 TEMPLATE = app
 
-#win32:CONFIG(release, debug|release):INCLUDEPATH +=C:\cygwin64\home\daslabasus1\libssh2-1.6.0\include
-#else:unix:
-INCLUDEPATH += /home/nolander/Desktop/libssh2-1.6.0/include
+INCLUDEPATH +=C:\cygwin64\home\daslabasus1\libssh2-1.6.0\include
+win32:CONFIG(release, debug|release):INCLUDEPATH +=C:\cygwin64\home\daslabasus1\libssh2-1.6.0\include
+else:unix:INCLUDEPATH += /home/nolander/Desktop/libssh2-1.6.0/include
 
-
-#LIBS+= -L/home/nolander/Desktop/libssh2-1.6.0/bin -lssh2
-win32:CONFIG(release, debug|release):LIBS += -static -LC:/Users\daslabasus1/Nolan/libssh2_1.2.6/bin -lssh2\
-LIBS += -static -LC:/Qt/Tools/mingw492_32/i686-w64-mingw32/lib/ -lws2_32\#must be static\
-LIBS += -static -LC:/Qt/Tools/mingw492_32/i686-w64-mingw32/lib/ -lz\ #must be static
-LIBS += -static -LC:/Qt/Tools/mingw492_32/i686-w64-mingw32/lib/ -lbcrypt\ #must be static
+win32{
+LIBS += -static -LC:/Users/daslabasus1/Nolan/libssh2_1.2.6/bin -lssh2
+LIBS += -static -LC:/Qt/Tools/mingw492_32/i686-w64-mingw32/lib/ -lws2_32#must be static\
+LIBS += -static -LC:/Qt/Tools/mingw492_32/i686-w64-mingw32/lib/ -lz #must be static
+LIBS += -static -LC:/Qt/Tools/mingw492_32/i686-w64-mingw32/lib/ -lbcrypt #must be static
 LIBS += -static -LC:/Qt/Tools/mingw492_32/i686-w64-mingw32/lib/ -lcrypt32 #must be static
+}
+
+unix{
 #if we dont use the -L switch below it doesnt work because we then must declare -static,
 #but that causes the maker to look for static Qt libs which do not exist
-else:unix:LIBS+= -L/home/nolander/Desktop/libssh2-1.6.0/bin -lssh2
-
+LIBS+= -L/home/nolander/Desktop/libssh2-1.6.0/bin -lssh2
+}
 
 CONFIG += console
 #make sure paths have "/" and not "\" for linux compat
