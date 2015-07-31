@@ -1,0 +1,3 @@
+not sure if libssh2 calls block or not. Should run write and read calls in our own secondary thread
+
+need to get ssh key exchange working to enable secure connection with or without remote password.
