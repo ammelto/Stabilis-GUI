@@ -2,6 +2,14 @@
 #include "ui_consoledisplay.h"
 #include "console.h"
 
+/***
+ *
+ * We don't want to clear flags in the callbacks because it can cause sync issues
+ *
+ *
+ * */
+
+
 
 console_thread* con_thread;
 
@@ -74,11 +82,6 @@ void consoledisplay::connectCallback(int status,remote_connection_data* data){
  *
  * writes commands to the remote target
  *
- * OR
- *
- * writes commands to console, such as file transfer, close console, etc.
- *
- *
  * */
 int consoledisplay::writeCommand(QString command){
     printf("entering write command\n");
@@ -127,7 +130,6 @@ int consoledisplay::writeCommand(QString command){
  * */
 void consoledisplay::writeCommandCallback(int status,remote_connection_data* data){
     //if(status == 0)
-        data->instruction_flags &= ~WRITE_COMMAND;
 
 }
 
@@ -160,7 +162,6 @@ int consoledisplay::readMessage(){
  *
  * */
 void consoledisplay::readMessageCallback(int status,remote_connection_data* data){
-    data->instruction_flags &= ~READ_COMMAND;
     //if(status == 0){
         terminal->updateTerminal(data->inputbuf);
    // }

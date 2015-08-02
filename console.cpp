@@ -37,6 +37,7 @@
 #include <errno.h>
 #include <stdio.h>
 #include <ctype.h>
+#include <QDebug>
 
 
 /*
@@ -98,6 +99,8 @@ int console_thread::begin_console_thread(remote_connection_data* data){
  *
  *The global struct can also signal this function to terminate, return / clean up
  *
+ *The order of callback and flag clear doesnt really matter I don't think.
+ *
  * */
 int console_thread::run_shell(remote_connection_data* data){
     int err = 0;
@@ -105,9 +108,11 @@ int console_thread::run_shell(remote_connection_data* data){
     while(1){
         // procedure is check termination flag, write command-wait-read remote, write file, read file
         if(data->instruction_flags & TERMINATE){
+            qDebug() << "Terminate";
             break;
         }
         if(data->instruction_flags & WRITE_COMMAND){
+            qDebug() << "Write";
             err = write_command(data);
             writeCommandCallback(err, data);
             data->instruction_flags &= ~WRITE_COMMAND;
@@ -124,12 +129,16 @@ int console_thread::run_shell(remote_connection_data* data){
             data->instruction_flags &= ~READ_COMMAND;
         }
         if(data->instruction_flags & SEND_FILE){
+            qDebug() << "Send";
             err = send_file(data);
             sendFileCallback(err, data);
+            data->instruction_flags &= ~SEND_FILE;
         }
         if(data->instruction_flags & RECEIVE_FILE){
-            printf("herere5\n");
+            qDebug() << "Recieve";
+            err = receive_file(data);
             receiveFileCallback(err, data);
+            data->instruction_flags &= ~RECEIVE_FILE;
         }
 
     }
@@ -185,6 +194,7 @@ static int open_console(remote_connection_data* data) {
 #endif
     /* Libss2 init block */
     rc = libssh2_init(0);
+    qDebug() << "Code: " + rc;
     if (rc) {
         fprintf(stderr, "Error: libssh_init()\n");
         return (EXIT_FAILURE);
@@ -217,6 +227,7 @@ static int open_console(remote_connection_data* data) {
 
     /* Handshake for session */
     rc = libssh2_session_handshake(session, sock);
+    qDebug() << "Code: " + rc;
     if (rc) {
         fprintf(stderr, "SSH handshake failed\n");
         return (EXIT_FAILURE);
@@ -224,6 +235,7 @@ static int open_console(remote_connection_data* data) {
 
     /* Lets authenticate */
     rc = libssh2_userauth_password(session, username, password);
+    qDebug() << "Code: " + rc;
     if (rc) {
         printf("Authentication by password failed\n");
         return (EXIT_FAILURE);
@@ -240,6 +252,7 @@ static int open_console(remote_connection_data* data) {
 
     /* Request a terminal with 'vanilla' terminal emulation */
     rc = libssh2_channel_request_pty(channel, "vanilla");
+    qDebug() << "Code: " + rc;
     if (rc) {
         fprintf(stderr, "Failed requesting pty\n");
         return (EXIT_FAILURE);
@@ -247,6 +260,7 @@ static int open_console(remote_connection_data* data) {
 
     /* Open a SHELL on that pty */
     rc = libssh2_channel_shell(channel);
+    qDebug() << "Code: " + rc;
     if (rc) {
         fprintf(stderr, "Unable to request shell on allocated pty\n");
         return (EXIT_FAILURE);
@@ -283,7 +297,7 @@ static int read_remote(remote_connection_data* data){
 
     if(rc > 0){
         data->inputbuf[rc] = 0;//string termination
-        printf("Remote side output:\n %s\n", data->inputbuf);
+        printf("nm  output:\n %s\n", data->inputbuf);
         return 0;
     }
     else
