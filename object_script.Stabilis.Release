@@ -10,7 +10,6 @@ INPUT(
 ./release\configcreator.o
 ./release\homedisplay.o
 ./release\configdisplay.o
-./release\consoledisplay.o
 ./release\docsdisplay.o
 ./release\windowdisplay.o
 ./release\infodisplay.o
@@ -20,7 +19,6 @@ INPUT(
 ./release\airplanetemplate.o
 ./release\loadvehicledialog.o
 ./release\newvehicledialog.o
-./release\terminalwindow.o
 ./release\docsnavmenu.o
 ./release\docscontentwindow.o
 ./release\console.o
@@ -38,7 +36,6 @@ INPUT(
 ./release\moc_configcreator.o
 ./release\moc_homedisplay.o
 ./release\moc_configdisplay.o
-./release\moc_consoledisplay.o
 ./release\moc_docsdisplay.o
 ./release\moc_windowdisplay.o
 ./release\moc_infodisplay.o
@@ -48,7 +45,6 @@ INPUT(
 ./release\moc_airplanetemplate.o
 ./release\moc_loadvehicledialog.o
 ./release\moc_newvehicledialog.o
-./release\moc_terminalwindow.o
 ./release\moc_docsnavmenu.o
 ./release\moc_docscontentwindow.o
 ./release\moc_console.o

@@ -10,7 +10,6 @@ INPUT(
 ./debug\configcreator.o
 ./debug\homedisplay.o
 ./debug\configdisplay.o
-./debug\consoledisplay.o
 ./debug\docsdisplay.o
 ./debug\windowdisplay.o
 ./debug\infodisplay.o
@@ -20,7 +19,6 @@ INPUT(
 ./debug\airplanetemplate.o
 ./debug\loadvehicledialog.o
 ./debug\newvehicledialog.o
-./debug\terminalwindow.o
 ./debug\docsnavmenu.o
 ./debug\docscontentwindow.o
 ./debug\console.o
@@ -38,7 +36,6 @@ INPUT(
 ./debug\moc_configcreator.o
 ./debug\moc_homedisplay.o
 ./debug\moc_configdisplay.o
-./debug\moc_consoledisplay.o
 ./debug\moc_docsdisplay.o
 ./debug\moc_windowdisplay.o
 ./debug\moc_infodisplay.o
@@ -48,7 +45,6 @@ INPUT(
 ./debug\moc_airplanetemplate.o
 ./debug\moc_loadvehicledialog.o
 ./debug\moc_newvehicledialog.o
-./debug\moc_terminalwindow.o
 ./debug\moc_docsnavmenu.o
 ./debug\moc_docscontentwindow.o
 ./debug\moc_console.o

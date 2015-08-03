@@ -12,6 +12,7 @@ class configcreator : public QObject
 public:
     void loadFile(QString s);
     void writeFile(QString s, QString v);
+    void newFile(QString name, QString type);
     void revert();
     QString readFile(QString s);
     QString getValue(QString key);

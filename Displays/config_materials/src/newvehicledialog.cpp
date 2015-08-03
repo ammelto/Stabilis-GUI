@@ -24,8 +24,19 @@ newVehicleDialog::newVehicleDialog(QWidget *parent) :
     ui->templateLabel->setFont(QFont("Roboto",11));
     //
     ui->templateDetail->setFont(QFont("Roboto",9));
+    ui->nameDetail->setFont(QFont("Roboto",9));
+    vName = new inputField(ui->nameValue,ui->nameValue->geometry(),"Name","");
 
+}
 
+QString newVehicleDialog::getName(){
+    return vName->getValue();
+}
+
+QString newVehicleDialog::getType(){
+    QString s;
+    s = ui->VIDBox->currentText();
+    return s;
 }
 
 newVehicleDialog::~newVehicleDialog()

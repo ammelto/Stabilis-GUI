@@ -14,14 +14,6 @@ configcreator::configcreator()
         qDebug() << "Userdata directory created";
     }
 
-    /*
-    if(!QFile("../Userdata/template.stb").exists()){
-            QFile::copy(":/files/Userdata/config.stb","../Userdata/template.stb");
-    }
-    */
-
-    qDebug() << map;
-    qDebug() << "Stall " << getValue("Stall");
 }
 
 void configcreator::loadFile(QString s){
@@ -63,12 +55,27 @@ QString configcreator::readFile(QString s){
             loadedFile->close();
             //Did not find
         }else{
+            qDebug() << " FAILED TO OPEN";
             //Failed to open
         }
     }else{
+        qDebug() << "NO SUCH FILE";
         //Does not exist
     }
     return "";
+}
+
+void configcreator::newFile(QString name, QString type){
+    qDebug() << name;
+    qDebug() << type;
+
+    if(!QFile("../Userdata/"+ name +".stb").exists()){
+            QFile::copy(":/files/Userdata/config.stb","../Userdata/"+ name +".stb");
+    }
+    loadFile("../Userdata/"+ name + ".stb");
+    loadedFile->setPermissions(QFile::WriteUser);
+
+    setVehicleId("5");
 }
 
 void configcreator::revert(){

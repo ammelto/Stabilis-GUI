@@ -7,7 +7,6 @@
 #include "./Displays/headers/homedisplay.h"
 #include "./Displays/headers/docsdisplay.h"
 #include "./Displays/headers/configdisplay.h"
-#include "./Displays/headers/consoledisplay.h"
 #include "./Displays/headers/infodisplay.h"
 #include "./Displays/headers/windowdisplay.h"
 #include "sidemenu.h"
@@ -33,7 +32,6 @@ public slots:
      void setState(int state);
      void setDisplay(int display);
      void setTheme(QColor p,QColor s,QColor f);
-     void connectionWorked();
 
 private:
     enum states{close, maximize, minimize, windowed};
@@ -48,7 +46,6 @@ private:
     infodisplay *infoDisplay;
     configdisplay *configDisplay;
     windowdisplay *windowDisplay;
-    consoledisplay *consoleDisplay;
     sidemenu *sideMenu;
     titlebar *titleBar;
     int currentDisplay = 0;

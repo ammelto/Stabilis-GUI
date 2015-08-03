@@ -28,10 +28,6 @@ sidemenu::sidemenu(QWidget *parent) :
     ui->home->installEventFilter(this);
     ui->homeLabelText->setFont(font);
     //
-    consoleIconSource = QPixmap(":/icons/Resources/Icons/web-programming.png");
-    ui->console->installEventFilter(this);
-    ui->consoleLabelText->setFont(font);
-    //
     configIconSource = QPixmap(":/icons/Resources/Icons/settings13.png");
     ui->config->installEventFilter(this);
     ui->configLabelText->setFont(font);
@@ -86,26 +82,6 @@ bool sidemenu::eventFilter(QObject *obj, QEvent *event){
         default:
             break;
         }
-    }else if(obj == ui->console){
-        switch(event->type()){
-        case (QEvent::Enter):
-            pal = ui->console->palette();
-            pal.setColor(ui->console->backgroundRole(), secondaryColor);
-            ui->console->setPalette(pal);
-            ui->console->setAutoFillBackground(true);
-            break;
-        case (QEvent::Leave):
-            pal = ui->console->palette();
-            pal.setColor(ui->console->backgroundRole(), primaryColor);
-            ui->console->setPalette(pal);
-            ui->console->setAutoFillBackground(true);
-            break;
-        case (QEvent::MouseButtonPress):
-            setDisplay(console);
-            break;
-        default:
-            break;
-        }
     }else if(obj == ui->config){
         switch(event->type()){
         case (QEvent::Enter):
@@ -130,7 +106,7 @@ bool sidemenu::eventFilter(QObject *obj, QEvent *event){
         switch(event->type()){
         case (QEvent::Enter):
             pal = ui->docs->palette();
-            pal.setColor(ui->console->backgroundRole(), secondaryColor);
+            pal.setColor(ui->docs->backgroundRole(), secondaryColor);
             ui->docs->setPalette(pal);
             ui->docs->setAutoFillBackground(true);
             break;
@@ -209,14 +185,6 @@ void sidemenu::repaintIcons(){
     ui->docsLabel->setPixmap(docsIcon);
     ui->docsLabelText->setText("<html><head/><body><p><span style=\" color:" + fontColor.name() + ";\">Docs</span></p></body></html>");
 
-    QPixmap consoleIcon = consoleIconSource;
-    QPainter consolePainter(&consoleIcon);
-    consolePainter.setCompositionMode(QPainter::CompositionMode_SourceIn);
-    consolePainter.fillRect(consoleIcon.rect(),fontColor);
-    consolePainter.end();
-    ui->consoleLabel->setPixmap(consoleIcon);
-    ui->consoleLabelText->setText("<html><head/><body><p><span style=\" color:" + fontColor.name() + ";\">Console</span></p></body></html>");
-
     QPixmap configIcon = configIconSource;
     QPainter configPainter(&configIcon);
     configPainter.setCompositionMode(QPainter::CompositionMode_SourceIn);
@@ -282,17 +250,7 @@ void sidemenu::repaintButtons(){
     ui->configLabelText->setFont(QFont("Roboto",12));
     ui->configLabelText->setGeometry(35,6,45,20);
     ui->configLabel->setGeometry(16,5,16,20);
-    ui->config->setGeometry(200,0,100,30);
-
-    //CONSOLE BUTTON DEFAULT
-    pal = ui->consoleSelect->palette();
-    pal.setColor(ui->consoleSelect->backgroundRole(), primaryColor);
-    ui->consoleSelect->setPalette(pal);
-    ui->consoleSelect->setAutoFillBackground(true);
-    ui->consoleLabelText->setFont(QFont("Roboto",12));
-    ui->consoleLabelText->setGeometry(31,6,58,20);
-    ui->consoleLabel->setGeometry(12,5,16,20);
-    ui->console->setGeometry(100,0,100,30);
+    ui->config->setGeometry(100,0,100,30);
 
     //DOCS BUTTON DEFAULT
     pal = ui->docsSelect->palette();
@@ -302,7 +260,7 @@ void sidemenu::repaintButtons(){
     ui->docsLabelText->setFont(QFont("Roboto",12));
     ui->docsLabelText->setGeometry(40,6,36,20);
     ui->docsLabel->setGeometry(21,5,16,20);
-    ui->docs->setGeometry(300,0,100,30);
+    ui->docs->setGeometry(200,0,100,30);
 
     //WINDOW BUTTON DEFAULT
     pal = ui->windowSelect->palette();
@@ -336,12 +294,6 @@ void sidemenu::moveBar(int currentDisplay){
         pal.setColor(ui->homeSelect->backgroundRole(), fontColor);
         ui->homeSelect->setPalette(pal);
         ui->homeSelect->setAutoFillBackground(true);
-        break;
-    case console:
-        pal = ui->consoleSelect->palette();
-        pal.setColor(ui->consoleSelect->backgroundRole(), fontColor);
-        ui->consoleSelect->setPalette(pal);
-        ui->consoleSelect->setAutoFillBackground(true);
         break;
     case config:
         pal = ui->configSelect->palette();

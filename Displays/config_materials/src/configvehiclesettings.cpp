@@ -146,6 +146,8 @@ void configvehiclesettings::buttonHandler(){
             setLoadState();
         }else if(state == advancedState){
             qDebug() << "OK";
+            conf->newFile(newVehicle->getName(),newVehicle->getType());
+            setDefaultState();
         }else if(state == loadState){
             qDebug() << "Browse...";
             QString fileName = QFileDialog::getOpenFileName(this, tr("Open File"),"../Userdata",tr("Stb Files (*.stb)"));

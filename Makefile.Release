@@ -17,7 +17,7 @@ CXXFLAGS      = -pipe -fno-keep-inline-dllexport -O2 -frtti -Wall -Wextra -fexce
 INCPATH       = -I. -ILibs\libssh2-1.6.0\include -IC:\cygwin64\home\daslabasus1\libssh2-1.6.0\include -IC:\Qt\5.5\mingw492_32\include -IC:\Qt\5.5\mingw492_32\include\QtWidgets -IC:\Qt\5.5\mingw492_32\include\QtGui -IC:\Qt\5.5\mingw492_32\include\QtANGLE -IC:\Qt\5.5\mingw492_32\include\QtCore -Irelease -I. -IC:\Qt\5.5\mingw492_32\mkspecs\win32-g++ 
 LINKER      =        g++
 LFLAGS        =        -Wl,-s -Wl,-subsystem,console -mthreads
-LIBS        =        -LC:\Users\dilan_000\Documents\Stabilis\SSH\Stabilis-GUI\ -lssh2 -LC:/Qt/Tools/mingw492_32/i686-w64-mingw32/lib/ -lws2_32 -lz -lbcrypt -static -lcrypt32 -LC:/Qt/5.5/mingw492_32/lib -lQt5Widgets -lQt5Gui -lQt5Core 
+LIBS        =        -LC:\Users\dilan_000\Documents\Stabilis\Stabilis-GUI\ -lssh2 -LC:/Qt/Tools/mingw492_32/i686-w64-mingw32/lib/ -lws2_32 -lz -lbcrypt -static -lcrypt32 -LC:/Qt/5.5/mingw492_32/lib -lQt5Widgets -lQt5Gui -lQt5Core 
 QMAKE         = C:\Qt\5.5\mingw492_32\bin\qmake.exe
 IDC           = idc
 IDL           = midl
@@ -54,7 +54,6 @@ SOURCES       = main.cpp \
 		Displays\config_materials\src\configcreator.cpp \
 		Displays\src\homedisplay.cpp \
 		Displays\src\configdisplay.cpp \
-		Displays\src\consoledisplay.cpp \
 		Displays\src\docsdisplay.cpp \
 		Displays\src\windowdisplay.cpp \
 		Displays\src\infodisplay.cpp \
@@ -64,7 +63,6 @@ SOURCES       = main.cpp \
 		Displays\config_materials\src\airplanetemplate.cpp \
 		Displays\config_materials\src\loadvehicledialog.cpp \
 		Displays\config_materials\src\newvehicledialog.cpp \
-		Displays\console_materials\src\terminalwindow.cpp \
 		Displays\docs_materials\src\docsnavmenu.cpp \
 		Displays\docs_materials\src\docscontentwindow.cpp \
 		console.cpp \
@@ -81,7 +79,6 @@ SOURCES       = main.cpp \
 		release\moc_configcreator.cpp \
 		release\moc_homedisplay.cpp \
 		release\moc_configdisplay.cpp \
-		release\moc_consoledisplay.cpp \
 		release\moc_docsdisplay.cpp \
 		release\moc_windowdisplay.cpp \
 		release\moc_infodisplay.cpp \
@@ -91,7 +88,6 @@ SOURCES       = main.cpp \
 		release\moc_airplanetemplate.cpp \
 		release\moc_loadvehicledialog.cpp \
 		release\moc_newvehicledialog.cpp \
-		release\moc_terminalwindow.cpp \
 		release\moc_docsnavmenu.cpp \
 		release\moc_docscontentwindow.cpp \
 		release\moc_console.cpp \
@@ -109,7 +105,6 @@ OBJECTS       = release/main.o \
 		release/configcreator.o \
 		release/homedisplay.o \
 		release/configdisplay.o \
-		release/consoledisplay.o \
 		release/docsdisplay.o \
 		release/windowdisplay.o \
 		release/infodisplay.o \
@@ -119,7 +114,6 @@ OBJECTS       = release/main.o \
 		release/airplanetemplate.o \
 		release/loadvehicledialog.o \
 		release/newvehicledialog.o \
-		release/terminalwindow.o \
 		release/docsnavmenu.o \
 		release/docscontentwindow.o \
 		release/console.o \
@@ -137,7 +131,6 @@ OBJECTS       = release/main.o \
 		release/moc_configcreator.o \
 		release/moc_homedisplay.o \
 		release/moc_configdisplay.o \
-		release/moc_consoledisplay.o \
 		release/moc_docsdisplay.o \
 		release/moc_windowdisplay.o \
 		release/moc_infodisplay.o \
@@ -147,7 +140,6 @@ OBJECTS       = release/main.o \
 		release/moc_airplanetemplate.o \
 		release/moc_loadvehicledialog.o \
 		release/moc_newvehicledialog.o \
-		release/moc_terminalwindow.o \
 		release/moc_docsnavmenu.o \
 		release/moc_docscontentwindow.o \
 		release/moc_console.o \
@@ -165,7 +157,6 @@ DIST          = notes.txt mainwindow.h \
 		Displays\config_materials\headers\configcreator.h \
 		Displays\headers\homedisplay.h \
 		Displays\headers\configdisplay.h \
-		Displays\headers\consoledisplay.h \
 		Displays\headers\docsdisplay.h \
 		Displays\headers\windowdisplay.h \
 		Displays\headers\infodisplay.h \
@@ -175,7 +166,6 @@ DIST          = notes.txt mainwindow.h \
 		Displays\config_materials\headers\airplanetemplate.h \
 		Displays\config_materials\headers\loadvehicledialog.h \
 		Displays\config_materials\headers\newvehicledialog.h \
-		Displays\console_materials\headers\terminalwindow.h \
 		Displays\docs_materials\headers\docsnavmenu.h \
 		Displays\docs_materials\headers\docscontentwindow.h \
 		console.h \
@@ -192,7 +182,6 @@ DIST          = notes.txt mainwindow.h \
 		Displays\config_materials\src\configcreator.cpp \
 		Displays\src\homedisplay.cpp \
 		Displays\src\configdisplay.cpp \
-		Displays\src\consoledisplay.cpp \
 		Displays\src\docsdisplay.cpp \
 		Displays\src\windowdisplay.cpp \
 		Displays\src\infodisplay.cpp \
@@ -202,7 +191,6 @@ DIST          = notes.txt mainwindow.h \
 		Displays\config_materials\src\airplanetemplate.cpp \
 		Displays\config_materials\src\loadvehicledialog.cpp \
 		Displays\config_materials\src\newvehicledialog.cpp \
-		Displays\console_materials\src\terminalwindow.cpp \
 		Displays\docs_materials\src\docsnavmenu.cpp \
 		Displays\docs_materials\src\docscontentwindow.cpp \
 		console.cpp \
@@ -235,7 +223,7 @@ DESTDIR_TARGET = release\Stabilis.exe
 first: all
 all: Makefile.Release  $(DESTDIR_TARGET)
 
-$(DESTDIR_TARGET): ui_mainwindow.h ui_sidemenu.h ui_titlebar.h ui_homedisplay.h ui_configdisplay.h ui_consoledisplay.h ui_docsdisplay.h ui_windowdisplay.h ui_infodisplay.h ui_slider.h ui_configcontrollersettings.h ui_configgeneralsettings.h ui_confignetworksettings.h ui_configvehiclesettings.h ui_genericbutton.h ui_inputfield.h ui_airplanetemplate.h ui_loadvehicledialog.h ui_newvehicledialog.h ui_terminalwindow.h ui_docsnavmenu.h ui_docscontentwindow.h ui_stabilislegal.h ui_qtlegal.h ui_iconslegal.h $(OBJECTS) 
+$(DESTDIR_TARGET): ui_mainwindow.h ui_sidemenu.h ui_titlebar.h ui_homedisplay.h ui_configdisplay.h ui_docsdisplay.h ui_windowdisplay.h ui_infodisplay.h ui_slider.h ui_configcontrollersettings.h ui_configgeneralsettings.h ui_confignetworksettings.h ui_configvehiclesettings.h ui_genericbutton.h ui_inputfield.h ui_airplanetemplate.h ui_loadvehicledialog.h ui_newvehicledialog.h ui_docsnavmenu.h ui_docscontentwindow.h ui_stabilislegal.h ui_qtlegal.h ui_iconslegal.h $(OBJECTS) 
 	$(LINKER) $(LFLAGS) -o $(DESTDIR_TARGET) object_script.Stabilis.Release  $(LIBS)
 
 qmake: FORCE
@@ -247,7 +235,7 @@ dist:
 	$(ZIP) Stabilis.zip $(SOURCES) $(DIST) Stabilis.pro C:\Qt\5.5\mingw492_32\mkspecs\features\spec_pre.prf C:\Qt\5.5\mingw492_32\mkspecs\qdevice.pri C:\Qt\5.5\mingw492_32\mkspecs\features\device_config.prf C:\Qt\5.5\mingw492_32\mkspecs\qconfig.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_3dcore.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_3dcore_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_3dinput.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_3dinput_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_3dquick.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_3dquick_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_3dquickrenderer.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_3dquickrenderer_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_3drenderer.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_3drenderer_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_axbase.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_axbase_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_axcontainer.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_axcontainer_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_axserver.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_axserver_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_bluetooth.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_bluetooth_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_bootstrap_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_clucene_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_concurrent.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_concurrent_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_core.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_core_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_dbus.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_dbus_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_declarative.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_declarative_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_designer.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_designer_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_designercomponents_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_enginio.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_enginio_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_gui.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_gui_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_help.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_help_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_location.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_location_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_multimedia.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_multimedia_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_multimediawidgets.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_multimediawidgets_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_network.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_network_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_nfc.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_nfc_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_opengl.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_opengl_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_openglextensions.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_openglextensions_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_platformsupport_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_positioning.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_positioning_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_printsupport.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_printsupport_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_qml.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_qml_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_qmldevtools_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_qmltest.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_qmltest_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_quick.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_quick_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_quickparticles_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_quickwidgets.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_quickwidgets_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_script.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_script_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_scripttools.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_scripttools_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_sensors.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_sensors_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_serialport.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_serialport_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_sql.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_sql_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_svg.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_svg_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_testlib.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_testlib_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_uiplugin.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_uitools.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_uitools_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_webchannel.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_webchannel_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_webkit.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_webkit_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_webkitwidgets.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_webkitwidgets_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_websockets.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_websockets_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_widgets.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_widgets_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_winextras.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_winextras_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_xml.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_xml_private.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_xmlpatterns.pri C:\Qt\5.5\mingw492_32\mkspecs\modules\qt_lib_xmlpatterns_private.pri C:\Qt\5.5\mingw492_32\mkspecs\features\qt_functions.prf C:\Qt\5.5\mingw492_32\mkspecs\features\qt_config.prf C:\Qt\5.5\mingw492_32\mkspecs\features\win32\qt_config.prf C:\Qt\5.5\mingw492_32\mkspecs\win32-g++\qmake.conf C:\Qt\5.5\mingw492_32\mkspecs\features\spec_post.prf C:\Qt\5.5\mingw492_32\mkspecs\features\exclusive_builds.prf C:\Qt\5.5\mingw492_32\mkspecs\features\default_pre.prf C:\Qt\5.5\mingw492_32\mkspecs\features\win32\default_pre.prf C:\Qt\5.5\mingw492_32\mkspecs\features\resolve_config.prf C:\Qt\5.5\mingw492_32\mkspecs\features\exclusive_builds_post.prf C:\Qt\5.5\mingw492_32\mkspecs\features\default_post.prf C:\Qt\5.5\mingw492_32\mkspecs\features\build_pass.prf C:\Qt\5.5\mingw492_32\mkspecs\features\win32\console.prf C:\Qt\5.5\mingw492_32\mkspecs\features\win32\rtti.prf C:\Qt\5.5\mingw492_32\mkspecs\features\precompile_header.prf C:\Qt\5.5\mingw492_32\mkspecs\features\warn_on.prf C:\Qt\5.5\mingw492_32\mkspecs\features\qt.prf C:\Qt\5.5\mingw492_32\mkspecs\features\resources.prf C:\Qt\5.5\mingw492_32\mkspecs\features\moc.prf C:\Qt\5.5\mingw492_32\mkspecs\features\win32\opengl.prf C:\Qt\5.5\mingw492_32\mkspecs\features\uic.prf C:\Qt\5.5\mingw492_32\mkspecs\features\testcase_targets.prf C:\Qt\5.5\mingw492_32\mkspecs\features\exceptions.prf C:\Qt\5.5\mingw492_32\mkspecs\features\yacc.prf C:\Qt\5.5\mingw492_32\mkspecs\features\lex.prf Stabilis.pro Resources.qrc C:/Qt/5.5/mingw492_32/lib/Qt5Widgets.prl C:/Qt/5.5/mingw492_32/lib/Qt5Gui.prl C:/Qt/5.5/mingw492_32/lib/Qt5Core.prl  NO_PCH_SOURCES RESOURCES HEADERS SOURCES OBJECTIVE_SOURCES FORMS YACCSOURCES YACCSOURCES LEXSOURCES 
 
 clean: compiler_clean 
-	-$(DEL_FILE) release\main.o release\mainwindow.o release\sidemenu.o release\titlebar.o release\configcontrollersettings.o release\configgeneralsettings.o release\confignetworksettings.o release\configvehiclesettings.o release\configcreator.o release\homedisplay.o release\configdisplay.o release\consoledisplay.o release\docsdisplay.o release\windowdisplay.o release\infodisplay.o release\slider.o release\genericbutton.o release\inputfield.o release\airplanetemplate.o release\loadvehicledialog.o release\newvehicledialog.o release\terminalwindow.o release\docsnavmenu.o release\docscontentwindow.o release\console.o release\stabilislegal.o release\qtlegal.o release\iconslegal.o release\qrc_Resources.o release\moc_mainwindow.o release\moc_sidemenu.o release\moc_titlebar.o release\moc_configcontrollersettings.o release\moc_configgeneralsettings.o release\moc_confignetworksettings.o release\moc_configvehiclesettings.o release\moc_configcreator.o release\moc_homedisplay.o release\moc_configdisplay.o release\moc_consoledisplay.o release\moc_docsdisplay.o release\moc_windowdisplay.o release\moc_infodisplay.o release\moc_slider.o release\moc_genericbutton.o release\moc_inputfield.o release\moc_airplanetemplate.o release\moc_loadvehicledialog.o release\moc_newvehicledialog.o release\moc_terminalwindow.o release\moc_docsnavmenu.o release\moc_docscontentwindow.o release\moc_console.o release\moc_stabilislegal.o release\moc_qtlegal.o release\moc_iconslegal.o
+	-$(DEL_FILE) release\main.o release\mainwindow.o release\sidemenu.o release\titlebar.o release\configcontrollersettings.o release\configgeneralsettings.o release\confignetworksettings.o release\configvehiclesettings.o release\configcreator.o release\homedisplay.o release\configdisplay.o release\docsdisplay.o release\windowdisplay.o release\infodisplay.o release\slider.o release\genericbutton.o release\inputfield.o release\airplanetemplate.o release\loadvehicledialog.o release\newvehicledialog.o release\docsnavmenu.o release\docscontentwindow.o release\console.o release\stabilislegal.o release\qtlegal.o release\iconslegal.o release\qrc_Resources.o release\moc_mainwindow.o release\moc_sidemenu.o release\moc_titlebar.o release\moc_configcontrollersettings.o release\moc_configgeneralsettings.o release\moc_confignetworksettings.o release\moc_configvehiclesettings.o release\moc_configcreator.o release\moc_homedisplay.o release\moc_configdisplay.o release\moc_docsdisplay.o release\moc_windowdisplay.o release\moc_infodisplay.o release\moc_slider.o release\moc_genericbutton.o release\moc_inputfield.o release\moc_airplanetemplate.o release\moc_loadvehicledialog.o release\moc_newvehicledialog.o release\moc_docsnavmenu.o release\moc_docscontentwindow.o release\moc_console.o release\moc_stabilislegal.o release\moc_qtlegal.o release\moc_iconslegal.o
 
 distclean: clean 
 	-$(DEL_FILE) $(DESTDIR_TARGET)
@@ -265,6 +253,8 @@ compiler_rcc_make_all: release/qrc_Resources.cpp
 compiler_rcc_clean:
 	-$(DEL_FILE) release\qrc_Resources.cpp
 release/qrc_Resources.cpp: Resources.qrc \
+		Resources/logos/icon_logo.png \
+		Resources/logos/Qt_Logo.png \
 		Stabilis.ini \
 		Userdata/config.stb \
 		Userdata/TEST.txt \
@@ -294,9 +284,9 @@ release/qrc_Resources.cpp: Resources.qrc \
 		Resources/Icons/info21.png
 	C:\Qt\5.5\mingw492_32\bin\rcc.exe -name Resources Resources.qrc -o release\qrc_Resources.cpp
 
-compiler_moc_header_make_all: release/moc_mainwindow.cpp release/moc_sidemenu.cpp release/moc_titlebar.cpp release/moc_configcontrollersettings.cpp release/moc_configgeneralsettings.cpp release/moc_confignetworksettings.cpp release/moc_configvehiclesettings.cpp release/moc_configcreator.cpp release/moc_homedisplay.cpp release/moc_configdisplay.cpp release/moc_consoledisplay.cpp release/moc_docsdisplay.cpp release/moc_windowdisplay.cpp release/moc_infodisplay.cpp release/moc_slider.cpp release/moc_genericbutton.cpp release/moc_inputfield.cpp release/moc_airplanetemplate.cpp release/moc_loadvehicledialog.cpp release/moc_newvehicledialog.cpp release/moc_terminalwindow.cpp release/moc_docsnavmenu.cpp release/moc_docscontentwindow.cpp release/moc_console.cpp release/moc_stabilislegal.cpp release/moc_qtlegal.cpp release/moc_iconslegal.cpp
+compiler_moc_header_make_all: release/moc_mainwindow.cpp release/moc_sidemenu.cpp release/moc_titlebar.cpp release/moc_configcontrollersettings.cpp release/moc_configgeneralsettings.cpp release/moc_confignetworksettings.cpp release/moc_configvehiclesettings.cpp release/moc_configcreator.cpp release/moc_homedisplay.cpp release/moc_configdisplay.cpp release/moc_docsdisplay.cpp release/moc_windowdisplay.cpp release/moc_infodisplay.cpp release/moc_slider.cpp release/moc_genericbutton.cpp release/moc_inputfield.cpp release/moc_airplanetemplate.cpp release/moc_loadvehicledialog.cpp release/moc_newvehicledialog.cpp release/moc_docsnavmenu.cpp release/moc_docscontentwindow.cpp release/moc_console.cpp release/moc_stabilislegal.cpp release/moc_qtlegal.cpp release/moc_iconslegal.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) release\moc_mainwindow.cpp release\moc_sidemenu.cpp release\moc_titlebar.cpp release\moc_configcontrollersettings.cpp release\moc_configgeneralsettings.cpp release\moc_confignetworksettings.cpp release\moc_configvehiclesettings.cpp release\moc_configcreator.cpp release\moc_homedisplay.cpp release\moc_configdisplay.cpp release\moc_consoledisplay.cpp release\moc_docsdisplay.cpp release\moc_windowdisplay.cpp release\moc_infodisplay.cpp release\moc_slider.cpp release\moc_genericbutton.cpp release\moc_inputfield.cpp release\moc_airplanetemplate.cpp release\moc_loadvehicledialog.cpp release\moc_newvehicledialog.cpp release\moc_terminalwindow.cpp release\moc_docsnavmenu.cpp release\moc_docscontentwindow.cpp release\moc_console.cpp release\moc_stabilislegal.cpp release\moc_qtlegal.cpp release\moc_iconslegal.cpp
+	-$(DEL_FILE) release\moc_mainwindow.cpp release\moc_sidemenu.cpp release\moc_titlebar.cpp release\moc_configcontrollersettings.cpp release\moc_configgeneralsettings.cpp release\moc_confignetworksettings.cpp release\moc_configvehiclesettings.cpp release\moc_configcreator.cpp release\moc_homedisplay.cpp release\moc_configdisplay.cpp release\moc_docsdisplay.cpp release\moc_windowdisplay.cpp release\moc_infodisplay.cpp release\moc_slider.cpp release\moc_genericbutton.cpp release\moc_inputfield.cpp release\moc_airplanetemplate.cpp release\moc_loadvehicledialog.cpp release\moc_newvehicledialog.cpp release\moc_docsnavmenu.cpp release\moc_docscontentwindow.cpp release\moc_console.cpp release\moc_stabilislegal.cpp release\moc_qtlegal.cpp release\moc_iconslegal.cpp
 release/moc_mainwindow.cpp: C:/Qt/5.5/mingw492_32/include/QtWidgets/QMainWindow \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qmainwindow.h \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qwidget.h \
@@ -442,21 +432,10 @@ release/moc_mainwindow.cpp: C:/Qt/5.5/mingw492_32/include/QtWidgets/QMainWindow 
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qtabbar.h \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qrubberband.h \
 		Displays/config_materials/headers/newvehicledialog.h \
-		Displays/headers/consoledisplay.h \
-		Displays/console_materials/headers/terminalwindow.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/QPlainTextEdit \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qplaintextedit.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qtextedit.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qtextdocument.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qtextoption.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qtextcursor.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qtextformat.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qpen.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qabstracttextdocumentlayout.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qtextlayout.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qglyphrun.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qrawfont.h \
 		Displays/headers/infodisplay.h \
+		Displays/legal_materials/headers/qtlegal.h \
+		Displays/legal_materials/headers/iconslegal.h \
+		Displays/legal_materials/headers/stabilislegal.h \
 		Displays/headers/windowdisplay.h \
 		sidemenu.h \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/QGraphicsEffect \
@@ -464,6 +443,7 @@ release/moc_mainwindow.cpp: C:/Qt/5.5/mingw492_32/include/QtWidgets/QMainWindow 
 		C:/Qt/5.5/mingw492_32/include/QtGui/QPixmap \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/QGraphicsScene \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qgraphicsscene.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qpen.h \
 		titlebar.h \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/QMenuBar \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qmenubar.h \
@@ -472,7 +452,7 @@ release/moc_mainwindow.cpp: C:/Qt/5.5/mingw492_32/include/QtWidgets/QMainWindow 
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qactiongroup.h \
 		C:/Qt/5.5/mingw492_32/include/QtCore/QRect \
 		mainwindow.h
-	C:\Qt\5.5\mingw492_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.5/mingw492_32/mkspecs/win32-g++ -IC:/Users/dilan_000/Documents/Stabilis/SSH/Stabilis-GUI -IC:/Users/dilan_000/Documents/Stabilis/SSH/Stabilis-GUI/Libs/libssh2-1.6.0/include -IC:/cygwin64/home/daslabasus1/libssh2-1.6.0/include -IC:/Qt/5.5/mingw492_32/include -IC:/Qt/5.5/mingw492_32/include/QtWidgets -IC:/Qt/5.5/mingw492_32/include/QtGui -IC:/Qt/5.5/mingw492_32/include/QtANGLE -IC:/Qt/5.5/mingw492_32/include/QtCore mainwindow.h -o release\moc_mainwindow.cpp
+	C:\Qt\5.5\mingw492_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.5/mingw492_32/mkspecs/win32-g++ -IC:/Users/dilan_000/Documents/Stabilis/Stabilis-GUI -IC:/Users/dilan_000/Documents/Stabilis/Stabilis-GUI/Libs/libssh2-1.6.0/include -IC:/cygwin64/home/daslabasus1/libssh2-1.6.0/include -IC:/Qt/5.5/mingw492_32/include -IC:/Qt/5.5/mingw492_32/include/QtWidgets -IC:/Qt/5.5/mingw492_32/include/QtGui -IC:/Qt/5.5/mingw492_32/include/QtANGLE -IC:/Qt/5.5/mingw492_32/include/QtCore mainwindow.h -o release\moc_mainwindow.cpp
 
 release/moc_sidemenu.cpp: C:/Qt/5.5/mingw492_32/include/QtWidgets/QWidget \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qwidget.h \
@@ -585,7 +565,7 @@ release/moc_sidemenu.cpp: C:/Qt/5.5/mingw492_32/include/QtWidgets/QWidget \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qgraphicsscene.h \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qpen.h \
 		sidemenu.h
-	C:\Qt\5.5\mingw492_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.5/mingw492_32/mkspecs/win32-g++ -IC:/Users/dilan_000/Documents/Stabilis/SSH/Stabilis-GUI -IC:/Users/dilan_000/Documents/Stabilis/SSH/Stabilis-GUI/Libs/libssh2-1.6.0/include -IC:/cygwin64/home/daslabasus1/libssh2-1.6.0/include -IC:/Qt/5.5/mingw492_32/include -IC:/Qt/5.5/mingw492_32/include/QtWidgets -IC:/Qt/5.5/mingw492_32/include/QtGui -IC:/Qt/5.5/mingw492_32/include/QtANGLE -IC:/Qt/5.5/mingw492_32/include/QtCore sidemenu.h -o release\moc_sidemenu.cpp
+	C:\Qt\5.5\mingw492_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.5/mingw492_32/mkspecs/win32-g++ -IC:/Users/dilan_000/Documents/Stabilis/Stabilis-GUI -IC:/Users/dilan_000/Documents/Stabilis/Stabilis-GUI/Libs/libssh2-1.6.0/include -IC:/cygwin64/home/daslabasus1/libssh2-1.6.0/include -IC:/Qt/5.5/mingw492_32/include -IC:/Qt/5.5/mingw492_32/include/QtWidgets -IC:/Qt/5.5/mingw492_32/include/QtGui -IC:/Qt/5.5/mingw492_32/include/QtANGLE -IC:/Qt/5.5/mingw492_32/include/QtCore sidemenu.h -o release\moc_sidemenu.cpp
 
 release/moc_titlebar.cpp: C:/Qt/5.5/mingw492_32/include/QtWidgets/QWidget \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qwidget.h \
@@ -696,7 +676,7 @@ release/moc_titlebar.cpp: C:/Qt/5.5/mingw492_32/include/QtWidgets/QWidget \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qaction.h \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qactiongroup.h \
 		titlebar.h
-	C:\Qt\5.5\mingw492_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.5/mingw492_32/mkspecs/win32-g++ -IC:/Users/dilan_000/Documents/Stabilis/SSH/Stabilis-GUI -IC:/Users/dilan_000/Documents/Stabilis/SSH/Stabilis-GUI/Libs/libssh2-1.6.0/include -IC:/cygwin64/home/daslabasus1/libssh2-1.6.0/include -IC:/Qt/5.5/mingw492_32/include -IC:/Qt/5.5/mingw492_32/include/QtWidgets -IC:/Qt/5.5/mingw492_32/include/QtGui -IC:/Qt/5.5/mingw492_32/include/QtANGLE -IC:/Qt/5.5/mingw492_32/include/QtCore titlebar.h -o release\moc_titlebar.cpp
+	C:\Qt\5.5\mingw492_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.5/mingw492_32/mkspecs/win32-g++ -IC:/Users/dilan_000/Documents/Stabilis/Stabilis-GUI -IC:/Users/dilan_000/Documents/Stabilis/Stabilis-GUI/Libs/libssh2-1.6.0/include -IC:/cygwin64/home/daslabasus1/libssh2-1.6.0/include -IC:/Qt/5.5/mingw492_32/include -IC:/Qt/5.5/mingw492_32/include/QtWidgets -IC:/Qt/5.5/mingw492_32/include/QtGui -IC:/Qt/5.5/mingw492_32/include/QtANGLE -IC:/Qt/5.5/mingw492_32/include/QtCore titlebar.h -o release\moc_titlebar.cpp
 
 release/moc_configcontrollersettings.cpp: C:/Qt/5.5/mingw492_32/include/QtWidgets/QWidget \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qwidget.h \
@@ -806,7 +786,7 @@ release/moc_configcontrollersettings.cpp: C:/Qt/5.5/mingw492_32/include/QtWidget
 		C:/Qt/5.5/mingw492_32/include/QtCore/QFile \
 		C:/Qt/5.5/mingw492_32/include/QtCore/QMap \
 		Displays/config_materials/headers/configcontrollersettings.h
-	C:\Qt\5.5\mingw492_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.5/mingw492_32/mkspecs/win32-g++ -IC:/Users/dilan_000/Documents/Stabilis/SSH/Stabilis-GUI -IC:/Users/dilan_000/Documents/Stabilis/SSH/Stabilis-GUI/Libs/libssh2-1.6.0/include -IC:/cygwin64/home/daslabasus1/libssh2-1.6.0/include -IC:/Qt/5.5/mingw492_32/include -IC:/Qt/5.5/mingw492_32/include/QtWidgets -IC:/Qt/5.5/mingw492_32/include/QtGui -IC:/Qt/5.5/mingw492_32/include/QtANGLE -IC:/Qt/5.5/mingw492_32/include/QtCore Displays\config_materials\headers\configcontrollersettings.h -o release\moc_configcontrollersettings.cpp
+	C:\Qt\5.5\mingw492_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.5/mingw492_32/mkspecs/win32-g++ -IC:/Users/dilan_000/Documents/Stabilis/Stabilis-GUI -IC:/Users/dilan_000/Documents/Stabilis/Stabilis-GUI/Libs/libssh2-1.6.0/include -IC:/cygwin64/home/daslabasus1/libssh2-1.6.0/include -IC:/Qt/5.5/mingw492_32/include -IC:/Qt/5.5/mingw492_32/include/QtWidgets -IC:/Qt/5.5/mingw492_32/include/QtGui -IC:/Qt/5.5/mingw492_32/include/QtANGLE -IC:/Qt/5.5/mingw492_32/include/QtCore Displays\config_materials\headers\configcontrollersettings.h -o release\moc_configcontrollersettings.cpp
 
 release/moc_configgeneralsettings.cpp: C:/Qt/5.5/mingw492_32/include/QtWidgets/QWidget \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qwidget.h \
@@ -915,7 +895,7 @@ release/moc_configgeneralsettings.cpp: C:/Qt/5.5/mingw492_32/include/QtWidgets/Q
 		C:/Qt/5.5/mingw492_32/include/QtCore/QFile \
 		C:/Qt/5.5/mingw492_32/include/QtCore/QMap \
 		Displays/config_materials/headers/configgeneralsettings.h
-	C:\Qt\5.5\mingw492_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.5/mingw492_32/mkspecs/win32-g++ -IC:/Users/dilan_000/Documents/Stabilis/SSH/Stabilis-GUI -IC:/Users/dilan_000/Documents/Stabilis/SSH/Stabilis-GUI/Libs/libssh2-1.6.0/include -IC:/cygwin64/home/daslabasus1/libssh2-1.6.0/include -IC:/Qt/5.5/mingw492_32/include -IC:/Qt/5.5/mingw492_32/include/QtWidgets -IC:/Qt/5.5/mingw492_32/include/QtGui -IC:/Qt/5.5/mingw492_32/include/QtANGLE -IC:/Qt/5.5/mingw492_32/include/QtCore Displays\config_materials\headers\configgeneralsettings.h -o release\moc_configgeneralsettings.cpp
+	C:\Qt\5.5\mingw492_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.5/mingw492_32/mkspecs/win32-g++ -IC:/Users/dilan_000/Documents/Stabilis/Stabilis-GUI -IC:/Users/dilan_000/Documents/Stabilis/Stabilis-GUI/Libs/libssh2-1.6.0/include -IC:/cygwin64/home/daslabasus1/libssh2-1.6.0/include -IC:/Qt/5.5/mingw492_32/include -IC:/Qt/5.5/mingw492_32/include/QtWidgets -IC:/Qt/5.5/mingw492_32/include/QtGui -IC:/Qt/5.5/mingw492_32/include/QtANGLE -IC:/Qt/5.5/mingw492_32/include/QtCore Displays\config_materials\headers\configgeneralsettings.h -o release\moc_configgeneralsettings.cpp
 
 release/moc_confignetworksettings.cpp: C:/Qt/5.5/mingw492_32/include/QtWidgets/QWidget \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qwidget.h \
@@ -1026,7 +1006,7 @@ release/moc_confignetworksettings.cpp: C:/Qt/5.5/mingw492_32/include/QtWidgets/Q
 		C:/Qt/5.5/mingw492_32/include/QtCore/QMap \
 		inputfield.h \
 		Displays/config_materials/headers/confignetworksettings.h
-	C:\Qt\5.5\mingw492_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.5/mingw492_32/mkspecs/win32-g++ -IC:/Users/dilan_000/Documents/Stabilis/SSH/Stabilis-GUI -IC:/Users/dilan_000/Documents/Stabilis/SSH/Stabilis-GUI/Libs/libssh2-1.6.0/include -IC:/cygwin64/home/daslabasus1/libssh2-1.6.0/include -IC:/Qt/5.5/mingw492_32/include -IC:/Qt/5.5/mingw492_32/include/QtWidgets -IC:/Qt/5.5/mingw492_32/include/QtGui -IC:/Qt/5.5/mingw492_32/include/QtANGLE -IC:/Qt/5.5/mingw492_32/include/QtCore Displays\config_materials\headers\confignetworksettings.h -o release\moc_confignetworksettings.cpp
+	C:\Qt\5.5\mingw492_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.5/mingw492_32/mkspecs/win32-g++ -IC:/Users/dilan_000/Documents/Stabilis/Stabilis-GUI -IC:/Users/dilan_000/Documents/Stabilis/Stabilis-GUI/Libs/libssh2-1.6.0/include -IC:/cygwin64/home/daslabasus1/libssh2-1.6.0/include -IC:/Qt/5.5/mingw492_32/include -IC:/Qt/5.5/mingw492_32/include/QtWidgets -IC:/Qt/5.5/mingw492_32/include/QtGui -IC:/Qt/5.5/mingw492_32/include/QtANGLE -IC:/Qt/5.5/mingw492_32/include/QtCore Displays\config_materials\headers\confignetworksettings.h -o release\moc_confignetworksettings.cpp
 
 release/moc_configvehiclesettings.cpp: Displays/config_materials/headers/airplanetemplate.h \
 		inputfield.h \
@@ -1160,7 +1140,7 @@ release/moc_configvehiclesettings.cpp: Displays/config_materials/headers/airplan
 		Displays/config_materials/headers/newvehicledialog.h \
 		genericbutton.h \
 		Displays/config_materials/headers/configvehiclesettings.h
-	C:\Qt\5.5\mingw492_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.5/mingw492_32/mkspecs/win32-g++ -IC:/Users/dilan_000/Documents/Stabilis/SSH/Stabilis-GUI -IC:/Users/dilan_000/Documents/Stabilis/SSH/Stabilis-GUI/Libs/libssh2-1.6.0/include -IC:/cygwin64/home/daslabasus1/libssh2-1.6.0/include -IC:/Qt/5.5/mingw492_32/include -IC:/Qt/5.5/mingw492_32/include/QtWidgets -IC:/Qt/5.5/mingw492_32/include/QtGui -IC:/Qt/5.5/mingw492_32/include/QtANGLE -IC:/Qt/5.5/mingw492_32/include/QtCore Displays\config_materials\headers\configvehiclesettings.h -o release\moc_configvehiclesettings.cpp
+	C:\Qt\5.5\mingw492_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.5/mingw492_32/mkspecs/win32-g++ -IC:/Users/dilan_000/Documents/Stabilis/Stabilis-GUI -IC:/Users/dilan_000/Documents/Stabilis/Stabilis-GUI/Libs/libssh2-1.6.0/include -IC:/cygwin64/home/daslabasus1/libssh2-1.6.0/include -IC:/Qt/5.5/mingw492_32/include -IC:/Qt/5.5/mingw492_32/include/QtWidgets -IC:/Qt/5.5/mingw492_32/include/QtGui -IC:/Qt/5.5/mingw492_32/include/QtANGLE -IC:/Qt/5.5/mingw492_32/include/QtCore Displays\config_materials\headers\configvehiclesettings.h -o release\moc_configvehiclesettings.cpp
 
 release/moc_configcreator.cpp: C:/Qt/5.5/mingw492_32/include/QtCore/QString \
 		C:/Qt/5.5/mingw492_32/include/QtCore/qstring.h \
@@ -1233,7 +1213,7 @@ release/moc_configcreator.cpp: C:/Qt/5.5/mingw492_32/include/QtCore/QString \
 		C:/Qt/5.5/mingw492_32/include/QtCore/qset.h \
 		C:/Qt/5.5/mingw492_32/include/QtCore/qcontiguouscache.h \
 		Displays/config_materials/headers/configcreator.h
-	C:\Qt\5.5\mingw492_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.5/mingw492_32/mkspecs/win32-g++ -IC:/Users/dilan_000/Documents/Stabilis/SSH/Stabilis-GUI -IC:/Users/dilan_000/Documents/Stabilis/SSH/Stabilis-GUI/Libs/libssh2-1.6.0/include -IC:/cygwin64/home/daslabasus1/libssh2-1.6.0/include -IC:/Qt/5.5/mingw492_32/include -IC:/Qt/5.5/mingw492_32/include/QtWidgets -IC:/Qt/5.5/mingw492_32/include/QtGui -IC:/Qt/5.5/mingw492_32/include/QtANGLE -IC:/Qt/5.5/mingw492_32/include/QtCore Displays\config_materials\headers\configcreator.h -o release\moc_configcreator.cpp
+	C:\Qt\5.5\mingw492_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.5/mingw492_32/mkspecs/win32-g++ -IC:/Users/dilan_000/Documents/Stabilis/Stabilis-GUI -IC:/Users/dilan_000/Documents/Stabilis/Stabilis-GUI/Libs/libssh2-1.6.0/include -IC:/cygwin64/home/daslabasus1/libssh2-1.6.0/include -IC:/Qt/5.5/mingw492_32/include -IC:/Qt/5.5/mingw492_32/include/QtWidgets -IC:/Qt/5.5/mingw492_32/include/QtGui -IC:/Qt/5.5/mingw492_32/include/QtANGLE -IC:/Qt/5.5/mingw492_32/include/QtCore Displays\config_materials\headers\configcreator.h -o release\moc_configcreator.cpp
 
 release/moc_homedisplay.cpp: C:/Qt/5.5/mingw492_32/include/QtWidgets/QWidget \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qwidget.h \
@@ -1338,7 +1318,7 @@ release/moc_homedisplay.cpp: C:/Qt/5.5/mingw492_32/include/QtWidgets/QWidget \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qvector2d.h \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qtouchdevice.h \
 		Displays/headers/homedisplay.h
-	C:\Qt\5.5\mingw492_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.5/mingw492_32/mkspecs/win32-g++ -IC:/Users/dilan_000/Documents/Stabilis/SSH/Stabilis-GUI -IC:/Users/dilan_000/Documents/Stabilis/SSH/Stabilis-GUI/Libs/libssh2-1.6.0/include -IC:/cygwin64/home/daslabasus1/libssh2-1.6.0/include -IC:/Qt/5.5/mingw492_32/include -IC:/Qt/5.5/mingw492_32/include/QtWidgets -IC:/Qt/5.5/mingw492_32/include/QtGui -IC:/Qt/5.5/mingw492_32/include/QtANGLE -IC:/Qt/5.5/mingw492_32/include/QtCore Displays\headers\homedisplay.h -o release\moc_homedisplay.cpp
+	C:\Qt\5.5\mingw492_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.5/mingw492_32/mkspecs/win32-g++ -IC:/Users/dilan_000/Documents/Stabilis/Stabilis-GUI -IC:/Users/dilan_000/Documents/Stabilis/Stabilis-GUI/Libs/libssh2-1.6.0/include -IC:/cygwin64/home/daslabasus1/libssh2-1.6.0/include -IC:/Qt/5.5/mingw492_32/include -IC:/Qt/5.5/mingw492_32/include/QtWidgets -IC:/Qt/5.5/mingw492_32/include/QtGui -IC:/Qt/5.5/mingw492_32/include/QtANGLE -IC:/Qt/5.5/mingw492_32/include/QtCore Displays\headers\homedisplay.h -o release\moc_homedisplay.cpp
 
 release/moc_configdisplay.cpp: Displays/config_materials/headers/configcontrollersettings.h \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/QWidget \
@@ -1476,128 +1456,7 @@ release/moc_configdisplay.cpp: Displays/config_materials/headers/configcontrolle
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qrubberband.h \
 		Displays/config_materials/headers/newvehicledialog.h \
 		Displays/headers/configdisplay.h
-	C:\Qt\5.5\mingw492_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.5/mingw492_32/mkspecs/win32-g++ -IC:/Users/dilan_000/Documents/Stabilis/SSH/Stabilis-GUI -IC:/Users/dilan_000/Documents/Stabilis/SSH/Stabilis-GUI/Libs/libssh2-1.6.0/include -IC:/cygwin64/home/daslabasus1/libssh2-1.6.0/include -IC:/Qt/5.5/mingw492_32/include -IC:/Qt/5.5/mingw492_32/include/QtWidgets -IC:/Qt/5.5/mingw492_32/include/QtGui -IC:/Qt/5.5/mingw492_32/include/QtANGLE -IC:/Qt/5.5/mingw492_32/include/QtCore Displays\headers\configdisplay.h -o release\moc_configdisplay.cpp
-
-release/moc_consoledisplay.cpp: Displays/console_materials/headers/terminalwindow.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/QWidget \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qwidget.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qwindowdefs.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qglobal.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qconfig.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qfeatures.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qsystemdetection.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qprocessordetection.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qcompilerdetection.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qtypeinfo.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qtypetraits.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qsysinfo.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qlogging.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qflags.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qbasicatomic.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_bootstrap.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qgenericatomic.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_cxx11.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_gcc.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_msvc.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_armv7.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_armv6.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_armv5.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_ia64.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_mips.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_x86.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_unix.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qglobalstatic.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qmutex.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qnumeric.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qobjectdefs.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qnamespace.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qobjectdefs_impl.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qwindowdefs_win.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qobject.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qstring.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qchar.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qbytearray.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qrefcount.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qarraydata.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qstringbuilder.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qlist.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qalgorithms.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qiterator.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qbytearraylist.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qstringlist.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qregexp.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qstringmatcher.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qcoreevent.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qscopedpointer.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qmetatype.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qvarlengtharray.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qcontainerfwd.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qisenum.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qobject_impl.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qmargins.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qpaintdevice.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qrect.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qsize.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qpoint.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qpalette.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qcolor.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qrgb.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qbrush.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qpair.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qvector.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qmatrix.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qpolygon.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qregion.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qdatastream.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qiodevice.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qline.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qtransform.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qpainterpath.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qimage.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qpixelformat.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qpixmap.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qsharedpointer.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qshareddata.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qhash.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qsharedpointer_impl.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qfont.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qfontmetrics.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qfontinfo.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qsizepolicy.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qcursor.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qkeysequence.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qevent.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qvariant.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qmap.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qdebug.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qtextstream.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qlocale.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qset.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qcontiguouscache.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qurl.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qurlquery.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qfile.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qfiledevice.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qvector2d.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qtouchdevice.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/QPlainTextEdit \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qplaintextedit.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qtextedit.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qabstractscrollarea.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qframe.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qtextdocument.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qtextoption.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qtextcursor.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qtextformat.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qpen.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qabstracttextdocumentlayout.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qtextlayout.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qglyphrun.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qrawfont.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qfontdatabase.h \
-		Displays/headers/consoledisplay.h
-	C:\Qt\5.5\mingw492_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.5/mingw492_32/mkspecs/win32-g++ -IC:/Users/dilan_000/Documents/Stabilis/SSH/Stabilis-GUI -IC:/Users/dilan_000/Documents/Stabilis/SSH/Stabilis-GUI/Libs/libssh2-1.6.0/include -IC:/cygwin64/home/daslabasus1/libssh2-1.6.0/include -IC:/Qt/5.5/mingw492_32/include -IC:/Qt/5.5/mingw492_32/include/QtWidgets -IC:/Qt/5.5/mingw492_32/include/QtGui -IC:/Qt/5.5/mingw492_32/include/QtANGLE -IC:/Qt/5.5/mingw492_32/include/QtCore Displays\headers\consoledisplay.h -o release\moc_consoledisplay.cpp
+	C:\Qt\5.5\mingw492_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.5/mingw492_32/mkspecs/win32-g++ -IC:/Users/dilan_000/Documents/Stabilis/Stabilis-GUI -IC:/Users/dilan_000/Documents/Stabilis/Stabilis-GUI/Libs/libssh2-1.6.0/include -IC:/cygwin64/home/daslabasus1/libssh2-1.6.0/include -IC:/Qt/5.5/mingw492_32/include -IC:/Qt/5.5/mingw492_32/include/QtWidgets -IC:/Qt/5.5/mingw492_32/include/QtGui -IC:/Qt/5.5/mingw492_32/include/QtANGLE -IC:/Qt/5.5/mingw492_32/include/QtCore Displays\headers\configdisplay.h -o release\moc_configdisplay.cpp
 
 release/moc_docsdisplay.cpp: Displays/docs_materials/headers/docscontentwindow.h \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/QWidget \
@@ -1704,7 +1563,7 @@ release/moc_docsdisplay.cpp: Displays/docs_materials/headers/docscontentwindow.h
 		C:/Qt/5.5/mingw492_32/include/QtGui/qtouchdevice.h \
 		Displays/docs_materials/headers/docsnavmenu.h \
 		Displays/headers/docsdisplay.h
-	C:\Qt\5.5\mingw492_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.5/mingw492_32/mkspecs/win32-g++ -IC:/Users/dilan_000/Documents/Stabilis/SSH/Stabilis-GUI -IC:/Users/dilan_000/Documents/Stabilis/SSH/Stabilis-GUI/Libs/libssh2-1.6.0/include -IC:/cygwin64/home/daslabasus1/libssh2-1.6.0/include -IC:/Qt/5.5/mingw492_32/include -IC:/Qt/5.5/mingw492_32/include/QtWidgets -IC:/Qt/5.5/mingw492_32/include/QtGui -IC:/Qt/5.5/mingw492_32/include/QtANGLE -IC:/Qt/5.5/mingw492_32/include/QtCore Displays\headers\docsdisplay.h -o release\moc_docsdisplay.cpp
+	C:\Qt\5.5\mingw492_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.5/mingw492_32/mkspecs/win32-g++ -IC:/Users/dilan_000/Documents/Stabilis/Stabilis-GUI -IC:/Users/dilan_000/Documents/Stabilis/Stabilis-GUI/Libs/libssh2-1.6.0/include -IC:/cygwin64/home/daslabasus1/libssh2-1.6.0/include -IC:/Qt/5.5/mingw492_32/include -IC:/Qt/5.5/mingw492_32/include/QtWidgets -IC:/Qt/5.5/mingw492_32/include/QtGui -IC:/Qt/5.5/mingw492_32/include/QtANGLE -IC:/Qt/5.5/mingw492_32/include/QtCore Displays\headers\docsdisplay.h -o release\moc_docsdisplay.cpp
 
 release/moc_windowdisplay.cpp: C:/Qt/5.5/mingw492_32/include/QtWidgets/QWidget \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qwidget.h \
@@ -1810,7 +1669,7 @@ release/moc_windowdisplay.cpp: C:/Qt/5.5/mingw492_32/include/QtWidgets/QWidget \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qtouchdevice.h \
 		C:/Qt/5.5/mingw492_32/include/QtGui/QColor \
 		Displays/headers/windowdisplay.h
-	C:\Qt\5.5\mingw492_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.5/mingw492_32/mkspecs/win32-g++ -IC:/Users/dilan_000/Documents/Stabilis/SSH/Stabilis-GUI -IC:/Users/dilan_000/Documents/Stabilis/SSH/Stabilis-GUI/Libs/libssh2-1.6.0/include -IC:/cygwin64/home/daslabasus1/libssh2-1.6.0/include -IC:/Qt/5.5/mingw492_32/include -IC:/Qt/5.5/mingw492_32/include/QtWidgets -IC:/Qt/5.5/mingw492_32/include/QtGui -IC:/Qt/5.5/mingw492_32/include/QtANGLE -IC:/Qt/5.5/mingw492_32/include/QtCore Displays\headers\windowdisplay.h -o release\moc_windowdisplay.cpp
+	C:\Qt\5.5\mingw492_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.5/mingw492_32/mkspecs/win32-g++ -IC:/Users/dilan_000/Documents/Stabilis/Stabilis-GUI -IC:/Users/dilan_000/Documents/Stabilis/Stabilis-GUI/Libs/libssh2-1.6.0/include -IC:/cygwin64/home/daslabasus1/libssh2-1.6.0/include -IC:/Qt/5.5/mingw492_32/include -IC:/Qt/5.5/mingw492_32/include/QtWidgets -IC:/Qt/5.5/mingw492_32/include/QtGui -IC:/Qt/5.5/mingw492_32/include/QtANGLE -IC:/Qt/5.5/mingw492_32/include/QtCore Displays\headers\windowdisplay.h -o release\moc_windowdisplay.cpp
 
 release/moc_infodisplay.cpp: C:/Qt/5.5/mingw492_32/include/QtWidgets/QWidget \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qwidget.h \
@@ -1914,8 +1773,11 @@ release/moc_infodisplay.cpp: C:/Qt/5.5/mingw492_32/include/QtWidgets/QWidget \
 		C:/Qt/5.5/mingw492_32/include/QtCore/qfiledevice.h \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qvector2d.h \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qtouchdevice.h \
+		Displays/legal_materials/headers/qtlegal.h \
+		Displays/legal_materials/headers/iconslegal.h \
+		Displays/legal_materials/headers/stabilislegal.h \
 		Displays/headers/infodisplay.h
-	C:\Qt\5.5\mingw492_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.5/mingw492_32/mkspecs/win32-g++ -IC:/Users/dilan_000/Documents/Stabilis/SSH/Stabilis-GUI -IC:/Users/dilan_000/Documents/Stabilis/SSH/Stabilis-GUI/Libs/libssh2-1.6.0/include -IC:/cygwin64/home/daslabasus1/libssh2-1.6.0/include -IC:/Qt/5.5/mingw492_32/include -IC:/Qt/5.5/mingw492_32/include/QtWidgets -IC:/Qt/5.5/mingw492_32/include/QtGui -IC:/Qt/5.5/mingw492_32/include/QtANGLE -IC:/Qt/5.5/mingw492_32/include/QtCore Displays\headers\infodisplay.h -o release\moc_infodisplay.cpp
+	C:\Qt\5.5\mingw492_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.5/mingw492_32/mkspecs/win32-g++ -IC:/Users/dilan_000/Documents/Stabilis/Stabilis-GUI -IC:/Users/dilan_000/Documents/Stabilis/Stabilis-GUI/Libs/libssh2-1.6.0/include -IC:/cygwin64/home/daslabasus1/libssh2-1.6.0/include -IC:/Qt/5.5/mingw492_32/include -IC:/Qt/5.5/mingw492_32/include/QtWidgets -IC:/Qt/5.5/mingw492_32/include/QtGui -IC:/Qt/5.5/mingw492_32/include/QtANGLE -IC:/Qt/5.5/mingw492_32/include/QtCore Displays\headers\infodisplay.h -o release\moc_infodisplay.cpp
 
 release/moc_slider.cpp: C:/Qt/5.5/mingw492_32/include/QtWidgets/QWidget \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qwidget.h \
@@ -2020,7 +1882,7 @@ release/moc_slider.cpp: C:/Qt/5.5/mingw492_32/include/QtWidgets/QWidget \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qvector2d.h \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qtouchdevice.h \
 		slider.h
-	C:\Qt\5.5\mingw492_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.5/mingw492_32/mkspecs/win32-g++ -IC:/Users/dilan_000/Documents/Stabilis/SSH/Stabilis-GUI -IC:/Users/dilan_000/Documents/Stabilis/SSH/Stabilis-GUI/Libs/libssh2-1.6.0/include -IC:/cygwin64/home/daslabasus1/libssh2-1.6.0/include -IC:/Qt/5.5/mingw492_32/include -IC:/Qt/5.5/mingw492_32/include/QtWidgets -IC:/Qt/5.5/mingw492_32/include/QtGui -IC:/Qt/5.5/mingw492_32/include/QtANGLE -IC:/Qt/5.5/mingw492_32/include/QtCore slider.h -o release\moc_slider.cpp
+	C:\Qt\5.5\mingw492_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.5/mingw492_32/mkspecs/win32-g++ -IC:/Users/dilan_000/Documents/Stabilis/Stabilis-GUI -IC:/Users/dilan_000/Documents/Stabilis/Stabilis-GUI/Libs/libssh2-1.6.0/include -IC:/cygwin64/home/daslabasus1/libssh2-1.6.0/include -IC:/Qt/5.5/mingw492_32/include -IC:/Qt/5.5/mingw492_32/include/QtWidgets -IC:/Qt/5.5/mingw492_32/include/QtGui -IC:/Qt/5.5/mingw492_32/include/QtANGLE -IC:/Qt/5.5/mingw492_32/include/QtCore slider.h -o release\moc_slider.cpp
 
 release/moc_genericbutton.cpp: C:/Qt/5.5/mingw492_32/include/QtWidgets/QWidget \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qwidget.h \
@@ -2125,7 +1987,7 @@ release/moc_genericbutton.cpp: C:/Qt/5.5/mingw492_32/include/QtWidgets/QWidget \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qvector2d.h \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qtouchdevice.h \
 		genericbutton.h
-	C:\Qt\5.5\mingw492_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.5/mingw492_32/mkspecs/win32-g++ -IC:/Users/dilan_000/Documents/Stabilis/SSH/Stabilis-GUI -IC:/Users/dilan_000/Documents/Stabilis/SSH/Stabilis-GUI/Libs/libssh2-1.6.0/include -IC:/cygwin64/home/daslabasus1/libssh2-1.6.0/include -IC:/Qt/5.5/mingw492_32/include -IC:/Qt/5.5/mingw492_32/include/QtWidgets -IC:/Qt/5.5/mingw492_32/include/QtGui -IC:/Qt/5.5/mingw492_32/include/QtANGLE -IC:/Qt/5.5/mingw492_32/include/QtCore genericbutton.h -o release\moc_genericbutton.cpp
+	C:\Qt\5.5\mingw492_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.5/mingw492_32/mkspecs/win32-g++ -IC:/Users/dilan_000/Documents/Stabilis/Stabilis-GUI -IC:/Users/dilan_000/Documents/Stabilis/Stabilis-GUI/Libs/libssh2-1.6.0/include -IC:/cygwin64/home/daslabasus1/libssh2-1.6.0/include -IC:/Qt/5.5/mingw492_32/include -IC:/Qt/5.5/mingw492_32/include/QtWidgets -IC:/Qt/5.5/mingw492_32/include/QtGui -IC:/Qt/5.5/mingw492_32/include/QtANGLE -IC:/Qt/5.5/mingw492_32/include/QtCore genericbutton.h -o release\moc_genericbutton.cpp
 
 release/moc_inputfield.cpp: C:/Qt/5.5/mingw492_32/include/QtWidgets/QWidget \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qwidget.h \
@@ -2230,7 +2092,7 @@ release/moc_inputfield.cpp: C:/Qt/5.5/mingw492_32/include/QtWidgets/QWidget \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qvector2d.h \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qtouchdevice.h \
 		inputfield.h
-	C:\Qt\5.5\mingw492_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.5/mingw492_32/mkspecs/win32-g++ -IC:/Users/dilan_000/Documents/Stabilis/SSH/Stabilis-GUI -IC:/Users/dilan_000/Documents/Stabilis/SSH/Stabilis-GUI/Libs/libssh2-1.6.0/include -IC:/cygwin64/home/daslabasus1/libssh2-1.6.0/include -IC:/Qt/5.5/mingw492_32/include -IC:/Qt/5.5/mingw492_32/include/QtWidgets -IC:/Qt/5.5/mingw492_32/include/QtGui -IC:/Qt/5.5/mingw492_32/include/QtANGLE -IC:/Qt/5.5/mingw492_32/include/QtCore inputfield.h -o release\moc_inputfield.cpp
+	C:\Qt\5.5\mingw492_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.5/mingw492_32/mkspecs/win32-g++ -IC:/Users/dilan_000/Documents/Stabilis/Stabilis-GUI -IC:/Users/dilan_000/Documents/Stabilis/Stabilis-GUI/Libs/libssh2-1.6.0/include -IC:/cygwin64/home/daslabasus1/libssh2-1.6.0/include -IC:/Qt/5.5/mingw492_32/include -IC:/Qt/5.5/mingw492_32/include/QtWidgets -IC:/Qt/5.5/mingw492_32/include/QtGui -IC:/Qt/5.5/mingw492_32/include/QtANGLE -IC:/Qt/5.5/mingw492_32/include/QtCore inputfield.h -o release\moc_inputfield.cpp
 
 release/moc_airplanetemplate.cpp: inputfield.h \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/QWidget \
@@ -2340,7 +2202,7 @@ release/moc_airplanetemplate.cpp: inputfield.h \
 		C:/Qt/5.5/mingw492_32/include/QtCore/QFile \
 		C:/Qt/5.5/mingw492_32/include/QtCore/QMap \
 		Displays/config_materials/headers/airplanetemplate.h
-	C:\Qt\5.5\mingw492_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.5/mingw492_32/mkspecs/win32-g++ -IC:/Users/dilan_000/Documents/Stabilis/SSH/Stabilis-GUI -IC:/Users/dilan_000/Documents/Stabilis/SSH/Stabilis-GUI/Libs/libssh2-1.6.0/include -IC:/cygwin64/home/daslabasus1/libssh2-1.6.0/include -IC:/Qt/5.5/mingw492_32/include -IC:/Qt/5.5/mingw492_32/include/QtWidgets -IC:/Qt/5.5/mingw492_32/include/QtGui -IC:/Qt/5.5/mingw492_32/include/QtANGLE -IC:/Qt/5.5/mingw492_32/include/QtCore Displays\config_materials\headers\airplanetemplate.h -o release\moc_airplanetemplate.cpp
+	C:\Qt\5.5\mingw492_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.5/mingw492_32/mkspecs/win32-g++ -IC:/Users/dilan_000/Documents/Stabilis/Stabilis-GUI -IC:/Users/dilan_000/Documents/Stabilis/Stabilis-GUI/Libs/libssh2-1.6.0/include -IC:/cygwin64/home/daslabasus1/libssh2-1.6.0/include -IC:/Qt/5.5/mingw492_32/include -IC:/Qt/5.5/mingw492_32/include/QtWidgets -IC:/Qt/5.5/mingw492_32/include/QtGui -IC:/Qt/5.5/mingw492_32/include/QtANGLE -IC:/Qt/5.5/mingw492_32/include/QtCore Displays\config_materials\headers\airplanetemplate.h -o release\moc_airplanetemplate.cpp
 
 release/moc_loadvehicledialog.cpp: Displays/config_materials/headers/configcreator.h \
 		C:/Qt/5.5/mingw492_32/include/QtCore/QString \
@@ -2469,7 +2331,7 @@ release/moc_loadvehicledialog.cpp: Displays/config_materials/headers/configcreat
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qtabwidget.h \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qrubberband.h \
 		Displays/config_materials/headers/loadvehicledialog.h
-	C:\Qt\5.5\mingw492_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.5/mingw492_32/mkspecs/win32-g++ -IC:/Users/dilan_000/Documents/Stabilis/SSH/Stabilis-GUI -IC:/Users/dilan_000/Documents/Stabilis/SSH/Stabilis-GUI/Libs/libssh2-1.6.0/include -IC:/cygwin64/home/daslabasus1/libssh2-1.6.0/include -IC:/Qt/5.5/mingw492_32/include -IC:/Qt/5.5/mingw492_32/include/QtWidgets -IC:/Qt/5.5/mingw492_32/include/QtGui -IC:/Qt/5.5/mingw492_32/include/QtANGLE -IC:/Qt/5.5/mingw492_32/include/QtCore Displays\config_materials\headers\loadvehicledialog.h -o release\moc_loadvehicledialog.cpp
+	C:\Qt\5.5\mingw492_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.5/mingw492_32/mkspecs/win32-g++ -IC:/Users/dilan_000/Documents/Stabilis/Stabilis-GUI -IC:/Users/dilan_000/Documents/Stabilis/Stabilis-GUI/Libs/libssh2-1.6.0/include -IC:/cygwin64/home/daslabasus1/libssh2-1.6.0/include -IC:/Qt/5.5/mingw492_32/include -IC:/Qt/5.5/mingw492_32/include/QtWidgets -IC:/Qt/5.5/mingw492_32/include/QtGui -IC:/Qt/5.5/mingw492_32/include/QtANGLE -IC:/Qt/5.5/mingw492_32/include/QtCore Displays\config_materials\headers\loadvehicledialog.h -o release\moc_loadvehicledialog.cpp
 
 release/moc_newvehicledialog.cpp: C:/Qt/5.5/mingw492_32/include/QtWidgets/QWidget \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qwidget.h \
@@ -2577,128 +2439,9 @@ release/moc_newvehicledialog.cpp: C:/Qt/5.5/mingw492_32/include/QtWidgets/QWidge
 		C:/Qt/5.5/mingw492_32/include/QtCore/QString \
 		C:/Qt/5.5/mingw492_32/include/QtCore/QFile \
 		C:/Qt/5.5/mingw492_32/include/QtCore/QMap \
+		inputfield.h \
 		Displays/config_materials/headers/newvehicledialog.h
-	C:\Qt\5.5\mingw492_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.5/mingw492_32/mkspecs/win32-g++ -IC:/Users/dilan_000/Documents/Stabilis/SSH/Stabilis-GUI -IC:/Users/dilan_000/Documents/Stabilis/SSH/Stabilis-GUI/Libs/libssh2-1.6.0/include -IC:/cygwin64/home/daslabasus1/libssh2-1.6.0/include -IC:/Qt/5.5/mingw492_32/include -IC:/Qt/5.5/mingw492_32/include/QtWidgets -IC:/Qt/5.5/mingw492_32/include/QtGui -IC:/Qt/5.5/mingw492_32/include/QtANGLE -IC:/Qt/5.5/mingw492_32/include/QtCore Displays\config_materials\headers\newvehicledialog.h -o release\moc_newvehicledialog.cpp
-
-release/moc_terminalwindow.cpp: C:/Qt/5.5/mingw492_32/include/QtWidgets/QWidget \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qwidget.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qwindowdefs.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qglobal.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qconfig.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qfeatures.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qsystemdetection.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qprocessordetection.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qcompilerdetection.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qtypeinfo.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qtypetraits.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qsysinfo.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qlogging.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qflags.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qbasicatomic.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_bootstrap.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qgenericatomic.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_cxx11.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_gcc.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_msvc.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_armv7.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_armv6.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_armv5.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_ia64.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_mips.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_x86.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_unix.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qglobalstatic.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qmutex.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qnumeric.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qobjectdefs.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qnamespace.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qobjectdefs_impl.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qwindowdefs_win.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qobject.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qstring.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qchar.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qbytearray.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qrefcount.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qarraydata.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qstringbuilder.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qlist.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qalgorithms.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qiterator.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qbytearraylist.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qstringlist.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qregexp.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qstringmatcher.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qcoreevent.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qscopedpointer.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qmetatype.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qvarlengtharray.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qcontainerfwd.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qisenum.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qobject_impl.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qmargins.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qpaintdevice.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qrect.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qsize.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qpoint.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qpalette.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qcolor.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qrgb.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qbrush.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qpair.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qvector.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qmatrix.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qpolygon.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qregion.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qdatastream.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qiodevice.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qline.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qtransform.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qpainterpath.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qimage.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qpixelformat.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qpixmap.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qsharedpointer.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qshareddata.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qhash.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qsharedpointer_impl.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qfont.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qfontmetrics.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qfontinfo.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qsizepolicy.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qcursor.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qkeysequence.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qevent.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qvariant.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qmap.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qdebug.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qtextstream.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qlocale.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qset.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qcontiguouscache.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qurl.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qurlquery.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qfile.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qfiledevice.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qvector2d.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qtouchdevice.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/QPlainTextEdit \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qplaintextedit.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qtextedit.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qabstractscrollarea.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qframe.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qtextdocument.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qtextoption.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qtextcursor.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qtextformat.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qpen.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qabstracttextdocumentlayout.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qtextlayout.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qglyphrun.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qrawfont.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qfontdatabase.h \
-		Displays/console_materials/headers/terminalwindow.h
-	C:\Qt\5.5\mingw492_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.5/mingw492_32/mkspecs/win32-g++ -IC:/Users/dilan_000/Documents/Stabilis/SSH/Stabilis-GUI -IC:/Users/dilan_000/Documents/Stabilis/SSH/Stabilis-GUI/Libs/libssh2-1.6.0/include -IC:/cygwin64/home/daslabasus1/libssh2-1.6.0/include -IC:/Qt/5.5/mingw492_32/include -IC:/Qt/5.5/mingw492_32/include/QtWidgets -IC:/Qt/5.5/mingw492_32/include/QtGui -IC:/Qt/5.5/mingw492_32/include/QtANGLE -IC:/Qt/5.5/mingw492_32/include/QtCore Displays\console_materials\headers\terminalwindow.h -o release\moc_terminalwindow.cpp
+	C:\Qt\5.5\mingw492_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.5/mingw492_32/mkspecs/win32-g++ -IC:/Users/dilan_000/Documents/Stabilis/Stabilis-GUI -IC:/Users/dilan_000/Documents/Stabilis/Stabilis-GUI/Libs/libssh2-1.6.0/include -IC:/cygwin64/home/daslabasus1/libssh2-1.6.0/include -IC:/Qt/5.5/mingw492_32/include -IC:/Qt/5.5/mingw492_32/include/QtWidgets -IC:/Qt/5.5/mingw492_32/include/QtGui -IC:/Qt/5.5/mingw492_32/include/QtANGLE -IC:/Qt/5.5/mingw492_32/include/QtCore Displays\config_materials\headers\newvehicledialog.h -o release\moc_newvehicledialog.cpp
 
 release/moc_docsnavmenu.cpp: C:/Qt/5.5/mingw492_32/include/QtWidgets/QWidget \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qwidget.h \
@@ -2803,7 +2546,7 @@ release/moc_docsnavmenu.cpp: C:/Qt/5.5/mingw492_32/include/QtWidgets/QWidget \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qvector2d.h \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qtouchdevice.h \
 		Displays/docs_materials/headers/docsnavmenu.h
-	C:\Qt\5.5\mingw492_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.5/mingw492_32/mkspecs/win32-g++ -IC:/Users/dilan_000/Documents/Stabilis/SSH/Stabilis-GUI -IC:/Users/dilan_000/Documents/Stabilis/SSH/Stabilis-GUI/Libs/libssh2-1.6.0/include -IC:/cygwin64/home/daslabasus1/libssh2-1.6.0/include -IC:/Qt/5.5/mingw492_32/include -IC:/Qt/5.5/mingw492_32/include/QtWidgets -IC:/Qt/5.5/mingw492_32/include/QtGui -IC:/Qt/5.5/mingw492_32/include/QtANGLE -IC:/Qt/5.5/mingw492_32/include/QtCore Displays\docs_materials\headers\docsnavmenu.h -o release\moc_docsnavmenu.cpp
+	C:\Qt\5.5\mingw492_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.5/mingw492_32/mkspecs/win32-g++ -IC:/Users/dilan_000/Documents/Stabilis/Stabilis-GUI -IC:/Users/dilan_000/Documents/Stabilis/Stabilis-GUI/Libs/libssh2-1.6.0/include -IC:/cygwin64/home/daslabasus1/libssh2-1.6.0/include -IC:/Qt/5.5/mingw492_32/include -IC:/Qt/5.5/mingw492_32/include/QtWidgets -IC:/Qt/5.5/mingw492_32/include/QtGui -IC:/Qt/5.5/mingw492_32/include/QtANGLE -IC:/Qt/5.5/mingw492_32/include/QtCore Displays\docs_materials\headers\docsnavmenu.h -o release\moc_docsnavmenu.cpp
 
 release/moc_docscontentwindow.cpp: C:/Qt/5.5/mingw492_32/include/QtWidgets/QWidget \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qwidget.h \
@@ -2908,7 +2651,7 @@ release/moc_docscontentwindow.cpp: C:/Qt/5.5/mingw492_32/include/QtWidgets/QWidg
 		C:/Qt/5.5/mingw492_32/include/QtGui/qvector2d.h \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qtouchdevice.h \
 		Displays/docs_materials/headers/docscontentwindow.h
-	C:\Qt\5.5\mingw492_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.5/mingw492_32/mkspecs/win32-g++ -IC:/Users/dilan_000/Documents/Stabilis/SSH/Stabilis-GUI -IC:/Users/dilan_000/Documents/Stabilis/SSH/Stabilis-GUI/Libs/libssh2-1.6.0/include -IC:/cygwin64/home/daslabasus1/libssh2-1.6.0/include -IC:/Qt/5.5/mingw492_32/include -IC:/Qt/5.5/mingw492_32/include/QtWidgets -IC:/Qt/5.5/mingw492_32/include/QtGui -IC:/Qt/5.5/mingw492_32/include/QtANGLE -IC:/Qt/5.5/mingw492_32/include/QtCore Displays\docs_materials\headers\docscontentwindow.h -o release\moc_docscontentwindow.cpp
+	C:\Qt\5.5\mingw492_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.5/mingw492_32/mkspecs/win32-g++ -IC:/Users/dilan_000/Documents/Stabilis/Stabilis-GUI -IC:/Users/dilan_000/Documents/Stabilis/Stabilis-GUI/Libs/libssh2-1.6.0/include -IC:/cygwin64/home/daslabasus1/libssh2-1.6.0/include -IC:/Qt/5.5/mingw492_32/include -IC:/Qt/5.5/mingw492_32/include/QtWidgets -IC:/Qt/5.5/mingw492_32/include/QtGui -IC:/Qt/5.5/mingw492_32/include/QtANGLE -IC:/Qt/5.5/mingw492_32/include/QtCore Displays\docs_materials\headers\docscontentwindow.h -o release\moc_docscontentwindow.cpp
 
 release/moc_console.cpp: C:/Qt/5.5/mingw492_32/include/QtCore/qthread.h \
 		C:/Qt/5.5/mingw492_32/include/QtCore/qobject.h \
@@ -3033,7 +2776,7 @@ release/moc_console.cpp: C:/Qt/5.5/mingw492_32/include/QtCore/qthread.h \
 		Libs/libssh2-1.6.0/include/libssh2.h \
 		Libs/libssh2-1.6.0/include/libssh2_sftp.h \
 		console.h
-	C:\Qt\5.5\mingw492_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.5/mingw492_32/mkspecs/win32-g++ -IC:/Users/dilan_000/Documents/Stabilis/SSH/Stabilis-GUI -IC:/Users/dilan_000/Documents/Stabilis/SSH/Stabilis-GUI/Libs/libssh2-1.6.0/include -IC:/cygwin64/home/daslabasus1/libssh2-1.6.0/include -IC:/Qt/5.5/mingw492_32/include -IC:/Qt/5.5/mingw492_32/include/QtWidgets -IC:/Qt/5.5/mingw492_32/include/QtGui -IC:/Qt/5.5/mingw492_32/include/QtANGLE -IC:/Qt/5.5/mingw492_32/include/QtCore console.h -o release\moc_console.cpp
+	C:\Qt\5.5\mingw492_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.5/mingw492_32/mkspecs/win32-g++ -IC:/Users/dilan_000/Documents/Stabilis/Stabilis-GUI -IC:/Users/dilan_000/Documents/Stabilis/Stabilis-GUI/Libs/libssh2-1.6.0/include -IC:/cygwin64/home/daslabasus1/libssh2-1.6.0/include -IC:/Qt/5.5/mingw492_32/include -IC:/Qt/5.5/mingw492_32/include/QtWidgets -IC:/Qt/5.5/mingw492_32/include/QtGui -IC:/Qt/5.5/mingw492_32/include/QtANGLE -IC:/Qt/5.5/mingw492_32/include/QtCore console.h -o release\moc_console.cpp
 
 release/moc_stabilislegal.cpp: C:/Qt/5.5/mingw492_32/include/QtWidgets/QWidget \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qwidget.h \
@@ -3138,7 +2881,7 @@ release/moc_stabilislegal.cpp: C:/Qt/5.5/mingw492_32/include/QtWidgets/QWidget \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qvector2d.h \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qtouchdevice.h \
 		Displays/legal_materials/headers/stabilislegal.h
-	C:\Qt\5.5\mingw492_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.5/mingw492_32/mkspecs/win32-g++ -IC:/Users/dilan_000/Documents/Stabilis/SSH/Stabilis-GUI -IC:/Users/dilan_000/Documents/Stabilis/SSH/Stabilis-GUI/Libs/libssh2-1.6.0/include -IC:/cygwin64/home/daslabasus1/libssh2-1.6.0/include -IC:/Qt/5.5/mingw492_32/include -IC:/Qt/5.5/mingw492_32/include/QtWidgets -IC:/Qt/5.5/mingw492_32/include/QtGui -IC:/Qt/5.5/mingw492_32/include/QtANGLE -IC:/Qt/5.5/mingw492_32/include/QtCore Displays\legal_materials\headers\stabilislegal.h -o release\moc_stabilislegal.cpp
+	C:\Qt\5.5\mingw492_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.5/mingw492_32/mkspecs/win32-g++ -IC:/Users/dilan_000/Documents/Stabilis/Stabilis-GUI -IC:/Users/dilan_000/Documents/Stabilis/Stabilis-GUI/Libs/libssh2-1.6.0/include -IC:/cygwin64/home/daslabasus1/libssh2-1.6.0/include -IC:/Qt/5.5/mingw492_32/include -IC:/Qt/5.5/mingw492_32/include/QtWidgets -IC:/Qt/5.5/mingw492_32/include/QtGui -IC:/Qt/5.5/mingw492_32/include/QtANGLE -IC:/Qt/5.5/mingw492_32/include/QtCore Displays\legal_materials\headers\stabilislegal.h -o release\moc_stabilislegal.cpp
 
 release/moc_qtlegal.cpp: C:/Qt/5.5/mingw492_32/include/QtWidgets/QWidget \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qwidget.h \
@@ -3243,7 +2986,7 @@ release/moc_qtlegal.cpp: C:/Qt/5.5/mingw492_32/include/QtWidgets/QWidget \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qvector2d.h \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qtouchdevice.h \
 		Displays/legal_materials/headers/qtlegal.h
-	C:\Qt\5.5\mingw492_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.5/mingw492_32/mkspecs/win32-g++ -IC:/Users/dilan_000/Documents/Stabilis/SSH/Stabilis-GUI -IC:/Users/dilan_000/Documents/Stabilis/SSH/Stabilis-GUI/Libs/libssh2-1.6.0/include -IC:/cygwin64/home/daslabasus1/libssh2-1.6.0/include -IC:/Qt/5.5/mingw492_32/include -IC:/Qt/5.5/mingw492_32/include/QtWidgets -IC:/Qt/5.5/mingw492_32/include/QtGui -IC:/Qt/5.5/mingw492_32/include/QtANGLE -IC:/Qt/5.5/mingw492_32/include/QtCore Displays\legal_materials\headers\qtlegal.h -o release\moc_qtlegal.cpp
+	C:\Qt\5.5\mingw492_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.5/mingw492_32/mkspecs/win32-g++ -IC:/Users/dilan_000/Documents/Stabilis/Stabilis-GUI -IC:/Users/dilan_000/Documents/Stabilis/Stabilis-GUI/Libs/libssh2-1.6.0/include -IC:/cygwin64/home/daslabasus1/libssh2-1.6.0/include -IC:/Qt/5.5/mingw492_32/include -IC:/Qt/5.5/mingw492_32/include/QtWidgets -IC:/Qt/5.5/mingw492_32/include/QtGui -IC:/Qt/5.5/mingw492_32/include/QtANGLE -IC:/Qt/5.5/mingw492_32/include/QtCore Displays\legal_materials\headers\qtlegal.h -o release\moc_qtlegal.cpp
 
 release/moc_iconslegal.cpp: C:/Qt/5.5/mingw492_32/include/QtWidgets/QWidget \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qwidget.h \
@@ -3348,13 +3091,13 @@ release/moc_iconslegal.cpp: C:/Qt/5.5/mingw492_32/include/QtWidgets/QWidget \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qvector2d.h \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qtouchdevice.h \
 		Displays/legal_materials/headers/iconslegal.h
-	C:\Qt\5.5\mingw492_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.5/mingw492_32/mkspecs/win32-g++ -IC:/Users/dilan_000/Documents/Stabilis/SSH/Stabilis-GUI -IC:/Users/dilan_000/Documents/Stabilis/SSH/Stabilis-GUI/Libs/libssh2-1.6.0/include -IC:/cygwin64/home/daslabasus1/libssh2-1.6.0/include -IC:/Qt/5.5/mingw492_32/include -IC:/Qt/5.5/mingw492_32/include/QtWidgets -IC:/Qt/5.5/mingw492_32/include/QtGui -IC:/Qt/5.5/mingw492_32/include/QtANGLE -IC:/Qt/5.5/mingw492_32/include/QtCore Displays\legal_materials\headers\iconslegal.h -o release\moc_iconslegal.cpp
+	C:\Qt\5.5\mingw492_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Qt/5.5/mingw492_32/mkspecs/win32-g++ -IC:/Users/dilan_000/Documents/Stabilis/Stabilis-GUI -IC:/Users/dilan_000/Documents/Stabilis/Stabilis-GUI/Libs/libssh2-1.6.0/include -IC:/cygwin64/home/daslabasus1/libssh2-1.6.0/include -IC:/Qt/5.5/mingw492_32/include -IC:/Qt/5.5/mingw492_32/include/QtWidgets -IC:/Qt/5.5/mingw492_32/include/QtGui -IC:/Qt/5.5/mingw492_32/include/QtANGLE -IC:/Qt/5.5/mingw492_32/include/QtCore Displays\legal_materials\headers\iconslegal.h -o release\moc_iconslegal.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_mainwindow.h ui_sidemenu.h ui_titlebar.h ui_homedisplay.h ui_configdisplay.h ui_consoledisplay.h ui_docsdisplay.h ui_windowdisplay.h ui_infodisplay.h ui_slider.h ui_configcontrollersettings.h ui_configgeneralsettings.h ui_confignetworksettings.h ui_configvehiclesettings.h ui_genericbutton.h ui_inputfield.h ui_airplanetemplate.h ui_loadvehicledialog.h ui_newvehicledialog.h ui_terminalwindow.h ui_docsnavmenu.h ui_docscontentwindow.h ui_stabilislegal.h ui_qtlegal.h ui_iconslegal.h
+compiler_uic_make_all: ui_mainwindow.h ui_sidemenu.h ui_titlebar.h ui_homedisplay.h ui_configdisplay.h ui_docsdisplay.h ui_windowdisplay.h ui_infodisplay.h ui_slider.h ui_configcontrollersettings.h ui_configgeneralsettings.h ui_confignetworksettings.h ui_configvehiclesettings.h ui_genericbutton.h ui_inputfield.h ui_airplanetemplate.h ui_loadvehicledialog.h ui_newvehicledialog.h ui_docsnavmenu.h ui_docscontentwindow.h ui_stabilislegal.h ui_qtlegal.h ui_iconslegal.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_mainwindow.h ui_sidemenu.h ui_titlebar.h ui_homedisplay.h ui_configdisplay.h ui_consoledisplay.h ui_docsdisplay.h ui_windowdisplay.h ui_infodisplay.h ui_slider.h ui_configcontrollersettings.h ui_configgeneralsettings.h ui_confignetworksettings.h ui_configvehiclesettings.h ui_genericbutton.h ui_inputfield.h ui_airplanetemplate.h ui_loadvehicledialog.h ui_newvehicledialog.h ui_terminalwindow.h ui_docsnavmenu.h ui_docscontentwindow.h ui_stabilislegal.h ui_qtlegal.h ui_iconslegal.h
+	-$(DEL_FILE) ui_mainwindow.h ui_sidemenu.h ui_titlebar.h ui_homedisplay.h ui_configdisplay.h ui_docsdisplay.h ui_windowdisplay.h ui_infodisplay.h ui_slider.h ui_configcontrollersettings.h ui_configgeneralsettings.h ui_confignetworksettings.h ui_configvehiclesettings.h ui_genericbutton.h ui_inputfield.h ui_airplanetemplate.h ui_loadvehicledialog.h ui_newvehicledialog.h ui_docsnavmenu.h ui_docscontentwindow.h ui_stabilislegal.h ui_qtlegal.h ui_iconslegal.h
 ui_mainwindow.h: UI/mainwindow.ui
 	C:\Qt\5.5\mingw492_32\bin\uic.exe UI\mainwindow.ui -o ui_mainwindow.h
 
@@ -3369,9 +3112,6 @@ ui_homedisplay.h: UI/homedisplay.ui
 
 ui_configdisplay.h: UI/configdisplay.ui
 	C:\Qt\5.5\mingw492_32\bin\uic.exe UI\configdisplay.ui -o ui_configdisplay.h
-
-ui_consoledisplay.h: UI/consoledisplay.ui
-	C:\Qt\5.5\mingw492_32\bin\uic.exe UI\consoledisplay.ui -o ui_consoledisplay.h
 
 ui_docsdisplay.h: UI/docsdisplay.ui
 	C:\Qt\5.5\mingw492_32\bin\uic.exe UI\docsdisplay.ui -o ui_docsdisplay.h
@@ -3411,9 +3151,6 @@ ui_loadvehicledialog.h: Displays/config_materials/UI/loadvehicledialog.ui
 
 ui_newvehicledialog.h: Displays/config_materials/UI/newvehicledialog.ui
 	C:\Qt\5.5\mingw492_32\bin\uic.exe Displays\config_materials\UI\newvehicledialog.ui -o ui_newvehicledialog.h
-
-ui_terminalwindow.h: Displays/console_materials/UI/terminalwindow.ui
-	C:\Qt\5.5\mingw492_32\bin\uic.exe Displays\console_materials\UI\terminalwindow.ui -o ui_terminalwindow.h
 
 ui_docsnavmenu.h: Displays/docs_materials/UI/docsnavmenu.ui
 	C:\Qt\5.5\mingw492_32\bin\uic.exe Displays\docs_materials\UI\docsnavmenu.ui -o ui_docsnavmenu.h
@@ -3588,21 +3325,10 @@ release/main.o: main.cpp mainwindow.h \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qtabbar.h \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qrubberband.h \
 		Displays/config_materials/headers/newvehicledialog.h \
-		Displays/headers/consoledisplay.h \
-		Displays/console_materials/headers/terminalwindow.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/QPlainTextEdit \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qplaintextedit.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qtextedit.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qtextdocument.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qtextoption.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qtextcursor.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qtextformat.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qpen.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qabstracttextdocumentlayout.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qtextlayout.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qglyphrun.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qrawfont.h \
 		Displays/headers/infodisplay.h \
+		Displays/legal_materials/headers/qtlegal.h \
+		Displays/legal_materials/headers/iconslegal.h \
+		Displays/legal_materials/headers/stabilislegal.h \
 		Displays/headers/windowdisplay.h \
 		sidemenu.h \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/QGraphicsEffect \
@@ -3610,6 +3336,7 @@ release/main.o: main.cpp mainwindow.h \
 		C:/Qt/5.5/mingw492_32/include/QtGui/QPixmap \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/QGraphicsScene \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qgraphicsscene.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qpen.h \
 		titlebar.h \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/QMenuBar \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qmenubar.h \
@@ -3804,7 +3531,15 @@ release/main.o: main.cpp mainwindow.h \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qpagesize.h \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qpaintengine.h \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qpainter.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qtextoption.h \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qpdfwriter.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qabstracttextdocumentlayout.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qtextlayout.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qtextformat.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qglyphrun.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qrawfont.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qtextcursor.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qtextdocument.h \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qstatictext.h \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qsyntaxhighlighter.h \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qtextobject.h \
@@ -3962,21 +3697,10 @@ release/mainwindow.o: mainwindow.cpp mainwindow.h \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qtabbar.h \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qrubberband.h \
 		Displays/config_materials/headers/newvehicledialog.h \
-		Displays/headers/consoledisplay.h \
-		Displays/console_materials/headers/terminalwindow.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/QPlainTextEdit \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qplaintextedit.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qtextedit.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qtextdocument.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qtextoption.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qtextcursor.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qtextformat.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qpen.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qabstracttextdocumentlayout.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qtextlayout.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qglyphrun.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qrawfont.h \
 		Displays/headers/infodisplay.h \
+		Displays/legal_materials/headers/qtlegal.h \
+		Displays/legal_materials/headers/iconslegal.h \
+		Displays/legal_materials/headers/stabilislegal.h \
 		Displays/headers/windowdisplay.h \
 		sidemenu.h \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/QGraphicsEffect \
@@ -3984,6 +3708,7 @@ release/mainwindow.o: mainwindow.cpp mainwindow.h \
 		C:/Qt/5.5/mingw492_32/include/QtGui/QPixmap \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/QGraphicsScene \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qgraphicsscene.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qpen.h \
 		titlebar.h \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/QMenuBar \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qmenubar.h \
@@ -4193,7 +3918,15 @@ release/mainwindow.o: mainwindow.cpp mainwindow.h \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qpagesize.h \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qpaintengine.h \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qpainter.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qtextoption.h \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qpdfwriter.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qabstracttextdocumentlayout.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qtextlayout.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qtextformat.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qglyphrun.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qrawfont.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qtextcursor.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qtextdocument.h \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qstatictext.h \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qsyntaxhighlighter.h \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qtextobject.h \
@@ -4540,21 +4273,10 @@ release/titlebar.o: titlebar.cpp titlebar.h \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qlistwidget.h \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qlistview.h \
 		Displays/config_materials/headers/newvehicledialog.h \
-		Displays/headers/consoledisplay.h \
-		Displays/console_materials/headers/terminalwindow.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/QPlainTextEdit \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qplaintextedit.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qtextedit.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qtextdocument.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qtextoption.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qtextcursor.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qtextformat.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qpen.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qabstracttextdocumentlayout.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qtextlayout.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qglyphrun.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qrawfont.h \
 		Displays/headers/infodisplay.h \
+		Displays/legal_materials/headers/qtlegal.h \
+		Displays/legal_materials/headers/iconslegal.h \
+		Displays/legal_materials/headers/stabilislegal.h \
 		Displays/headers/windowdisplay.h \
 		sidemenu.h \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/QGraphicsEffect \
@@ -4562,6 +4284,7 @@ release/titlebar.o: titlebar.cpp titlebar.h \
 		C:/Qt/5.5/mingw492_32/include/QtGui/QPixmap \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/QGraphicsScene \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qgraphicsscene.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qpen.h \
 		C:/Qt/5.5/mingw492_32/include/QtCore/QRect \
 		C:/Qt/5.5/mingw492_32/include/QtGui/QtGui \
 		C:/Qt/5.5/mingw492_32/include/QtGui/QtGuiDepends \
@@ -4743,7 +4466,15 @@ release/titlebar.o: titlebar.cpp titlebar.h \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qpagesize.h \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qpaintengine.h \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qpainter.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qtextoption.h \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qpdfwriter.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qabstracttextdocumentlayout.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qtextlayout.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qtextformat.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qglyphrun.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qrawfont.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qtextcursor.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qtextdocument.h \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qstatictext.h \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qsyntaxhighlighter.h \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qtextobject.h \
@@ -5912,162 +5643,6 @@ release/configdisplay.o: Displays/src/configdisplay.cpp Displays/headers/configd
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qgraphicseffect.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\configdisplay.o Displays\src\configdisplay.cpp
 
-release/consoledisplay.o: Displays/src/consoledisplay.cpp Displays/headers/consoledisplay.h \
-		Displays/console_materials/headers/terminalwindow.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/QWidget \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qwidget.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qwindowdefs.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qglobal.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qconfig.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qfeatures.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qsystemdetection.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qprocessordetection.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qcompilerdetection.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qtypeinfo.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qtypetraits.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qsysinfo.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qlogging.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qflags.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qbasicatomic.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_bootstrap.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qgenericatomic.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_cxx11.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_gcc.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_msvc.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_armv7.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_armv6.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_armv5.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_ia64.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_mips.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_x86.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_unix.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qglobalstatic.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qmutex.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qnumeric.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qobjectdefs.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qnamespace.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qobjectdefs_impl.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qwindowdefs_win.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qobject.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qstring.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qchar.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qbytearray.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qrefcount.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qarraydata.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qstringbuilder.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qlist.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qalgorithms.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qiterator.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qbytearraylist.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qstringlist.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qregexp.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qstringmatcher.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qcoreevent.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qscopedpointer.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qmetatype.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qvarlengtharray.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qcontainerfwd.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qisenum.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qobject_impl.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qmargins.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qpaintdevice.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qrect.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qsize.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qpoint.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qpalette.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qcolor.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qrgb.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qbrush.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qpair.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qvector.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qmatrix.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qpolygon.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qregion.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qdatastream.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qiodevice.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qline.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qtransform.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qpainterpath.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qimage.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qpixelformat.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qpixmap.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qsharedpointer.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qshareddata.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qhash.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qsharedpointer_impl.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qfont.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qfontmetrics.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qfontinfo.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qsizepolicy.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qcursor.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qkeysequence.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qevent.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qvariant.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qmap.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qdebug.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qtextstream.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qlocale.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qset.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qcontiguouscache.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qurl.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qurlquery.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qfile.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qfiledevice.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qvector2d.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qtouchdevice.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/QPlainTextEdit \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qplaintextedit.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qtextedit.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qabstractscrollarea.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qframe.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qtextdocument.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qtextoption.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qtextcursor.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qtextformat.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qpen.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qabstracttextdocumentlayout.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qtextlayout.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qglyphrun.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qrawfont.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qfontdatabase.h \
-		ui_consoledisplay.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/QVariant \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/QAction \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qaction.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qicon.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qactiongroup.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/QApplication \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qapplication.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qcoreapplication.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qeventloop.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qdesktopwidget.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qguiapplication.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qinputmethod.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/QButtonGroup \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qbuttongroup.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/QHeaderView \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qheaderview.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qabstractitemview.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qabstractitemmodel.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qitemselectionmodel.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qabstractitemdelegate.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qstyleoption.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qabstractspinbox.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qvalidator.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qregularexpression.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qslider.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qabstractslider.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qstyle.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qtabbar.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qtabwidget.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qrubberband.h \
-		console.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qthread.h \
-		Libs/libssh2-1.6.0/include/libssh2.h \
-		Libs/libssh2-1.6.0/include/libssh2_sftp.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\consoledisplay.o Displays\src\consoledisplay.cpp
-
 release/docsdisplay.o: Displays/src/docsdisplay.cpp Displays/headers/docsdisplay.h \
 		Displays/docs_materials/headers/docscontentwindow.h \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/QWidget \
@@ -6452,6 +6027,9 @@ release/infodisplay.o: Displays/src/infodisplay.cpp Displays/headers/infodisplay
 		C:/Qt/5.5/mingw492_32/include/QtCore/qfiledevice.h \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qvector2d.h \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qtouchdevice.h \
+		Displays/legal_materials/headers/qtlegal.h \
+		Displays/legal_materials/headers/iconslegal.h \
+		Displays/legal_materials/headers/stabilislegal.h \
 		ui_infodisplay.h \
 		C:/Qt/5.5/mingw492_32/include/QtCore/QVariant \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/QAction \
@@ -6484,9 +6062,7 @@ release/infodisplay.o: Displays/src/infodisplay.cpp Displays/headers/infodisplay
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qstyle.h \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qtabbar.h \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/qtabwidget.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qrubberband.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/QLabel \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qlabel.h
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qrubberband.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\infodisplay.o Displays\src\infodisplay.cpp
 
 release/slider.o: slider.cpp slider.h \
@@ -7325,6 +6901,7 @@ release/newvehicledialog.o: Displays/config_materials/src/newvehicledialog.cpp D
 		C:/Qt/5.5/mingw492_32/include/QtCore/QString \
 		C:/Qt/5.5/mingw492_32/include/QtCore/QFile \
 		C:/Qt/5.5/mingw492_32/include/QtCore/QMap \
+		inputfield.h \
 		ui_newvehicledialog.h \
 		C:/Qt/5.5/mingw492_32/include/QtCore/QVariant \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/QAction \
@@ -7367,165 +6944,6 @@ release/newvehicledialog.o: Displays/config_materials/src/newvehicledialog.cpp D
 		C:/Qt/5.5/mingw492_32/include/QtGui/QFontDatabase \
 		C:/Qt/5.5/mingw492_32/include/QtGui/qfontdatabase.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\newvehicledialog.o Displays\config_materials\src\newvehicledialog.cpp
-
-release/terminalwindow.o: Displays/console_materials/src/terminalwindow.cpp Displays/console_materials/headers/terminalwindow.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/QWidget \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qwidget.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qwindowdefs.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qglobal.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qconfig.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qfeatures.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qsystemdetection.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qprocessordetection.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qcompilerdetection.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qtypeinfo.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qtypetraits.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qsysinfo.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qlogging.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qflags.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qbasicatomic.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_bootstrap.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qgenericatomic.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_cxx11.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_gcc.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_msvc.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_armv7.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_armv6.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_armv5.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_ia64.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_mips.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_x86.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_unix.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qglobalstatic.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qmutex.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qnumeric.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qobjectdefs.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qnamespace.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qobjectdefs_impl.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qwindowdefs_win.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qobject.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qstring.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qchar.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qbytearray.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qrefcount.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qarraydata.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qstringbuilder.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qlist.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qalgorithms.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qiterator.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qbytearraylist.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qstringlist.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qregexp.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qstringmatcher.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qcoreevent.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qscopedpointer.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qmetatype.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qvarlengtharray.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qcontainerfwd.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qisenum.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qobject_impl.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qmargins.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qpaintdevice.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qrect.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qsize.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qpoint.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qpalette.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qcolor.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qrgb.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qbrush.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qpair.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qvector.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qmatrix.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qpolygon.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qregion.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qdatastream.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qiodevice.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qline.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qtransform.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qpainterpath.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qimage.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qpixelformat.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qpixmap.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qsharedpointer.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qshareddata.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qhash.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qsharedpointer_impl.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qfont.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qfontmetrics.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qfontinfo.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qsizepolicy.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qcursor.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qkeysequence.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qevent.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qvariant.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qmap.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qdebug.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qtextstream.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qlocale.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qset.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qcontiguouscache.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qurl.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qurlquery.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qfile.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qfiledevice.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qvector2d.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qtouchdevice.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/QPlainTextEdit \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qplaintextedit.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qtextedit.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qabstractscrollarea.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qframe.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qtextdocument.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qtextoption.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qtextcursor.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qtextformat.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qpen.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qabstracttextdocumentlayout.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qtextlayout.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qglyphrun.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qrawfont.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qfontdatabase.h \
-		ui_terminalwindow.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/QVariant \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/QAction \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qaction.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qicon.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qactiongroup.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/QApplication \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qapplication.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qcoreapplication.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qeventloop.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qdesktopwidget.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qguiapplication.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qinputmethod.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/QButtonGroup \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qbuttongroup.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/QHeaderView \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qheaderview.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qabstractitemview.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qabstractitemmodel.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qitemselectionmodel.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qabstractitemdelegate.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qstyleoption.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qabstractspinbox.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qvalidator.h \
-		C:/Qt/5.5/mingw492_32/include/QtCore/qregularexpression.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qslider.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qabstractslider.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qstyle.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qtabbar.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qtabwidget.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qrubberband.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/QGraphicsEffect \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qgraphicseffect.h \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/QScrollBar \
-		C:/Qt/5.5/mingw492_32/include/QtWidgets/qscrollbar.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/QTextBlock \
-		C:/Qt/5.5/mingw492_32/include/QtGui/qtextobject.h \
-		C:/Qt/5.5/mingw492_32/include/QtGui/QTextDocument \
-		C:/Qt/5.5/mingw492_32/include/QtCore/QDebug
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\terminalwindow.o Displays\console_materials\src\terminalwindow.cpp
 
 release/docsnavmenu.o: Displays/docs_materials/src/docsnavmenu.cpp Displays/docs_materials/headers/docsnavmenu.h \
 		C:/Qt/5.5/mingw492_32/include/QtWidgets/QWidget \
@@ -7934,13 +7352,437 @@ release/console.o: console.cpp console.h \
 		C:/Qt/5.5/mingw492_32/include/QtCore/QDebug
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\console.o console.cpp
 
-release/stabilislegal.o: Displays/legal_materials/src/stabilislegal.cpp ui_stabilislegal.h
+release/stabilislegal.o: Displays/legal_materials/src/stabilislegal.cpp Displays/legal_materials/headers/stabilislegal.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/QWidget \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qwidget.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qwindowdefs.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qglobal.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qconfig.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qfeatures.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qsystemdetection.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qprocessordetection.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qcompilerdetection.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qtypeinfo.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qtypetraits.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qsysinfo.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qlogging.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qflags.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qbasicatomic.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_bootstrap.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qgenericatomic.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_cxx11.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_gcc.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_msvc.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_armv7.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_armv6.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_armv5.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_ia64.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_mips.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_x86.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_unix.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qglobalstatic.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qmutex.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qnumeric.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qobjectdefs.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qnamespace.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qobjectdefs_impl.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qwindowdefs_win.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qobject.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qstring.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qchar.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qbytearray.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qrefcount.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qarraydata.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qstringbuilder.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qlist.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qalgorithms.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qiterator.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qbytearraylist.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qstringlist.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qregexp.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qstringmatcher.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qcoreevent.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qscopedpointer.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qmetatype.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qvarlengtharray.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qcontainerfwd.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qisenum.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qobject_impl.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qmargins.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qpaintdevice.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qrect.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qsize.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qpoint.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qpalette.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qcolor.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qrgb.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qbrush.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qpair.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qvector.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qmatrix.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qpolygon.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qregion.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qdatastream.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qiodevice.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qline.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qtransform.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qpainterpath.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qimage.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qpixelformat.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qpixmap.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qsharedpointer.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qshareddata.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qhash.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qsharedpointer_impl.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qfont.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qfontmetrics.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qfontinfo.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qsizepolicy.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qcursor.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qkeysequence.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qevent.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qvariant.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qmap.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qdebug.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qtextstream.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qlocale.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qset.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qcontiguouscache.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qurl.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qurlquery.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qfile.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qfiledevice.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qvector2d.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qtouchdevice.h \
+		ui_stabilislegal.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/QVariant \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/QAction \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qaction.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qicon.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qactiongroup.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/QApplication \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qapplication.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qcoreapplication.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qeventloop.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qdesktopwidget.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qguiapplication.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qinputmethod.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/QButtonGroup \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qbuttongroup.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/QHeaderView \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qheaderview.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qabstractscrollarea.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qframe.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qabstractitemmodel.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qitemselectionmodel.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qabstractitemdelegate.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qstyleoption.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qabstractspinbox.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qvalidator.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qregularexpression.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qslider.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qabstractslider.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qstyle.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qtabbar.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qtabwidget.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qrubberband.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/QLabel \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qlabel.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/QGraphicsDropShadowEffect \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qgraphicseffect.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/QFontDatabase \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qfontdatabase.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\stabilislegal.o Displays\legal_materials\src\stabilislegal.cpp
 
-release/qtlegal.o: Displays/legal_materials/src/qtlegal.cpp ui_qtlegal.h
+release/qtlegal.o: Displays/legal_materials/src/qtlegal.cpp Displays/legal_materials/headers/qtlegal.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/QWidget \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qwidget.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qwindowdefs.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qglobal.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qconfig.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qfeatures.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qsystemdetection.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qprocessordetection.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qcompilerdetection.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qtypeinfo.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qtypetraits.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qsysinfo.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qlogging.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qflags.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qbasicatomic.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_bootstrap.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qgenericatomic.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_cxx11.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_gcc.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_msvc.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_armv7.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_armv6.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_armv5.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_ia64.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_mips.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_x86.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_unix.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qglobalstatic.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qmutex.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qnumeric.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qobjectdefs.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qnamespace.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qobjectdefs_impl.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qwindowdefs_win.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qobject.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qstring.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qchar.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qbytearray.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qrefcount.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qarraydata.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qstringbuilder.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qlist.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qalgorithms.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qiterator.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qbytearraylist.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qstringlist.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qregexp.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qstringmatcher.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qcoreevent.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qscopedpointer.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qmetatype.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qvarlengtharray.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qcontainerfwd.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qisenum.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qobject_impl.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qmargins.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qpaintdevice.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qrect.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qsize.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qpoint.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qpalette.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qcolor.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qrgb.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qbrush.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qpair.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qvector.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qmatrix.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qpolygon.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qregion.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qdatastream.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qiodevice.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qline.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qtransform.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qpainterpath.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qimage.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qpixelformat.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qpixmap.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qsharedpointer.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qshareddata.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qhash.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qsharedpointer_impl.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qfont.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qfontmetrics.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qfontinfo.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qsizepolicy.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qcursor.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qkeysequence.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qevent.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qvariant.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qmap.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qdebug.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qtextstream.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qlocale.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qset.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qcontiguouscache.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qurl.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qurlquery.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qfile.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qfiledevice.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qvector2d.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qtouchdevice.h \
+		ui_qtlegal.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/QVariant \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/QAction \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qaction.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qicon.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qactiongroup.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/QApplication \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qapplication.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qcoreapplication.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qeventloop.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qdesktopwidget.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qguiapplication.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qinputmethod.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/QButtonGroup \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qbuttongroup.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/QHeaderView \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qheaderview.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qabstractscrollarea.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qframe.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qabstractitemmodel.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qitemselectionmodel.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qabstractitemdelegate.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qstyleoption.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qabstractspinbox.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qvalidator.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qregularexpression.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qslider.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qabstractslider.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qstyle.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qtabbar.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qtabwidget.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qrubberband.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/QLabel \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qlabel.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/QGraphicsDropShadowEffect \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qgraphicseffect.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/QFontDatabase \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qfontdatabase.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/QPixmap
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\qtlegal.o Displays\legal_materials\src\qtlegal.cpp
 
-release/iconslegal.o: Displays/legal_materials/src/iconslegal.cpp ui_iconslegal.h
+release/iconslegal.o: Displays/legal_materials/src/iconslegal.cpp Displays/legal_materials/headers/iconslegal.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/QWidget \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qwidget.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qwindowdefs.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qglobal.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qconfig.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qfeatures.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qsystemdetection.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qprocessordetection.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qcompilerdetection.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qtypeinfo.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qtypetraits.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qsysinfo.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qlogging.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qflags.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qbasicatomic.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_bootstrap.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qgenericatomic.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_cxx11.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_gcc.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_msvc.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_armv7.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_armv6.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_armv5.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_ia64.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_mips.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_x86.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qatomic_unix.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qglobalstatic.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qmutex.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qnumeric.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qobjectdefs.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qnamespace.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qobjectdefs_impl.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qwindowdefs_win.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qobject.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qstring.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qchar.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qbytearray.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qrefcount.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qarraydata.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qstringbuilder.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qlist.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qalgorithms.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qiterator.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qbytearraylist.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qstringlist.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qregexp.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qstringmatcher.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qcoreevent.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qscopedpointer.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qmetatype.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qvarlengtharray.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qcontainerfwd.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qisenum.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qobject_impl.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qmargins.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qpaintdevice.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qrect.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qsize.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qpoint.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qpalette.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qcolor.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qrgb.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qbrush.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qpair.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qvector.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qmatrix.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qpolygon.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qregion.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qdatastream.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qiodevice.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qline.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qtransform.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qpainterpath.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qimage.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qpixelformat.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qpixmap.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qsharedpointer.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qshareddata.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qhash.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qsharedpointer_impl.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qfont.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qfontmetrics.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qfontinfo.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qsizepolicy.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qcursor.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qkeysequence.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qevent.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qvariant.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qmap.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qdebug.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qtextstream.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qlocale.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qset.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qcontiguouscache.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qurl.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qurlquery.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qfile.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qfiledevice.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qvector2d.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qtouchdevice.h \
+		ui_iconslegal.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/QVariant \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/QAction \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qaction.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qicon.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qactiongroup.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/QApplication \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qapplication.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qcoreapplication.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qeventloop.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qdesktopwidget.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qguiapplication.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qinputmethod.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/QButtonGroup \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qbuttongroup.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/QHeaderView \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qheaderview.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qabstractitemview.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qabstractscrollarea.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qframe.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qabstractitemmodel.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qitemselectionmodel.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qabstractitemdelegate.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qstyleoption.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qabstractspinbox.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qvalidator.h \
+		C:/Qt/5.5/mingw492_32/include/QtCore/qregularexpression.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qslider.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qabstractslider.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qstyle.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qtabbar.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qtabwidget.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qrubberband.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/QLabel \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qlabel.h \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/QGraphicsDropShadowEffect \
+		C:/Qt/5.5/mingw492_32/include/QtWidgets/qgraphicseffect.h \
+		C:/Qt/5.5/mingw492_32/include/QtGui/QFontDatabase \
+		C:/Qt/5.5/mingw492_32/include/QtGui/qfontdatabase.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\iconslegal.o Displays\legal_materials\src\iconslegal.cpp
 
 release/qrc_Resources.o: release/qrc_Resources.cpp 
@@ -7976,9 +7818,6 @@ release/moc_homedisplay.o: release/moc_homedisplay.cpp
 release/moc_configdisplay.o: release/moc_configdisplay.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\moc_configdisplay.o release\moc_configdisplay.cpp
 
-release/moc_consoledisplay.o: release/moc_consoledisplay.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\moc_consoledisplay.o release\moc_consoledisplay.cpp
-
 release/moc_docsdisplay.o: release/moc_docsdisplay.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\moc_docsdisplay.o release\moc_docsdisplay.cpp
 
@@ -8005,9 +7844,6 @@ release/moc_loadvehicledialog.o: release/moc_loadvehicledialog.cpp
 
 release/moc_newvehicledialog.o: release/moc_newvehicledialog.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\moc_newvehicledialog.o release\moc_newvehicledialog.cpp
-
-release/moc_terminalwindow.o: release/moc_terminalwindow.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\moc_terminalwindow.o release\moc_terminalwindow.cpp
 
 release/moc_docsnavmenu.o: release/moc_docsnavmenu.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\moc_docsnavmenu.o release\moc_docsnavmenu.cpp

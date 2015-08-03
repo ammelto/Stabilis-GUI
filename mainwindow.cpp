@@ -4,7 +4,6 @@
 #include "./Displays/headers/homedisplay.h"
 #include "./Displays/headers/docsdisplay.h"
 #include "./Displays/headers/configdisplay.h"
-#include "./Displays/headers/consoledisplay.h"
 #include "./Displays/headers/infodisplay.h"
 #include "./Displays/headers/windowdisplay.h"
 #include "titlebar.h"
@@ -67,7 +66,6 @@ MainWindow::MainWindow(QWidget *parent) :
     infoDisplay = new infodisplay(ui->scrollAreaWidgetContents);
     configDisplay = new configdisplay(ui->scrollAreaWidgetContents);
     windowDisplay = new windowdisplay(ui->scrollAreaWidgetContents);
-    consoleDisplay = new consoledisplay(ui->scrollAreaWidgetContents);
     sideMenu = new sidemenu(ui->menu);
     titleBar = new titlebar(ui->titleBar);
 
@@ -80,8 +78,6 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(sideMenu,SIGNAL(setDisplay(int)),this,SLOT(setDisplay(int)));
     connect(windowDisplay, SIGNAL(setTheme(QColor,QColor,QColor)),this,SLOT(setTheme(QColor,QColor,QColor)));
 
-    connect(configDisplay->networkSettings, SIGNAL(startConnection(QString,QString,QString,QString)), consoleDisplay, SLOT(connectConsole(QString,QString,QString,QString)));
-    connect(consoleDisplay, SIGNAL(connectionWorked(int)), this, SLOT(connectionWorked()));
     //Loads the theme colors from the ini file.
     QSettings settings(":/files/Stabilis.ini", QSettings::IniFormat);
 
@@ -90,11 +86,6 @@ MainWindow::MainWindow(QWidget *parent) :
     settings.endGroup();
 
 }
-
-void MainWindow::connectionWorked(){
-    setDisplay(console);
-    consoleDisplay->readMessage();
-};
 
 //Since the window manager does not recognize the custom title bar
 //window movement had to be reimplemented by the following two frunctions
@@ -120,7 +111,6 @@ void MainWindow::resetDisplay(){
     infoDisplay->hide();
     configDisplay->hide();
     windowDisplay->hide();
-    consoleDisplay->hide();
 }
 
 bool MainWindow::eventFilter(QObject *obj, QEvent *event){
@@ -208,12 +198,6 @@ void MainWindow::setDisplay(int display){
         windowDisplay->show();
         sideMenu->repaintButtons();
         sideMenu->moveBar(window);
-        this->repaint();
-        break;
-    case console:
-        consoleDisplay->show();
-        sideMenu->repaintButtons();
-        sideMenu->moveBar(console);
         this->repaint();
         break;
     }
