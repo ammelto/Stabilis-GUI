@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>stabilisLegal</class>
+ <widget class="QWidget" name="stabilisLegal">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>704</width>
+    <height>150</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QLabel" name="legalLabel">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>20</y>
+     <width>484</width>
+     <height>110</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-family:'Arial,Helvetica,sans'; font-size:9pt; color:#000000;&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vehicula est a sem molestie, finibus tempor turpis sodales. Donec tempus, diam vel facilisis pretium, leo risus dignissim sapien, eget varius neque ex quis erat. Praesent vehicula commodo enim et varius. Phasellus ante elit, accumsan ut libero eu, tristique vestibulum diam. Vestibulum rutrum mollis ex, non dictum velit aliquet congue. Aliquam eget consequat odio, et bibendum mauris. Vivamus suscipit congue mauris egestas ullamcorper. Vestibulum sed metus porttitor, lobortis nulla eget, condimentum augue.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="stabilisLogo">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>10</y>
+     <width>150</width>
+     <height>120</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -55,7 +55,7 @@ int consoledisplay::connectConsole(QString host, QString port, QString username,
  *
  *callback after attempt to connect to target
  *
- * */
+ */
 void consoledisplay::connectCallback(int status,remote_connection_data* data){
 
     if(status == -1){
@@ -63,7 +63,6 @@ void consoledisplay::connectCallback(int status,remote_connection_data* data){
         con_thread = NULL;
     }
     connectionWorked(status);
-
 }
 
 

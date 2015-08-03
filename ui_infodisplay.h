@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'infodisplay.ui'
 **
-** Created by: Qt User Interface Compiler version 5.4.0
+** Created by: Qt User Interface Compiler version 5.5.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -14,7 +14,6 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QHeaderView>
-#include <QtWidgets/QLabel>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -22,16 +21,24 @@ QT_BEGIN_NAMESPACE
 class Ui_infodisplay
 {
 public:
-    QLabel *label;
+    QWidget *stabilisLegal;
+    QWidget *qtLegal;
+    QWidget *iconsLegal;
 
     void setupUi(QWidget *infodisplay)
     {
         if (infodisplay->objectName().isEmpty())
             infodisplay->setObjectName(QStringLiteral("infodisplay"));
-        infodisplay->resize(672, 552);
-        label = new QLabel(infodisplay);
-        label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(450, 180, 271, 131));
+        infodisplay->resize(800, 634);
+        stabilisLegal = new QWidget(infodisplay);
+        stabilisLegal->setObjectName(QStringLiteral("stabilisLegal"));
+        stabilisLegal->setGeometry(QRect(48, 28, 704, 150));
+        qtLegal = new QWidget(infodisplay);
+        qtLegal->setObjectName(QStringLiteral("qtLegal"));
+        qtLegal->setGeometry(QRect(48, 206, 704, 150));
+        iconsLegal = new QWidget(infodisplay);
+        iconsLegal->setObjectName(QStringLiteral("iconsLegal"));
+        iconsLegal->setGeometry(QRect(48, 384, 704, 150));
 
         retranslateUi(infodisplay);
 
@@ -41,7 +48,6 @@ public:
     void retranslateUi(QWidget *infodisplay)
     {
         infodisplay->setWindowTitle(QApplication::translate("infodisplay", "Form", 0));
-        label->setText(QApplication::translate("infodisplay", "<html><head/><body><p><span style=\" font-size:72pt;\">INFO</span></p></body></html>", 0));
     } // retranslateUi
 
 };

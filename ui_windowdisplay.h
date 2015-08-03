@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'windowdisplay.ui'
 **
-** Created by: Qt User Interface Compiler version 5.4.0
+** Created by: Qt User Interface Compiler version 5.5.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -28,7 +28,7 @@ public:
     {
         if (windowdisplay->objectName().isEmpty())
             windowdisplay->setObjectName(QStringLiteral("windowdisplay"));
-        windowdisplay->resize(672, 552);
+        windowdisplay->resize(800, 634);
         label = new QLabel(windowdisplay);
         label->setObjectName(QStringLiteral("label"));
         label->setGeometry(QRect(0, 180, 421, 131));

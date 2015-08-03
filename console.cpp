@@ -37,6 +37,7 @@
 #include <errno.h>
 #include <stdio.h>
 #include <ctype.h>
+#include <QDebug>
 
 
 /*
@@ -52,8 +53,7 @@ console_thread::console_thread(consoledisplay* console_control, remote_connectio
     /*
      *SIGNAL/SLOT cross thread magic allows us to get to GUI safe code *from* this thread.
      *Basically, the SLOT functions get put in a queue when SIGNALed, and they get run when the GUI thread does its refresh loop.
-     *
-     * */
+     */
     connect(this, SIGNAL(readMessageCallback(int,remote_connection_data*)), console_control, SLOT(readMessageCallback(int,remote_connection_data*)));
     connect(this, SIGNAL(writeCommandCallback(int,remote_connection_data*)), console_control, SLOT(writeCommandCallback(int,remote_connection_data*)));
     connect(this, SIGNAL(sendFileCallback(int,remote_connection_data*)), console_control, SLOT(sendFileCallback(int,remote_connection_data*)));
@@ -86,7 +86,7 @@ int console_thread::begin_console_thread(remote_connection_data* data){
     if(err){
         //return err;
     }
-    //this one loops
+    //this one loop
     err = run_shell(data);
 
     return err;
@@ -108,6 +108,7 @@ int console_thread::run_shell(remote_connection_data* data){
             break;
         }
         if(data->instruction_flags & WRITE_COMMAND){
+
             err = write_command(data);
             writeCommandCallback(err, data);
             data->instruction_flags &= ~WRITE_COMMAND;
@@ -251,10 +252,10 @@ static int open_console(remote_connection_data* data) {
         fprintf(stderr, "Unable to request shell on allocated pty\n");
         return (EXIT_FAILURE);
     }
+    qDebug() << "Code: " + rc;
     data->sock = sock;
     data->channel = channel;
     data->session = session;
-
     return (EXIT_SUCCESS);
 }
 

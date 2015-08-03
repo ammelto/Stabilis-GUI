@@ -6,6 +6,11 @@ infodisplay::infodisplay(QWidget *parent) :
     ui(new Ui::infodisplay)
 {
     ui->setupUi(this);
+
+    iLegal = new iconsLegal(ui->iconsLegal);
+    qLegal = new qtLegal(ui->qtLegal);
+    sLegal = new stabilisLegal(ui->stabilisLegal);
+
 }
 
 infodisplay::~infodisplay()

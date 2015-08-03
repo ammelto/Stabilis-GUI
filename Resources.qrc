@@ -32,4 +32,8 @@
         <file>Userdata/TEST.txt</file>
         <file>Userdata/config.stb</file>
     </qresource>
+    <qresource prefix="/logo">
+        <file>Resources/logos/icon_logo.png</file>
+        <file>Resources/logos/Qt_Logo.png</file>
+    </qresource>
 </RCC>

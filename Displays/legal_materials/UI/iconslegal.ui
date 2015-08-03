@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>iconsLegal</class>
+ <widget class="QWidget" name="iconsLegal">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>704</width>
+    <height>150</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QLabel" name="legalLabel">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>20</y>
+     <width>484</width>
+     <height>110</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;div&gt;Icons made by &lt;a href=&quot;http://www.flaticon.com/authors/simpleicon&quot; title=&quot;SimpleIcon&quot;&gt;SimpleIcon&lt;/a&gt; from &lt;a href=&quot;http://www.flaticon.com&quot; title=&quot;Flaticon&quot;&gt;www.flaticon.com&lt;/a&gt;             is licensed by &lt;a href=&quot;http://creativecommons.org/licenses/by/3.0/&quot; title=&quot;Creative Commons BY 3.0&quot;&gt;CC BY 3.0&lt;/a&gt;&lt;/div&gt;</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="iconLogo">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>10</y>
+     <width>150</width>
+     <height>120</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

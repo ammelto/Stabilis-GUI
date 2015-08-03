@@ -24,6 +24,8 @@ newVehicleDialog::newVehicleDialog(QWidget *parent) :
     ui->templateLabel->setFont(QFont("Roboto",11));
     //
     ui->templateDetail->setFont(QFont("Roboto",9));
+
+
 }
 
 newVehicleDialog::~newVehicleDialog()

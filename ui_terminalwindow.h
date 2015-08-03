@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'terminalwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.4.0
+** Created by: Qt User Interface Compiler version 5.5.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -27,6 +27,7 @@ public:
         if (TerminalWindow->objectName().isEmpty())
             TerminalWindow->setObjectName(QStringLiteral("TerminalWindow"));
         TerminalWindow->resize(704, 578);
+        TerminalWindow->setStyleSheet(QStringLiteral(""));
 
         retranslateUi(TerminalWindow);
 

@@ -17,7 +17,7 @@ public:
     explicit docsdisplay(QWidget *parent = 0);
     ~docsdisplay();
 
-private:
+protected:
     DocsNavMenu *nav;
     DocsContentWindow *content;
     Ui::docsdisplay *ui;

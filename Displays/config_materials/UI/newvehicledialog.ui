@@ -52,13 +52,12 @@
     <rect>
      <x>200</x>
      <y>15</y>
-     <width>101</width>
+     <width>100</width>
      <height>20</height>
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">
-</string>
+    <string notr="true"/>
    </property>
    <item>
     <property name="text">
@@ -75,6 +74,34 @@
      <string>Copter</string>
     </property>
    </item>
+  </widget>
+  <widget class="QLabel" name="nameDetail">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>40</y>
+     <width>200</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	color: #424242
+}</string>
+   </property>
+   <property name="text">
+    <string>Vehicle Name</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="nameValue" native="true">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>40</y>
+     <width>100</width>
+     <height>15</height>
+    </rect>
+   </property>
   </widget>
  </widget>
  <resources/>

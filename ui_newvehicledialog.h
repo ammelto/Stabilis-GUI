@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'newvehicledialog.ui'
 **
-** Created by: Qt User Interface Compiler version 5.4.0
+** Created by: Qt User Interface Compiler version 5.5.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -26,6 +26,8 @@ public:
     QLabel *templateLabel;
     QLabel *templateDetail;
     QComboBox *VIDBox;
+    QLabel *nameDetail;
+    QWidget *nameValue;
 
     void setupUi(QWidget *newVehicleDialog)
     {
@@ -44,8 +46,17 @@ public:
 "}"));
         VIDBox = new QComboBox(newVehicleDialog);
         VIDBox->setObjectName(QStringLiteral("VIDBox"));
-        VIDBox->setGeometry(QRect(200, 15, 101, 20));
+        VIDBox->setGeometry(QRect(200, 15, 100, 20));
         VIDBox->setStyleSheet(QStringLiteral(""));
+        nameDetail = new QLabel(newVehicleDialog);
+        nameDetail->setObjectName(QStringLiteral("nameDetail"));
+        nameDetail->setGeometry(QRect(0, 40, 200, 15));
+        nameDetail->setStyleSheet(QLatin1String("QLabel{\n"
+"	color: #424242\n"
+"}"));
+        nameValue = new QWidget(newVehicleDialog);
+        nameValue->setObjectName(QStringLiteral("nameValue"));
+        nameValue->setGeometry(QRect(200, 40, 100, 15));
 
         retranslateUi(newVehicleDialog);
 
@@ -63,6 +74,7 @@ public:
          << QApplication::translate("newVehicleDialog", "Car", 0)
          << QApplication::translate("newVehicleDialog", "Copter", 0)
         );
+        nameDetail->setText(QApplication::translate("newVehicleDialog", "Vehicle Name", 0));
     } // retranslateUi
 
 };

@@ -6,24 +6,41 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>672</width>
-    <height>552</height>
+    <width>800</width>
+    <height>634</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QLabel" name="label">
+  <widget class="QWidget" name="stabilisLegal" native="true">
    <property name="geometry">
     <rect>
-     <x>450</x>
-     <y>180</y>
-     <width>271</width>
-     <height>131</height>
+     <x>48</x>
+     <y>28</y>
+     <width>704</width>
+     <height>150</height>
     </rect>
    </property>
-   <property name="text">
-    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:72pt;&quot;&gt;INFO&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+  </widget>
+  <widget class="QWidget" name="qtLegal" native="true">
+   <property name="geometry">
+    <rect>
+     <x>48</x>
+     <y>206</y>
+     <width>704</width>
+     <height>150</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QWidget" name="iconsLegal" native="true">
+   <property name="geometry">
+    <rect>
+     <x>48</x>
+     <y>384</y>
+     <width>704</width>
+     <height>150</height>
+    </rect>
    </property>
   </widget>
  </widget>
