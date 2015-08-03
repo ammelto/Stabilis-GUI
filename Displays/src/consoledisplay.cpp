@@ -13,16 +13,10 @@
 
 console_thread* con_thread;
 
-consoledisplay::consoledisplay() :
+consoledisplay::consoledisplay()
 {
-    ui->setupUi(this);
 
 
-    terminal = new TerminalWindow(ui->console);
-
-    //connect(this, SIGNAL(writeOut(QString text)), terminal, SLOT(writeOut(QString text)));
-    connect(terminal, SIGNAL(writeCommand(QString)), this, SLOT(writeCommand(QString)));
-    //connect(terminal, SIGNAL(sendFi(QString command)), this, SLOT(writeCommand()));
 }
 
 consoledisplay::~consoledisplay()
@@ -69,6 +63,8 @@ void consoledisplay::connectCallback(int status,remote_connection_data* data){
         con_thread = NULL;
     }
     connectionWorked(status);
+
+    sendFile(QString("C:/temp/sendfile.txt"));
 
 }
 
@@ -160,9 +156,7 @@ int consoledisplay::readMessage(){
  *
  * */
 void consoledisplay::readMessageCallback(int status,remote_connection_data* data){
-    //if(status == 0){
-        terminal->updateTerminal(data->inputbuf);
-   // }
+
 
 }
 
@@ -187,7 +181,7 @@ int consoledisplay::sendFile(QString filepath){
 
     //the order of setting flag and filling buffer matters for sync reasons.
     //if we set the flag first, the console thread might write whatever was previously in the buffer
-    memcpy(con_thread->data->hostaddr,res, len);
+    memcpy(con_thread->data->local_path,res, len);
 
     //insert null character to terminate string. We don't have to clear the buffer everytime
     con_thread->data->command[len] = 0;

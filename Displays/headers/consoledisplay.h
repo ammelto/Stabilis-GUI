@@ -10,12 +10,12 @@ namespace Ui {
 class consoledisplay;
 }
 
-class consoledisplay : QObject
+class consoledisplay : public QObject
 {
     Q_OBJECT
 
 public:
-    explicit consoledisplay(QWidget *parent = 0);
+    explicit consoledisplay();
     ~consoledisplay();
     int connectConsole();
 

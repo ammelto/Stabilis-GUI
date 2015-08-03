@@ -67,7 +67,7 @@ MainWindow::MainWindow(QWidget *parent) :
     infoDisplay = new infodisplay(ui->scrollAreaWidgetContents);
     configDisplay = new configdisplay(ui->scrollAreaWidgetContents);
     windowDisplay = new windowdisplay(ui->scrollAreaWidgetContents);
-    consoleDisplay = new consoledisplay(ui->scrollAreaWidgetContents);
+    consoleDisplay = new consoledisplay();
     sideMenu = new sidemenu(ui->menu);
     titleBar = new titlebar(ui->titleBar);
 
@@ -120,7 +120,6 @@ void MainWindow::resetDisplay(){
     infoDisplay->hide();
     configDisplay->hide();
     windowDisplay->hide();
-    consoleDisplay->hide();
 }
 
 bool MainWindow::eventFilter(QObject *obj, QEvent *event){
@@ -208,12 +207,6 @@ void MainWindow::setDisplay(int display){
         windowDisplay->show();
         sideMenu->repaintButtons();
         sideMenu->moveBar(window);
-        this->repaint();
-        break;
-    case console:
-        consoleDisplay->show();
-        sideMenu->repaintButtons();
-        sideMenu->moveBar(console);
         this->repaint();
         break;
     }

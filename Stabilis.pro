@@ -55,7 +55,6 @@ mainwindow.cpp \
         Displays/config_materials/src/airplanetemplate.cpp \
         Displays/config_materials/src/loadvehicledialog.cpp \
         Displays/config_materials/src/newvehicledialog.cpp \
-        Displays/console_materials/src/terminalwindow.cpp \
 console.cpp\
 
 HEADERS  += mainwindow.h \
@@ -78,7 +77,6 @@ HEADERS  += mainwindow.h \
         Displays/config_materials/headers/airplanetemplate.h \
         Displays/config_materials/headers/loadvehicledialog.h \
         Displays/config_materials/headers/newvehicledialog.h \
-        Displays/console_materials/headers/terminalwindow.h \
 console.h\
 
 FORMS    += UI\mainwindow.ui \

@@ -25,17 +25,17 @@
  *
  * */
 typedef struct remote_connection_data{
-    const char *hostaddr = "192.168.7.2";
-    const char *commandline = "uptime";
-    const char *username    = "root";
-    const char *password    = "root";
+    char *hostaddr = "192.168.7.2";
+    char *commandline = "uptime";
+    char *username    = "root";
+    char *password    = "root";
     LIBSSH2_SESSION *session;
     LIBSSH2_CHANNEL *channel;
     int sock;
     char command[BUFSIZ];
     char inputbuf[BUFSIZ];
     char local_path[BUFSIZ];
-    char remote_path[BUFSIZ];
+    char remote_path[BUFSIZ] = "/tmp/test8-3";
     char instruction_flags;
 
 } remote_connection, p_remote_connection;

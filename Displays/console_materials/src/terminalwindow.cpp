@@ -8,33 +8,12 @@
 
 TerminalWindow::TerminalWindow()
 {
-    ui->setupUi(this);
-
-    QGraphicsDropShadowEffect* shadow = new QGraphicsDropShadowEffect();
-    shadow->setBlurRadius(6);
-    shadow->setColor(QColor(0,0,0,200));
-    shadow->setOffset(0);
-    this->setGraphicsEffect(shadow);
-    //
-   // QPalette pal = this->palette();
-    //pal.setColor(this->backgroundRole(), QColor(255,255,255));
-    //this->setPalette(pal);
-    this->setAutoFillBackground(true);
-
-    document()->setMaximumBlockCount(100);
-    QPalette p = palette();
-    p.setColor(QPalette::Base, Qt::black);
-    p.setColor(QPalette::Text, Qt::green);
-    setPalette(p);
-
-    //QFontDatabase::addApplicationFont("qrc:/fonts/Resources/fonts/Roboto-Bold.ttf");
-    //ui->windowLabel->setFont(QFont("Roboto",11));
 
 }
 
 TerminalWindow::~TerminalWindow()
 {
-    delete ui;
+
 }
 
 
