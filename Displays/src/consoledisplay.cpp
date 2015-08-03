@@ -13,9 +13,7 @@
 
 console_thread* con_thread;
 
-consoledisplay::consoledisplay(QWidget* parent) :
-    QWidget(parent),
-    ui(new Ui::consoledisplay)
+consoledisplay::consoledisplay() :
 {
     ui->setupUi(this);
 
@@ -168,10 +166,35 @@ void consoledisplay::readMessageCallback(int status,remote_connection_data* data
 
 }
 
-int consoledisplay::sendFile(char* local_src, char* remote_dest){
+int consoledisplay::sendFile(QString filepath){
     if(con_thread == NULL){
         return -1;
     }
+    if(con_thread->data->instruction_flags & SEND_FILE){
+        printf("error reading: console thread is busy\n");
+        return -2;
+    }
+
+    QByteArray ba = filepath.toLatin1();
+    char *res = ba.data();
+    printf("string is %s\n", res);
+    size_t len = strlen(res);
+    printf("Command is %d characters long\n", len);
+    if(len > BUFSIZ-10){
+        printf("error: command is too long.\n");
+        return -3;
+    }
+
+    //the order of setting flag and filling buffer matters for sync reasons.
+    //if we set the flag first, the console thread might write whatever was previously in the buffer
+    memcpy(con_thread->data->hostaddr,res, len);
+
+    //insert null character to terminate string. We don't have to clear the buffer everytime
+    con_thread->data->command[len] = 0;
+
+    //signal console thread
+    con_thread->data->instruction_flags |= SEND_FILE;
+
 
     return 0;
 }
@@ -180,7 +203,7 @@ void consoledisplay::sendFileCallback(int status,remote_connection_data* data){
 
 }
 
-int consoledisplay::receiveFile(char* local_dest, char* remote_src){
+int consoledisplay::receiveFile(){
     if(con_thread == NULL){
         return -1;
     }

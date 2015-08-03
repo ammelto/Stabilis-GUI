@@ -10,16 +10,14 @@ namespace Ui {
 class consoledisplay;
 }
 
-class consoledisplay : public QWidget
+class consoledisplay : QObject
 {
     Q_OBJECT
 
 public:
     explicit consoledisplay(QWidget *parent = 0);
     ~consoledisplay();
-    int connectConsole();    
-    int sendFile(char* local_src, char* remote_dest);
-    int receiveFile(char* local_dest, char* remote_src);
+    int connectConsole();
 
 
 private:
@@ -30,6 +28,8 @@ public slots:
     int connectConsole(QString host, QString port, QString username, QString password);
     int writeCommand(QString command);
     int readMessage();
+    int sendFile(QString filepath);
+    int receiveFile();
     void sendFileCallback(int status,remote_connection_data* data);
     void receiveFileCallback(int status,remote_connection_data* data);
     void connectCallback(int status,remote_connection_data* data);

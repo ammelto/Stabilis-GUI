@@ -34,8 +34,8 @@ typedef struct remote_connection_data{
     int sock;
     char command[BUFSIZ];
     char inputbuf[BUFSIZ];
-    char* local_path;
-    char* remote_path;
+    char local_path[BUFSIZ];
+    char remote_path[BUFSIZ];
     char instruction_flags;
 
 } remote_connection, p_remote_connection;

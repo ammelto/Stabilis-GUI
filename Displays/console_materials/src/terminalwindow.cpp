@@ -6,10 +6,7 @@
 #include <QTextDocument>
 #include <QtCore/QDebug>
 
-TerminalWindow::TerminalWindow(QWidget *parent)
-    : QPlainTextEdit(parent)
-    , localEchoEnabled(true),
-    ui(new Ui::TerminalWindow)
+TerminalWindow::TerminalWindow()
 {
     ui->setupUi(this);
 
